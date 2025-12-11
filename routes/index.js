@@ -12,4 +12,12 @@ router.get("/account/create", function (req, res, next) {
   res.render("create");
 });
 
+// 新增记录
+router.post("/account", function (req, res, next) {
+  // 获取请求体数据
+  const { item, type, amount } = req.body;
+  console.log(req.body);
+  res.send("新增记录");
+});
+
 module.exports = router;

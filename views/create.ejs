@@ -10,7 +10,7 @@
   <body>
     <div class="container">
       <h1>添加记录</h1>
-      <form id="addRecordForm" method="POST" action="/records">
+      <form id="addRecordForm" method="POST" action="/account">
         <div class="form-group">
           <label for="item">事项</label>
           <input type="text" id="item" name="item" required />
@@ -24,8 +24,8 @@
         <div class="form-group">
           <label for="type">类型</label>
           <select id="type" name="type" required>
-            <option value="支出">支出</option>
-            <option value="收入">收入</option>
+            <option value="-1">支出</option>
+            <option value="1">收入</option>
           </select>
         </div>
 

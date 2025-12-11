@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>添加成功</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        margin: 40px 20px;
+        background-color: #f5f7fa;
+        color: #333;
+      }
+
+      .success-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #e6f7e6; /* 淡绿色背景 */
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        text-align: left;
+      }
+
+      .success-title {
+        font-size: 24px;
+        font-weight: 500;
+        color: #333;
+        margin: 0;
+        line-height: 1.4;
+      }
+
+      .success-message {
+        font-size: 14px;
+        color: #666;
+        margin: 8px 0 0;
+        cursor: pointer;
+        transition: color 0.2s;
+      }
+
+      .success-message:hover {
+        color: #1890ff;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="success-container">
+      <h1 class="success-title">:) <%= msg %></h1>
+      <p class="success-message"><a href="<%= url %>">点击跳转</a></p>
+    </div>
+  </body>
+</html>

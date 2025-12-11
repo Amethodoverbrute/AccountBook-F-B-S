@@ -11,6 +11,14 @@
         margin: 20px;
         background-color: #f5f7fa;
         color: #333;
+        display: flex;
+        justify-content: center;
+      }
+
+      .container {
+        width: 66.67%;
+        max-width: 800px;
+        min-width: 300px;
       }
 
       h1 {
@@ -110,28 +118,24 @@
     </style>
   </head>
   <body>
-    <h1>记账本</h1>
+    <div class="container">
+      <h1>记账本</h1>
 
-    <!-- 记录 1：支出 -->
-    <div class="record expense">
-      <div class="record-header">2023-04-05</div>
-      <div class="record-content">
-        <div class="record-text">抽烟只抽煊赫门，一生只爱一个人</div>
-        <span class="tag expense">支出</span>
-        <div class="amount">25 元</div>
-        <div class="delete-btn">×</div>
+      <% accountList.forEach((item) => { %>
+      <div class="record <%= item.type==='-1'?'expense':'income' %>">
+        <div class="record-header">
+          <%= new Date(item.time).toISOString().split('T')[0] %>
+        </div>
+        <div class="record-content">
+          <div class="record-text"><%= item.remark %></div>
+          <span class="tag <%= item.type==='-1'?'expense':'income' %>"
+            ><%= item.type==='-1'?'支出':'收入' %></span
+          >
+          <div class="amount"><%= item.amount %> 元</div>
+          <a href="/account/delete/<%= item.id %>" class="delete-btn">×</a>
+        </div>
       </div>
-    </div>
-
-    <!-- 记录 2：收入 -->
-    <div class="record income">
-      <div class="record-header">2023-04-15</div>
-      <div class="record-content">
-        <div class="record-text">3 月份发工资</div>
-        <span class="tag income">收入</span>
-        <div class="amount">4396 元</div>
-        <div class="delete-btn">×</div>
-      </div>
+      <% }) %>
     </div>
   </body>
 </html>

@@ -34,3 +34,6 @@ lerna-debug.log*
 
 # nodemon log
 nodemon.log
+
+# database
+db.json

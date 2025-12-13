@@ -1,18 +1,20 @@
 var express = require("express");
 var router = express.Router();
-// 导入 lowdb，用于操作 JSON 文件数据库。（后面就就用不到了）
-const low = require("lowdb");
-const FileSync = require("lowdb/adapters/FileSync");
-const adapter = new FileSync(__dirname + "/../data/db.json");
-// 获取 db 实例对象（后面就用不到了）
-const db = low(adapter);
 
-// 导入 shortid 模块（后面就用不到了）
-// shortid 用于生成唯一的短 ID 字符串，常用于数据库主键或文件名
-const shortid = require("shortid");
+// // 导入 lowdb，用于操作 JSON 文件数据库。（后面就就用不到了）
+// const low = require("lowdb");
+// const FileSync = require("lowdb/adapters/FileSync");
+// const adapter = new FileSync(__dirname + "/../data/db.json");
+// // 获取 db 实例对象（后面就用不到了）
+// const db = low(adapter);
+
+// // 导入 shortid 模块（后面就用不到了）
+// // shortid 用于生成唯一的短 ID 字符串，常用于数据库主键或文件名
+// const shortid = require("shortid");
+
 // 导入 moment 模块
 const moment = require("moment");
-const AccountModel = require("../models/accountModel");
+const AccountModel = require("../../models/accountModel");
 
 // 测试 格式化时间
 // console.log(moment("2025-12-13T10:16"));

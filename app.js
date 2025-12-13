@@ -4,7 +4,9 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
-var indexRouter = require("./routes/index");
+var indexRouter = require("./routes/web/index");
+// 导入account 接口路由文件
+var accountRouter = require("./routes/api/account");
 
 var app = express();
 
@@ -19,7 +21,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+// 挂载 web 路由模块（针对网页端）
 app.use("/", indexRouter);
+// 挂载 account 路由模块（针对 API 端，如移动端，PAD端，车机端等）
+app.use("/api", accountRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -27,6 +27,37 @@
         font-size: 24px;
       }
 
+      /* 头部样式 */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      /* 标题样式 */
+      .title {
+        color: #444;
+        font-size: 28px;
+        margin: 0;
+      }
+
+      /* 添加按钮样式 */
+      .add-btn {
+        background-color: #1890ff;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 14px;
+        transition: background-color 0.3s;
+      }
+
+      .add-btn:hover {
+        background-color: #40a9ff;
+        color: white;
+      }
+
       .record {
         margin-bottom: 16px;
         border-radius: 6px;
@@ -119,23 +150,55 @@
   </head>
   <body>
     <div class="container">
-      <h1>记账本</h1>
+      <div class="header">
+        <h1 class="title">记账本</h1>
+        <a href="/account/create" class="add-btn">添加账单</a>
+      </div>
 
       <% accountList.forEach((item) => { %>
-      <div class="record <%= item.type==='-1'?'expense':'income' %>">
+      <div class="record <%= item.type=== -1 ?'expense':'income' %>">
         <div class="record-header">
-          <%= new Date(item.time).toISOString().split('T')[0] %>
+          <%= new Date(item.time).toLocaleString('zh-CN', { year: 'numeric',
+          month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'
+          }) %>
         </div>
         <div class="record-content">
-          <div class="record-text"><%= item.remark %></div>
-          <span class="tag <%= item.type==='-1'?'expense':'income' %>"
-            ><%= item.type==='-1'?'支出':'收入' %></span
+          <div class="record-text"><%= item.title %></div>
+          <span class="tag <%= item.type === -1?'expense':'income' %>"
+            ><%= item.type===-1?'支出':'收入' %></span
           >
           <div class="amount"><%= item.amount %> 元</div>
-          <a href="/account/delete/<%= item.id %>" class="delete-btn">×</a>
+          <a
+            class="delete-btn"
+            href="/account/delete/<%= item._id %>"
+            class="delete-btn"
+            >×</a
+          >
         </div>
       </div>
       <% }) %>
     </div>
   </body>
+
+  <script>
+    // 获取所有删除按钮
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+    // 为每个删除按钮添加点击事件监听器
+    // 用户点击删除按钮 → 阻止默认跳转 → 显示确认对话框 → 用户确认删除 → 跳转到删除URL执行删除操作
+    deleteButtons.forEach((button) => {
+      button.addEventListener("click", function (event) {
+        // 始终先阻止默认跳转行为
+        event.preventDefault();
+
+        // 根据用户选择执行不同操作
+        if (confirm("确定删除吗？")) {
+          // 用户确认删除：执行页面跳转
+          window.location.href = this.href; // 跳转到删除链接
+        } else {
+          // 用户取消删除：不执行任何操作
+          // 这里可以添加取消操作的反馈（可选）
+        }
+      });
+    });
+  </script>
 </html>

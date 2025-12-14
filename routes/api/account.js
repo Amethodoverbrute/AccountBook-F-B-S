@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+const jwt = require("jsonwebtoken");
 
 // 导入 moment 模块
 const moment = require("moment");
@@ -11,37 +12,46 @@ const AccountModel = require("../../models/accountModel");
 // 2025-12-13T10:16 => 2025-12-13 10:16
 // const formatTime = (time) => moment(time).format("YYYY-MM-DD HH:mm");
 
+// 导入 token 中间件
+const checkTokenMiddleware = require("../../middlewares/checkTokenMiddleware");
+
 /* GET home page. */
 // 获取单个记录
-router.get("/account/:id", async function (req, res, next) {
-  try {
-    // 获取路由参数 id
-    let id = req.params.id;
-    // 查询数据
-    const data = await AccountModel.findById(id);
-    res.json({
-      // 响应编号
-      code: "0000",
-      // 响应的信息
-      msg: "获取数据成功",
-      // 响应的数据
-      data: data,
-    });
-  } catch (err) {
-    console.error("获取数据失败:", err);
-    res.json({
-      // 响应编号
-      code: "0001",
-      // 响应的信息
-      msg: "获取数据失败",
-      // 响应的数据
-      data: null,
-    });
+router.get(
+  "/account/:id",
+  checkTokenMiddleware,
+  async function (req, res, next) {
+    try {
+      // 获取路由参数 id
+      let id = req.params.id;
+      // 查询数据
+      const data = await AccountModel.findById(id);
+      res.json({
+        // 响应编号
+        code: "0000",
+        // 响应的信息
+        msg: "获取数据成功",
+        // 响应的数据
+        data: data,
+      });
+    } catch (err) {
+      console.error("获取数据失败:", err);
+      res.json({
+        // 响应编号
+        code: "0001",
+        // 响应的信息
+        msg: "获取数据失败",
+        // 响应的数据
+        data: null,
+      });
+    }
   }
-});
+);
 
 // 读取记账本列表
-router.get("/account", async function (req, res, next) {
+router.get("/account", checkTokenMiddleware, async function (req, res, next) {
+  // 从请求对象中获取用户信息
+  console.log(req.user);
   try {
     // 从MongoDB获取记账本列表数据并按时间倒序排序
     const data = await AccountModel.find().sort({ time: -1 });
@@ -68,7 +78,7 @@ router.get("/account", async function (req, res, next) {
 });
 
 // 添加记录
-router.post("/account", async function (req, res, next) {
+router.post("/account", checkTokenMiddleware, async function (req, res, next) {
   // 可以补充更完善的“表单验证”逻辑，例如检查必填字段、字段类型等
   try {
     // 打印请求体，用于调试
@@ -115,33 +125,37 @@ router.post("/account", async function (req, res, next) {
 });
 
 // 更新单个账单信息
-router.patch("/account/:id", async function (req, res, next) {
-  try {
-    // 获取路由参数 id
-    let id = req.params.id;
-    // 更新数据
-    const data = await AccountModel.findByIdAndUpdate(id, req.body, {
-      new: true,
-    });
-    res.json({
-      // 响应编号
-      code: "0000",
-      // 响应的信息
-      msg: "更新成功",
-      // 响应的数据
-      data: data,
-    });
-  } catch (err) {
-    console.error("更新数据失败:", err);
-    res.json({
-      // 响应编号
-      code: "0001",
-      // 响应的信息
-      msg: "更新失败",
-      // 响应的数据
-      data: null,
-    });
+router.patch(
+  "/account/:id",
+  checkTokenMiddleware,
+  async function (req, res, next) {
+    try {
+      // 获取路由参数 id
+      let id = req.params.id;
+      // 更新数据
+      const data = await AccountModel.findByIdAndUpdate(id, req.body, {
+        new: true,
+      });
+      res.json({
+        // 响应编号
+        code: "0000",
+        // 响应的信息
+        msg: "更新成功",
+        // 响应的数据
+        data: data,
+      });
+    } catch (err) {
+      console.error("更新数据失败:", err);
+      res.json({
+        // 响应编号
+        code: "0001",
+        // 响应的信息
+        msg: "更新失败",
+        // 响应的数据
+        data: null,
+      });
+    }
   }
-});
+);
 
 module.exports = router;

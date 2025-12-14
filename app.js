@@ -14,6 +14,8 @@ const { DBHOST, DBPORT, DBNAME } = require("./config");
 var indexRouter = require("./routes/web/index");
 // 导入auth 接口路由文件
 var authRouter = require("./routes/web/auth");
+// 导入 auth 接口路由文件
+const authApiRouter = require("./routes/api/auth");
 // 导入account 接口路由文件
 var accountRouter = require("./routes/api/account");
 
@@ -55,6 +57,8 @@ app.use("/", indexRouter);
 app.use("/", authRouter);
 // 挂载 account 路由模块（针对 API 端，如移动端，PAD端，车机端等）
 app.use("/api", accountRouter);
+// 挂载 auth 路由模块（针对 API 端，如移动端，PAD端，车机端等）
+app.use("/api", authApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

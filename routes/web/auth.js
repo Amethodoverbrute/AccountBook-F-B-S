@@ -61,7 +61,10 @@ router.post("/login", (req, res) => {
   //   查询数据库，验证用户名是否已存在
   UserModel.findOne({ username }).then((user) => {
     if (!user) {
-      return res.status(400).send("用户名不存在");
+      return res
+        .status(400)
+        .type("text/html")
+        .send("用户名不存在，请先<a href='/register'>注册</a>");
     }
     //   验证密码是否正确
     if (user.password !== md5(password)) {

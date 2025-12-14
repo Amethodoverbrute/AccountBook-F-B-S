@@ -48,7 +48,14 @@
   <body>
     <div class="success-container">
       <h1 class="success-title">:) <%= msg %></h1>
-      <p class="success-message"><a href="<%= url %>">点击跳转</a></p>
+      <p class="success-message">
+        1秒后将自动跳转，如果没有跳转，请点击<a href="<%= url %>">这里</a>
+      </p>
+      <script>
+        setTimeout(() => {
+          window.location.href = "<%= url %>";
+        }, 1000);
+      </script>
     </div>
   </body>
 </html>

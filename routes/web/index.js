@@ -22,9 +22,18 @@ const AccountModel = require("../../models/accountModel");
 // 2025-12-13T10:16 => 2025-12-13 10:16
 // const formatTime = (time) => moment(time).format("YYYY-MM-DD HH:mm");
 
+// 导入 检查用户是否登录 的中间件
+const checkLoginMiddleware = require("../../middlewares/checkLoginMiddleware");
+
+// 添加首页路由
+router.get("/", checkLoginMiddleware, (req, res) => {
+  // 如果用户已登录，重定向到记账本列表页面
+  res.redirect("/account");
+});
+
 /* GET home page. */
 // 记账本列表
-router.get("/account", async function (req, res, next) {
+router.get("/account", checkLoginMiddleware, async function (req, res, next) {
   try {
     // 从MongoDB获取记账本列表数据
     const accountList = await AccountModel.find().sort({ time: -1 });
@@ -37,12 +46,12 @@ router.get("/account", async function (req, res, next) {
 });
 
 // 添加记录
-router.get("/account/create", function (req, res, next) {
+router.get("/account/create", checkLoginMiddleware, function (req, res, next) {
   res.render("create");
 });
 
 // 添加记录
-router.post("/account", async function (req, res, next) {
+router.post("/account", checkLoginMiddleware, async function (req, res, next) {
   // const { item, type, amount } = req.body;
   // time: '2025-12-13T10:16' => new Date()
   // time: '2025-12-13T10:16' => Object（可借助moment包） => new Date()
@@ -67,17 +76,21 @@ router.post("/account", async function (req, res, next) {
 });
 
 // 删除记录
-router.get("/account/delete/:id", async function (req, res, next) {
-  try {
-    // 获取路由参数 id
-    let id = req.params.id;
-    // 删除数据
-    await AccountModel.findByIdAndDelete(id);
-    res.render("success", { msg: "删除成功~~", url: "/account" });
-  } catch (err) {
-    console.error("删除数据失败:", err);
-    res.status(500).send("删除失败");
+router.get(
+  "/account/delete/:id",
+  checkLoginMiddleware,
+  async function (req, res, next) {
+    try {
+      // 获取路由参数 id
+      let id = req.params.id;
+      // 删除数据
+      await AccountModel.findByIdAndDelete(id);
+      res.render("success", { msg: "删除成功~~", url: "/account" });
+    } catch (err) {
+      console.error("删除数据失败:", err);
+      res.status(500).send("删除失败");
+    }
   }
-});
+);
 
 module.exports = router;

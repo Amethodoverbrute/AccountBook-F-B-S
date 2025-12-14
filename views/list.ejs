@@ -42,6 +42,13 @@
         margin: 0;
       }
 
+      /* 头部操作按钮容器 */
+      .header-actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+
       /* 添加按钮样式 */
       .add-btn {
         background-color: #1890ff;
@@ -55,6 +62,31 @@
 
       .add-btn:hover {
         background-color: #40a9ff;
+        color: white;
+      }
+
+      /* 退出登录表单样式 */
+      form {
+        margin: 0;
+        padding: 0;
+        border: none;
+      }
+
+      /* 退出登录按钮样式 */
+      .logout-btn {
+        background-color: #ff4d4f;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 14px;
+        transition: background-color 0.3s;
+        border: none;
+        cursor: pointer;
+      }
+
+      .logout-btn:hover {
+        background-color: #ff7875;
         color: white;
       }
 
@@ -152,7 +184,12 @@
     <div class="container">
       <div class="header">
         <h1 class="title">记账本</h1>
-        <a href="/account/create" class="add-btn">添加账单</a>
+        <div class="header-actions">
+          <form action="/logout" method="post">
+            <button type="submit" class="logout-btn">退出登录</button>
+          </form>
+          <a href="/account/create" class="add-btn">添加账单</a>
+        </div>
       </div>
 
       <% accountList.forEach((item) => { %>

@@ -19,6 +19,44 @@ const { SECRET } = require("../../config");
 // 导入自定义日志
 const logger = require("../../config/logger");
 
+/**
+ * @openapi
+ * /account/:id:
+ *   get:
+ *     summary: 获取单个账单记录
+ *     tags: [账单管理]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: 账单ID
+ *     responses:
+ *       200:
+ *         description: 获取成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code: 
+ *                   type: string
+ *                   example: '0000'
+ *                 msg: 
+ *                   type: string
+ *                   example: '获取数据成功'
+ *                 data: 
+ *                   $ref: '#/components/schemas/Account'
+ *       404:
+ *         description: 记录不存在或无权访问
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+ */
 /* GET home page. */
 // 获取单个记录
 router.get(
@@ -67,6 +105,33 @@ router.get(
   }
 );
 
+/**
+ * @openapi
+ * /account:
+ *   get:
+ *     summary: 获取账单列表
+ *     tags: [账单管理]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: 获取成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code: 
+ *                   type: string
+ *                   example: '0000'
+ *                 msg: 
+ *                   type: string
+ *                   example: '获取数据成功'
+ *                 data: 
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Account'
+ */
 // 读取记账本列表
 router.get("/account", checkTokenMiddleware, async function (req, res, next) {
   try {
@@ -98,6 +163,71 @@ router.get("/account", checkTokenMiddleware, async function (req, res, next) {
   }
 });
 
+/**
+ * @openapi
+ * /account:
+ *   post:
+ *     summary: 添加账单记录
+ *     tags: [账单管理]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - title
+ *               - amount
+ *               - type
+ *             properties:
+ *               title: 
+ *                 type: string
+ *                 description: 账单标题
+ *               item: 
+ *                 type: string
+ *                 description: 账单项（兼容旧版字段）
+ *               amount: 
+ *                 type: number
+ *                 description: 账单金额
+ *               type: 
+ *                 type: string
+ *                 enum: [income, expense]
+ *                 description: 账单类型
+ *               time: 
+ *                 type: string
+ *                 format: date-time
+ *                 description: 账单时间
+ *               remark: 
+ *                 type: string
+ *                 description: 账单备注
+ *               categoryId: 
+ *                 type: string
+ *                 description: 分类ID
+ *     responses:
+ *       200:
+ *         description: 添加成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code: 
+ *                   type: string
+ *                   example: '0000'
+ *                 msg: 
+ *                   type: string
+ *                   example: '添加成功'
+ *                 data: 
+ *                   $ref: '#/components/schemas/Account'
+ *       400:
+ *         description: 缺少必填字段
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+ */
 // 添加记录
 router.post("/account", checkTokenMiddleware, async function (req, res, next) {
   try {
@@ -155,6 +285,71 @@ router.post("/account", checkTokenMiddleware, async function (req, res, next) {
   }
 });
 
+/**
+ * @openapi
+ * /account/:id:
+ *   patch:
+ *     summary: 更新单个账单信息
+ *     tags: [账单管理]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: 账单ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title: 
+ *                 type: string
+ *                 description: 账单标题
+ *               amount: 
+ *                 type: number
+ *                 description: 账单金额
+ *               type: 
+ *                 type: string
+ *                 enum: [income, expense]
+ *                 description: 账单类型
+ *               time: 
+ *                 type: string
+ *                 format: date-time
+ *                 description: 账单时间
+ *               remark: 
+ *                 type: string
+ *                 description: 账单备注
+ *               categoryId: 
+ *                 type: string
+ *                 description: 分类ID
+ *     responses:
+ *       200:
+ *         description: 更新成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code: 
+ *                   type: string
+ *                   example: '0000'
+ *                 msg: 
+ *                   type: string
+ *                   example: '更新成功'
+ *                 data: 
+ *                   $ref: '#/components/schemas/Account'
+ *       404:
+ *         description: 记录不存在或无权访问
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+ */
 // 更新单个账单信息
 router.patch(
   "/account/:id",
@@ -208,6 +403,44 @@ router.patch(
   }
 );
 
+/**
+ * @openapi
+ * /account/:id:
+ *   delete:
+ *     summary: 删除账单
+ *     tags: [账单管理]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: 账单ID
+ *     responses:
+ *       200:
+ *         description: 删除成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code: 
+ *                   type: string
+ *                   example: '0000'
+ *                 msg: 
+ *                   type: string
+ *                   example: '删除成功'
+ *                 data: 
+ *                   type: null
+ *       404:
+ *         description: 记录不存在或无权访问
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+ */
 // 删除账单
 router.delete(
   "/account/:id",

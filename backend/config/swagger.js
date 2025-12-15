@@ -110,6 +110,121 @@ const options = {
             },
           },
         },
+        Category: {
+          type: 'object',
+          required: ['name', 'type', 'userId'],
+          properties: {
+            _id: {
+              type: 'string',
+              description: '分类ID',
+            },
+            name: {
+              type: 'string',
+              description: '分类名称',
+            },
+            type: {
+              type: 'string',
+              enum: ['income', 'expense'],
+              description: '分类类型',
+            },
+            userId: {
+              type: 'string',
+              description: '关联的用户ID',
+            },
+            createdAt: {
+              type: 'string',
+              format: 'date-time',
+              description: '创建时间',
+            },
+            updatedAt: {
+              type: 'string',
+              format: 'date-time',
+              description: '更新时间',
+            },
+          },
+        },
+        StatisticsResponse: {
+          type: 'object',
+          properties: {
+            totalIncome: {
+              type: 'number',
+              description: '总收入',
+            },
+            totalExpense: {
+              type: 'number',
+              description: '总支出',
+            },
+            balance: {
+              type: 'number',
+              description: '余额',
+            },
+            categoryData: {
+              type: 'object',
+              properties: {
+                income: {
+                  type: 'array',
+                  items: {
+                    type: 'object',
+                    properties: {
+                      name: {
+                        type: 'string',
+                        description: '分类名称',
+                      },
+                      value: {
+                        type: 'number',
+                        description: '金额',
+                      },
+                    },
+                  },
+                },
+                expense: {
+                  type: 'array',
+                  items: {
+                    type: 'object',
+                    properties: {
+                      name: {
+                        type: 'string',
+                        description: '分类名称',
+                      },
+                      value: {
+                        type: 'number',
+                        description: '金额',
+                      },
+                    },
+                  },
+                },
+              },
+            },
+            dateData: {
+              type: 'array',
+              items: {
+                type: 'object',
+                properties: {
+                  date: {
+                    type: 'string',
+                    description: '日期',
+                  },
+                  income: {
+                    type: 'number',
+                    description: '当日收入',
+                  },
+                  expense: {
+                    type: 'number',
+                    description: '当日支出',
+                  },
+                  total: {
+                    type: 'number',
+                    description: '当日余额',
+                  },
+                },
+              },
+            },
+            count: {
+              type: 'integer',
+              description: '账单数量',
+            },
+          },
+        },
         ApiResponse: {
           type: 'object',
           properties: {

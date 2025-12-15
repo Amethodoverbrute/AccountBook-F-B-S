@@ -10,7 +10,8 @@
 
 <style scoped>
 #app {
-  max-width: 1280px;
+  max-width: 2100px;
+  width: 1080px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;

@@ -1,0 +1,257 @@
+2025-12-15 21:26:06 [info] Application started successfully
+2025-12-15 21:26:29 [info] Application started successfully
+2025-12-15 21:27:30 [info] Application started successfully
+2025-12-15 21:28:02 [info] Application started successfully
+2025-12-15 21:29:15 [info] Application started successfully
+2025-12-15 21:29:47 [info] Application started successfully
+2025-12-15 21:30:02 [info] Application started successfully
+2025-12-15 21:30:06 [info] Application started successfully
+2025-12-15 21:30:10 [info] Application started successfully
+2025-12-15 21:30:12 [info] Application started successfully
+2025-12-15 21:30:13 [info] Application started successfully
+2025-12-15 21:30:41 [info] Application started successfully
+2025-12-15 21:30:41 [info] Swagger UI configured at /api-docs
+2025-12-15 21:31:19 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-15 21:31:19 [info] [OPTIONS] /api/auth/me - 204 - 3ms
+2025-12-15 21:31:19 [info] [GET] /api/auth/me - ::1
+2025-12-15 21:31:19 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-15 21:31:19 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-15 21:31:19 [info] [GET] /auth/me - 304 - 14ms
+2025-12-15 21:31:19 [info] [OPTIONS] /api/account - ::1
+2025-12-15 21:31:19 [info] [OPTIONS] /api/account - 204 - 1ms
+2025-12-15 21:31:19 [info] [GET] /api/account - ::1
+2025-12-15 21:31:19 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 21:31:19 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 21:31:19 [info] [GET] /account - 304 - 7ms
+2025-12-15 21:32:46 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-15 21:32:46 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-15 21:32:46 [info] [GET] /api/auth/me - ::1
+2025-12-15 21:32:46 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-15 21:32:46 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-15 21:32:46 [info] [GET] /auth/me - 304 - 4ms
+2025-12-15 21:32:46 [info] [OPTIONS] /api/account - ::1
+2025-12-15 21:32:46 [info] [OPTIONS] /api/account - 204 - 0ms
+2025-12-15 21:32:46 [info] [GET] /api/account - ::1
+2025-12-15 21:32:46 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 21:32:46 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 21:32:46 [info] [GET] /account - 304 - 4ms
+2025-12-15 21:33:39 [info] Application started successfully
+2025-12-15 21:33:39 [info] Swagger UI configured at /api-docs
+2025-12-15 21:33:50 [info] Application started successfully
+2025-12-15 21:33:50 [info] Swagger UI configured at /api-docs
+2025-12-15 21:33:58 [info] Application started successfully
+2025-12-15 21:33:58 [info] Swagger UI configured at /api-docs
+2025-12-15 21:34:17 [info] Application started successfully
+2025-12-15 21:34:17 [info] Swagger UI configured at /api-docs
+2025-12-15 21:34:27 [info] Application started successfully
+2025-12-15 21:34:27 [info] Swagger UI configured at /api-docs
+2025-12-15 21:38:46 [info] Application started successfully
+2025-12-15 21:38:46 [info] Swagger UI configured at /api-docs
+2025-12-15 21:38:48 [info] Application started successfully
+2025-12-15 21:38:48 [info] Swagger UI configured at /api-docs
+2025-12-15 21:39:04 [info] Application started successfully
+2025-12-15 21:39:04 [info] Swagger UI configured at /api-docs
+2025-12-15 21:39:24 [info] Application started successfully
+2025-12-15 21:39:24 [info] Swagger UI configured at /api-docs
+2025-12-15 21:39:28 [info] Application started successfully
+2025-12-15 21:39:28 [info] Swagger UI configured at /api-docs
+2025-12-15 21:39:40 [info] Application started successfully
+2025-12-15 21:39:40 [info] Swagger UI configured at /api-docs
+2025-12-15 21:39:42 [info] Application started successfully
+2025-12-15 21:39:42 [info] Swagger UI configured at /api-docs
+2025-12-15 21:39:59 [info] Application started successfully
+2025-12-15 21:39:59 [info] Swagger UI configured at /api-docs
+2025-12-15 21:40:16 [info] Application started successfully
+2025-12-15 21:40:16 [info] Swagger UI configured at /api-docs
+2025-12-15 21:40:28 [info] Application started successfully
+2025-12-15 21:40:28 [info] Swagger UI configured at /api-docs
+2025-12-15 21:44:24 [info] Application started successfully
+2025-12-15 21:44:24 [info] Swagger UI configured at /api-docs
+2025-12-15 21:44:45 [info] Application started successfully
+2025-12-15 21:44:45 [info] Swagger UI configured at /api-docs
+2025-12-15 21:47:08 [info] Application started successfully
+2025-12-15 21:47:08 [info] Swagger UI configured at /api-docs
+2025-12-15 21:48:57 [info] Application started successfully
+2025-12-15 21:48:57 [info] Swagger UI configured at /api-docs
+2025-12-15 21:51:36 [info] [GET] /api-docs - ::1
+2025-12-15 21:51:36 [info] [GET] / - 301 - 5ms
+2025-12-15 21:51:36 [info] [GET] /api-docs/ - ::1
+2025-12-15 21:51:36 [info] [GET] / - 200 - 3ms
+2025-12-15 21:53:16 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-15 21:53:16 [info] [OPTIONS] /api/auth/login - 204 - 1ms
+2025-12-15 21:53:16 [info] [POST] /api/auth/login - ::1
+2025-12-15 21:53:16 [info] 用户登录请求: amob-work-harder
+2025-12-15 21:53:16 [info] 登录成功 - amob-work-harder
+2025-12-15 21:53:16 [info] [POST] /auth/login - 200 - 15ms
+2025-12-15 21:53:17 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-15 21:53:17 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-15 21:53:17 [info] [GET] /api/auth/me - ::1
+2025-12-15 21:53:17 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-15 21:53:17 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-15 21:53:17 [info] [GET] /auth/me - 304 - 5ms
+2025-12-15 21:53:17 [info] [OPTIONS] /api/account - ::1
+2025-12-15 21:53:17 [info] [OPTIONS] /api/account - 204 - 0ms
+2025-12-15 21:53:17 [info] [OPTIONS] /api/categories - ::1
+2025-12-15 21:53:17 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-15 21:53:17 [info] [OPTIONS] /api/statistics - ::1
+2025-12-15 21:53:17 [info] [OPTIONS] /api/statistics - 204 - 1ms
+2025-12-15 21:53:17 [info] [GET] /api/statistics - ::1
+2025-12-15 21:53:17 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 21:53:17 [info] [GET] /api/account - ::1
+2025-12-15 21:53:17 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 21:53:17 [info] [GET] /api/categories - ::1
+2025-12-15 21:53:17 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 21:53:17 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 21:53:17 [info] [GET] /statistics - 200 - 11ms
+2025-12-15 21:53:17 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 21:53:17 [info] [GET] /account - 200 - 10ms
+2025-12-15 21:53:17 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 0
+2025-12-15 21:53:17 [info] [GET] /categories - 200 - 8ms
+2025-12-15 21:53:17 [info] [GET] /api/statistics - ::1
+2025-12-15 21:53:17 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 21:53:17 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 21:53:17 [info] [GET] /statistics - 304 - 4ms
+2025-12-15 21:59:08 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-15 21:59:08 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-15 21:59:08 [info] [GET] /api/auth/me - ::1
+2025-12-15 21:59:08 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-15 21:59:08 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-15 21:59:08 [info] [GET] /auth/me - 304 - 4ms
+2025-12-15 21:59:09 [info] [OPTIONS] /api/account - ::1
+2025-12-15 21:59:09 [info] [OPTIONS] /api/account - 204 - 0ms
+2025-12-15 21:59:09 [info] [OPTIONS] /api/categories - ::1
+2025-12-15 21:59:09 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-15 21:59:09 [info] [OPTIONS] /api/statistics - ::1
+2025-12-15 21:59:09 [info] [OPTIONS] /api/statistics - 204 - 0ms
+2025-12-15 21:59:09 [info] [GET] /api/account - ::1
+2025-12-15 21:59:09 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 21:59:09 [info] [GET] /api/categories - ::1
+2025-12-15 21:59:09 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 21:59:09 [info] [GET] /api/statistics - ::1
+2025-12-15 21:59:09 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 21:59:09 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 21:59:09 [info] [GET] /account - 304 - 7ms
+2025-12-15 21:59:09 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 0
+2025-12-15 21:59:09 [info] [GET] /categories - 304 - 7ms
+2025-12-15 21:59:09 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 21:59:09 [info] [GET] /statistics - 304 - 6ms
+2025-12-15 21:59:09 [info] [GET] /api/statistics - ::1
+2025-12-15 21:59:09 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 21:59:09 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 21:59:09 [info] [GET] /statistics - 304 - 3ms
+2025-12-15 21:59:35 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-15 21:59:35 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-15 21:59:35 [info] [GET] /api/auth/me - ::1
+2025-12-15 21:59:35 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-15 21:59:35 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-15 21:59:35 [info] [GET] /auth/me - 304 - 4ms
+2025-12-15 21:59:35 [info] [OPTIONS] /api/account - ::1
+2025-12-15 21:59:35 [info] [OPTIONS] /api/account - 204 - 1ms
+2025-12-15 21:59:35 [info] [OPTIONS] /api/categories - ::1
+2025-12-15 21:59:35 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-15 21:59:35 [info] [OPTIONS] /api/statistics - ::1
+2025-12-15 21:59:35 [info] [OPTIONS] /api/statistics - 204 - 0ms
+2025-12-15 21:59:35 [info] [GET] /api/account - ::1
+2025-12-15 21:59:35 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 21:59:35 [info] [GET] /api/categories - ::1
+2025-12-15 21:59:35 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 21:59:35 [info] [GET] /api/statistics - ::1
+2025-12-15 21:59:35 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 21:59:35 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 21:59:35 [info] [GET] /account - 304 - 8ms
+2025-12-15 21:59:35 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 0
+2025-12-15 21:59:35 [info] [GET] /categories - 304 - 7ms
+2025-12-15 21:59:35 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 21:59:35 [info] [GET] /statistics - 304 - 6ms
+2025-12-15 21:59:35 [info] [GET] /api/statistics - ::1
+2025-12-15 21:59:35 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 21:59:35 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 21:59:35 [info] [GET] /statistics - 304 - 4ms
+2025-12-15 22:01:18 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-15 22:01:18 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-15 22:01:18 [info] [GET] /api/auth/me - ::1
+2025-12-15 22:01:18 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-15 22:01:18 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-15 22:01:18 [info] [GET] /auth/me - 304 - 3ms
+2025-12-15 22:01:18 [info] [OPTIONS] /api/account - ::1
+2025-12-15 22:01:18 [info] [OPTIONS] /api/account - 204 - 1ms
+2025-12-15 22:01:18 [info] [OPTIONS] /api/categories - ::1
+2025-12-15 22:01:18 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-15 22:01:18 [info] [OPTIONS] /api/statistics - ::1
+2025-12-15 22:01:18 [info] [OPTIONS] /api/statistics - 204 - 0ms
+2025-12-15 22:01:18 [info] [GET] /api/account - ::1
+2025-12-15 22:01:18 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 22:01:18 [info] [GET] /api/categories - ::1
+2025-12-15 22:01:18 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 22:01:18 [info] [GET] /api/statistics - ::1
+2025-12-15 22:01:18 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 22:01:18 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 22:01:18 [info] [GET] /account - 304 - 6ms
+2025-12-15 22:01:18 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 0
+2025-12-15 22:01:18 [info] [GET] /categories - 304 - 5ms
+2025-12-15 22:01:18 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 22:01:18 [info] [GET] /statistics - 304 - 5ms
+2025-12-15 22:01:18 [info] [GET] /api/statistics - ::1
+2025-12-15 22:01:18 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 22:01:18 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 22:01:18 [info] [GET] /statistics - 304 - 3ms
+2025-12-15 22:01:31 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-15 22:01:31 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-15 22:01:31 [info] [GET] /api/auth/me - ::1
+2025-12-15 22:01:31 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-15 22:01:31 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-15 22:01:31 [info] [GET] /auth/me - 304 - 3ms
+2025-12-15 22:01:31 [info] [OPTIONS] /api/account - ::1
+2025-12-15 22:01:31 [info] [OPTIONS] /api/account - 204 - 1ms
+2025-12-15 22:01:31 [info] [OPTIONS] /api/categories - ::1
+2025-12-15 22:01:31 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-15 22:01:31 [info] [OPTIONS] /api/statistics - ::1
+2025-12-15 22:01:31 [info] [OPTIONS] /api/statistics - 204 - 0ms
+2025-12-15 22:01:31 [info] [GET] /api/account - ::1
+2025-12-15 22:01:31 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 22:01:31 [info] [GET] /api/categories - ::1
+2025-12-15 22:01:31 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 22:01:31 [info] [GET] /api/statistics - ::1
+2025-12-15 22:01:31 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 22:01:31 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 22:01:31 [info] [GET] /account - 304 - 6ms
+2025-12-15 22:01:31 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 0
+2025-12-15 22:01:31 [info] [GET] /categories - 304 - 5ms
+2025-12-15 22:01:31 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 22:01:31 [info] [GET] /statistics - 304 - 4ms
+2025-12-15 22:01:31 [info] [GET] /api/statistics - ::1
+2025-12-15 22:01:31 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 22:01:31 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 22:01:31 [info] [GET] /statistics - 304 - 2ms
+2025-12-15 22:01:42 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-15 22:01:42 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-15 22:01:42 [info] [GET] /api/auth/me - ::1
+2025-12-15 22:01:42 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-15 22:01:42 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-15 22:01:42 [info] [GET] /auth/me - 304 - 2ms
+2025-12-15 22:01:42 [info] [OPTIONS] /api/account - ::1
+2025-12-15 22:01:42 [info] [OPTIONS] /api/account - 204 - 1ms
+2025-12-15 22:01:42 [info] [OPTIONS] /api/categories - ::1
+2025-12-15 22:01:42 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-15 22:01:42 [info] [OPTIONS] /api/statistics - ::1
+2025-12-15 22:01:42 [info] [OPTIONS] /api/statistics - 204 - 1ms
+2025-12-15 22:01:42 [info] [GET] /api/account - ::1
+2025-12-15 22:01:42 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 22:01:42 [info] [GET] /api/categories - ::1
+2025-12-15 22:01:42 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 22:01:42 [info] [GET] /api/statistics - ::1
+2025-12-15 22:01:42 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 22:01:42 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 22:01:42 [info] [GET] /account - 304 - 6ms
+2025-12-15 22:01:42 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 0
+2025-12-15 22:01:42 [info] [GET] /categories - 304 - 5ms
+2025-12-15 22:01:42 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 22:01:42 [info] [GET] /statistics - 304 - 4ms
+2025-12-15 22:01:42 [info] [GET] /api/statistics - ::1
+2025-12-15 22:01:42 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-15 22:01:42 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 2
+2025-12-15 22:01:42 [info] [GET] /statistics - 304 - 3ms
+2025-12-15 22:05:57 [info] Application started successfully
+2025-12-15 22:05:57 [info] Swagger UI configured at /api-docs
+2025-12-15 22:06:51 [info] Application started successfully
+2025-12-15 22:06:51 [info] Swagger UI configured at /api-docs

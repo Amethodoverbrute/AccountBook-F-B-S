@@ -97,4 +97,46 @@ export const accountService = {
   },
 };
 
+// 统计相关的API调用
+export const statisticsService = {
+  // 获取账单统计数据
+  getStatistics: async (params) => {
+    const response = await api.get("/statistics", { params });
+    return response.data;
+  },
+};
+
+// 分类相关的API调用
+export const categoryService = {
+  // 获取分类列表
+  getCategories: async (params) => {
+    const response = await api.get("/categories", { params });
+    return response.data;
+  },
+  
+  // 获取单个分类
+  getCategory: async (id) => {
+    const response = await api.get(`/categories/${id}`);
+    return response.data;
+  },
+  
+  // 创建分类
+  createCategory: async (category) => {
+    const response = await api.post("/categories", category);
+    return response.data;
+  },
+  
+  // 更新分类
+  updateCategory: async (id, category) => {
+    const response = await api.patch(`/categories/${id}`, category);
+    return response.data;
+  },
+  
+  // 删除分类
+  deleteCategory: async (id) => {
+    const response = await api.delete(`/categories/${id}`);
+    return response.data;
+  },
+};
+
 export default api;

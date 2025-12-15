@@ -14,6 +14,42 @@ const { SECRET } = require("../../config");
 // 导入自定义日志
 const logger = require("../../config/logger");
 
+/**
+ * @openapi
+ * /auth/login:
+ *   post:
+ *     summary: 用户登录
+ *     tags: [认证]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/LoginRequest'
+ *     responses:
+ *       200:
+ *         description: 登录成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code: 
+ *                   type: string
+ *                   example: '0000'
+ *                 msg: 
+ *                   type: string
+ *                   example: '用户登录成功'
+ *                 token: 
+ *                   type: string
+ *                   description: JWT令牌
+ *       400:
+ *         description: 登录失败
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+ */
 // 登录 用户
 router.post("/auth/login", async (req, res) => {
   const { username, password } = req.body;
@@ -88,6 +124,22 @@ router.post("/auth/login", async (req, res) => {
   }
 });
 
+/**
+ * @openapi
+ * /auth/logout:
+ *   post:
+ *     summary: 用户退出登录
+ *     tags: [认证]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: 退出登录成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+ */
 // 退出登录，使用POST方法更安全比GET方法
 router.post("/auth/logout", (req, res) => {
   // 前后端分离架构下，退出登录只需要前端清除token即可
@@ -98,6 +150,42 @@ router.post("/auth/logout", (req, res) => {
   });
 });
 
+/**
+ * @openapi
+ * /auth/me:
+ *   get:
+ *     summary: 获取当前登录用户信息
+ *     tags: [认证]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: 获取成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code: 
+ *                   type: string
+ *                   example: '0000'
+ *                 msg: 
+ *                   type: string
+ *                   example: '获取用户信息成功'
+ *                 data: 
+ *                   type: object
+ *                   properties:
+ *                     username: 
+ *                       type: string
+ *                     userId: 
+ *                       type: string
+ *       401:
+ *         description: 未授权
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+ */
 // 获取当前登录用户信息
 router.get("/auth/me", (req, res) => {
   // 从请求头获取token
@@ -151,6 +239,32 @@ router.get("/auth/me", (req, res) => {
   }
 });
 
+/**
+ * @openapi
+ * /auth/register:
+ *   post:
+ *     summary: 用户注册
+ *     tags: [认证]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/RegisterRequest'
+ *     responses:
+ *       201:
+ *         description: 注册成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+ *       400:
+ *         description: 注册失败
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+ */
 // 注册用户
 router.post("/auth/register", async (req, res) => {
   const { username, password } = req.body;

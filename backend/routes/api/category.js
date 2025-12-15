@@ -4,6 +4,41 @@ const CategoryModel = require("../../models/categoryModel");
 const checkTokenMiddleware = require("../../middlewares/checkTokenMiddleware");
 const logger = require("../../config/logger");
 
+/**
+ * @openapi
+ * /categories:
+ *   get:
+ *     summary: 获取分类列表
+ *     tags: [分类管理]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: type
+ *         required: false
+ *         schema:
+ *           type: string
+ *           enum: [income, expense]
+ *         description: 分类类型过滤
+ *     responses:
+ *       200:
+ *         description: 获取成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code: 
+ *                   type: string
+ *                   example: '0000'
+ *                 msg: 
+ *                   type: string
+ *                   example: '获取分类列表成功'
+ *                 data: 
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Category'
+ */
 // 获取分类列表
 router.get("/categories", checkTokenMiddleware, async function (req, res, next) {
   try {
@@ -41,6 +76,44 @@ router.get("/categories", checkTokenMiddleware, async function (req, res, next) 
   }
 });
 
+/**
+ * @openapi
+ * /categories/:id:
+ *   get:
+ *     summary: 获取单个分类
+ *     tags: [分类管理]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: 分类ID
+ *     responses:
+ *       200:
+ *         description: 获取成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code: 
+ *                   type: string
+ *                   example: '0000'
+ *                 msg: 
+ *                   type: string
+ *                   example: '获取分类成功'
+ *                 data: 
+ *                   $ref: '#/components/schemas/Category'
+ *       404:
+ *         description: 分类不存在或无权访问
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+ */
 // 获取单个分类
 router.get("/categories/:id", checkTokenMiddleware, async function (req, res, next) {
   try {
@@ -78,6 +151,54 @@ router.get("/categories/:id", checkTokenMiddleware, async function (req, res, ne
   }
 });
 
+/**
+ * @openapi
+ * /categories:
+ *   post:
+ *     summary: 添加分类
+ *     tags: [分类管理]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - type
+ *             properties:
+ *               name: 
+ *                 type: string
+ *                 description: 分类名称
+ *               type: 
+ *                 type: string
+ *                 enum: [income, expense]
+ *                 description: 分类类型
+ *     responses:
+ *       200:
+ *         description: 添加成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code: 
+ *                   type: string
+ *                   example: '0000'
+ *                 msg: 
+ *                   type: string
+ *                   example: '添加分类成功'
+ *                 data: 
+ *                   $ref: '#/components/schemas/Category'
+ *       400:
+ *         description: 缺少必填字段
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+ */
 // 添加分类
 router.post("/categories", checkTokenMiddleware, async function (req, res, next) {
   try {
@@ -120,6 +241,58 @@ router.post("/categories", checkTokenMiddleware, async function (req, res, next)
   }
 });
 
+/**
+ * @openapi
+ * /categories/:id:
+ *   patch:
+ *     summary: 更新分类
+ *     tags: [分类管理]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: 分类ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name: 
+ *                 type: string
+ *                 description: 分类名称
+ *               type: 
+ *                 type: string
+ *                 enum: [income, expense]
+ *                 description: 分类类型
+ *     responses:
+ *       200:
+ *         description: 更新成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code: 
+ *                   type: string
+ *                   example: '0000'
+ *                 msg: 
+ *                   type: string
+ *                   example: '更新分类成功'
+ *                 data: 
+ *                   $ref: '#/components/schemas/Category'
+ *       404:
+ *         description: 分类不存在或无权访问
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+ */
 // 更新分类
 router.patch("/categories/:id", checkTokenMiddleware, async function (req, res, next) {
   try {
@@ -163,6 +336,44 @@ router.patch("/categories/:id", checkTokenMiddleware, async function (req, res, 
   }
 });
 
+/**
+ * @openapi
+ * /categories/:id:
+ *   delete:
+ *     summary: 删除分类
+ *     tags: [分类管理]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: 分类ID
+ *     responses:
+ *       200:
+ *         description: 删除成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code: 
+ *                   type: string
+ *                   example: '0000'
+ *                 msg: 
+ *                   type: string
+ *                   example: '删除分类成功'
+ *                 data: 
+ *                   type: null
+ *       404:
+ *         description: 分类不存在或无权访问
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+ */
 // 删除分类
 router.delete("/categories/:id", checkTokenMiddleware, async function (req, res, next) {
   try {

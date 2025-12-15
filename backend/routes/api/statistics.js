@@ -5,6 +5,46 @@ const AccountModel = require("../../models/accountModel");
 const checkTokenMiddleware = require("../../middlewares/checkTokenMiddleware");
 const logger = require("../../config/logger");
 
+/**
+ * @openapi
+ * /statistics:
+ *   get:
+ *     summary: 获取账单统计数据
+ *     tags: [统计管理]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: startDate
+ *         required: false
+ *         schema:
+ *           type: string
+ *           format: date
+ *         description: 统计开始日期 (YYYY-MM-DD)
+ *       - in: query
+ *         name: endDate
+ *         required: false
+ *         schema:
+ *           type: string
+ *           format: date
+ *         description: 统计结束日期 (YYYY-MM-DD)
+ *     responses:
+ *       200:
+ *         description: 获取成功
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code: 
+ *                   type: string
+ *                   example: '0000'
+ *                 msg: 
+ *                   type: string
+ *                   example: '获取统计数据成功'
+ *                 data: 
+ *                   $ref: '#/components/schemas/StatisticsResponse'
+ */
 // 获取账单统计数据
 router.get("/statistics", checkTokenMiddleware, async function (req, res, next) {
   try {

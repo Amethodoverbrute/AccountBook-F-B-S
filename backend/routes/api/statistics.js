@@ -1,3 +1,9 @@
+/**
+ * 统计管理路由模块
+ * 功能：处理账单统计数据的获取，包括总收入、总支出、分类统计和日期统计等
+ * 作者：系统自动生成
+ * 时间：2025-04-02
+ */
 const express = require("express");
 const router = express.Router();
 const moment = require("moment");

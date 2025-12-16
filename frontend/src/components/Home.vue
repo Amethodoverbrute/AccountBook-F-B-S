@@ -1,20 +1,57 @@
 <template>
-  <div class="home-container">
-    <!-- 顶部导航 -->
-    <div class="top-nav">
-      <div class="nav-buttons left">
-        <button @click="goToStatistics" class="stats-btn">账单统计</button>
+  <!-- 固定头部 - 参考小米官网设计 -->
+  <header class="fixed-header">
+    <div class="header-content">
+      <!-- Logo区域 -->
+      <div class="logo-section">
+        <img
+          src="/logo/AccountBookLogo.png"
+          alt="记账本Logo"
+          class="app-logo"
+        />
       </div>
-      <!-- 占位元素，用于居中标题 -->
-      <h1 class="app-title">
+      <!-- 网站标题 - 居中显示 -->
+      <h1 class="site-title">
         {{ userInfo ? `${userInfo.username}的记账本` : "我的记账本" }}
       </h1>
-      <div class="nav-buttons">
-        <button @click="openForm" class="add-btn">添加账单</button>
-        <button @click="handleLogout" class="logout-btn">退出登录</button>
+      <!-- 登录注册区域 -->
+      <div class="auth-section">
+        <span v-if="!userInfo" class="auth-links">
+          <a href="/login" class="login-link">登录</a>
+          <span class="separator">|</span>
+          <a href="/register" class="register-link">注册</a>
+        </span>
+        <span v-else class="user-info">
+          {{ userInfo.username }}
+          <span class="separator">|</span>
+          <button @click="showLogoutConfirm = true" class="logout-btn-header">
+            退出登录
+          </button>
+        </span>
       </div>
     </div>
+  </header>
 
+  <!-- 确认对话框组件 -->
+  <ConfirmDialog
+    v-model:visible="showConfirmDialog"
+    :title="confirmTitle"
+    :message="confirmMessage"
+    @confirm="handleConfirm"
+    @cancel="handleCancel"
+  />
+
+  <!-- 退出登录确认对话框 -->
+  <ConfirmDialog
+    v-model:visible="showLogoutConfirm"
+    title="退出登录"
+    message="确定要退出登录吗？"
+    @confirm="handleLogoutConfirm"
+    @cancel="showLogoutConfirm = false"
+  />
+
+  <!-- 主要内容容器 -->
+  <div class="home-container">
     <!-- 添加/编辑账单表单（模态对话框） -->
     <div class="modal-overlay" v-if="showForm" @click.self="showForm = false">
       <div class="modal-container">
@@ -116,6 +153,51 @@
       </div>
     </div>
 
+    <!-- 搜索组件 -->
+    <div class="search-container">
+      <div class="search-box" ref="searchBoxRef">
+        <input
+          type="text"
+          v-model="searchKeyword"
+          placeholder="搜索账单标题..."
+          class="search-input"
+          @keyup.enter="handleSearch"
+          @input="handleInput"
+          @focus="handleFocus"
+          @blur="handleBlur"
+        />
+        <button @click="handleSearch" class="search-btn">搜索</button>
+        <button @click="openForm" class="nav-btn add-btn-search">
+          添加账单
+        </button>
+        <button @click="goToStatistics" class="nav-btn stats-btn-search">
+          账单统计
+        </button>
+        <button
+          @click="handleResetSearch"
+          class="reset-btn"
+          v-if="searchKeyword"
+        >
+          重置
+        </button>
+        <!-- 搜索建议下拉列表 -->
+        <div
+          v-if="showSuggestions && suggestions.length > 0"
+          class="suggestions-list"
+        >
+          <div
+            v-for="suggestion in suggestions"
+            :key="suggestion._id"
+            class="suggestion-item"
+            @click="selectSuggestion(suggestion.title)"
+            @mousedown.prevent
+          >
+            <span class="suggestion-text">{{ suggestion.title }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- 账单列表 -->
     <div class="accounts-container">
       <div
@@ -152,12 +234,92 @@
       <div class="empty-message" v-if="accounts.length === 0">暂无账单记录</div>
     </div>
   </div>
+
+  <!-- 独立的分页组件，放在页面最下方 -->
+  <div class="page-footer">
+    <div class="pagination-wrapper" v-if="totalPages > 1 || totalRecords > 0">
+      <div class="pagination">
+        <div class="pagination-info">
+          <span>共 {{ totalRecords }} 条记录</span>
+          <span>第 {{ currentPage }}/{{ totalPages }} 页</span>
+        </div>
+        <div class="pagination-controls">
+          <div class="page-size-selector">
+            <label>每页显示:</label>
+            <select v-model="pageSize" @change="handlePageSizeChange">
+              <option :value="5">5条</option>
+              <option :value="10">10条</option>
+              <option :value="20">20条</option>
+              <option :value="50">50条</option>
+            </select>
+          </div>
+          <div class="pagination-nav">
+            <button
+              @click="firstPage"
+              :disabled="currentPage === 1"
+              class="pagination-btn"
+            >
+              首页
+            </button>
+            <button
+              @click="prevPage"
+              :disabled="currentPage === 1"
+              class="pagination-btn"
+            >
+              上一页
+            </button>
+            <div class="current-page">{{ currentPage }}</div>
+            <div class="page-jump">
+              <input
+                type="number"
+                v-model="jumpPage"
+                :min="1"
+                :max="totalPages"
+                class="page-input"
+              />
+              <button @click="handleJump" class="jump-button">跳转</button>
+            </div>
+            <button
+              @click="nextPage"
+              :disabled="currentPage === totalPages"
+              class="pagination-btn"
+            >
+              下一页
+            </button>
+            <button
+              @click="lastPage"
+              :disabled="currentPage === totalPages"
+              class="pagination-btn"
+            >
+              末页
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 页面底部口号 -->
+  <div class="page-slogan">
+    <h2 class="slogan-text">科技美好生活</h2>
+  </div>
 </template>
 
 <script setup>
+/**
+ * 主页组件
+ * 功能：展示和管理用户的账单列表，提供添加、编辑、删除、搜索和分页功能
+ * 主要模块：
+ * - 固定头部：显示用户信息和导航
+ * - 搜索组件：提供账单搜索和筛选功能
+ * - 账单列表：展示账单信息，支持编辑和删除
+ * - 添加/编辑表单：用于创建和修改账单
+ * - 分页组件：提供账单分页浏览功能
+ * - 确认对话框：用于处理删除和退出登录等敏感操作
+ */
 import { ref, onMounted, onUnmounted, watch, computed } from "vue";
 import { useRouter } from "vue-router";
 import { authService, accountService, categoryService } from "../services/auth";
+import ConfirmDialog from "./ConfirmDialog.vue";
 
 const router = useRouter();
 const accounts = ref([]);
@@ -172,6 +334,30 @@ const userInfo = ref(null); // 存储当前登录用户信息
 const categories = ref([]);
 const isCategoriesLoading = ref(false);
 const isInitializingForm = ref(false);
+
+// 搜索相关状态
+const searchKeyword = ref("");
+const suggestions = ref([]);
+const showSuggestions = ref(false);
+const searchBoxRef = ref(null);
+const allTitles = ref([]);
+
+// 分页相关状态
+const currentPage = ref(1);
+const pageSize = ref(5);
+const totalRecords = ref(0);
+const totalPages = ref(0);
+const jumpPage = ref(1);
+
+// 确认对话框相关状态
+const showConfirmDialog = ref(false);
+const showLogoutConfirm = ref(false);
+const confirmTitle = ref("");
+const confirmMessage = ref("");
+const confirmCallback = ref(null);
+
+// 删除账单相关状态
+const accountToDelete = ref(null);
 
 // 计算属性：根据当前账单类型过滤分类
 const filteredCategories = computed(() => {
@@ -405,10 +591,21 @@ const handleEditAccount = async () => {
 };
 
 // 删除账单
-const handleDeleteAccount = async (id) => {
-  if (confirm("确定要删除这条账单吗？")) {
+const handleDeleteAccount = (id) => {
+  accountToDelete.value = id;
+  confirmTitle.value = "删除账单";
+  confirmMessage.value = "确定要删除这条账单吗？";
+  showConfirmDialog.value = true;
+};
+
+// 确认对话框确认回调
+const handleConfirm = async () => {
+  showConfirmDialog.value = false;
+  if (accountToDelete.value) {
     try {
-      const response = await accountService.deleteAccount(id);
+      const response = await accountService.deleteAccount(
+        accountToDelete.value
+      );
       if (response.code === "0000") {
         // 重新获取账单列表
         fetchAccounts();
@@ -417,8 +614,23 @@ const handleDeleteAccount = async (id) => {
       }
     } catch (err) {
       alert(err.response?.data?.msg || "网络错误，请稍后重试");
+    } finally {
+      accountToDelete.value = null;
     }
   }
+};
+
+// 确认对话框取消回调
+const handleCancel = () => {
+  showConfirmDialog.value = false;
+  accountToDelete.value = null;
+};
+
+// 退出登录确认回调
+const handleLogoutConfirm = () => {
+  showLogoutConfirm.value = false;
+  authService.logout();
+  router.push("/login");
 };
 
 // 打开添加账单表单，设置默认时间为当前时间，其他字段为空
@@ -458,8 +670,10 @@ const goToStatistics = () => {
 
 // 退出登录
 const handleLogout = () => {
-  authService.logout();
-  router.push("/login");
+  if (confirm("确定要退出登录吗？")) {
+    authService.logout();
+    router.push("/login");
+  }
 };
 
 // 获取当前登录用户信息
@@ -514,13 +728,136 @@ onMounted(async () => {
   fetchCategories();
 });
 
+// 页面卸载时的清理工作
+onUnmounted(() => {
+  // 暂无需要清理的资源
+});
+
+// 搜索处理函数
+const handleSearch = () => {
+  fetchAccounts();
+  showSuggestions.value = false;
+};
+
+// 重置搜索
+const handleResetSearch = () => {
+  searchKeyword.value = "";
+  suggestions.value = [];
+  showSuggestions.value = false;
+  fetchAccounts();
+};
+
+// 处理输入事件，更新搜索建议
+const handleInput = () => {
+  if (!searchKeyword.value.trim()) {
+    suggestions.value = [];
+    showSuggestions.value = false;
+    return;
+  }
+
+  // 从所有账单标题中筛选匹配的建议
+  const filtered = accounts.value
+    .filter((account) =>
+      account.title.toLowerCase().includes(searchKeyword.value.toLowerCase())
+    )
+    .map((account) => ({
+      _id: account._id,
+      title: account.title,
+    }));
+
+  // 去重，确保每个标题只出现一次
+  const uniqueSuggestions = Array.from(
+    new Map(filtered.map((item) => [item.title, item])).values()
+  );
+
+  suggestions.value = uniqueSuggestions;
+  showSuggestions.value = suggestions.value.length > 0;
+};
+
+// 处理聚焦事件，显示搜索建议
+const handleFocus = () => {
+  if (searchKeyword.value.trim() && suggestions.value.length > 0) {
+    showSuggestions.value = true;
+  }
+};
+
+// 处理失焦事件，隐藏搜索建议
+const handleBlur = () => {
+  // 使用setTimeout确保点击建议项的事件能被触发
+  setTimeout(() => {
+    showSuggestions.value = false;
+  }, 200);
+};
+
+// 选择搜索建议
+const selectSuggestion = (title) => {
+  searchKeyword.value = title;
+  handleSearch();
+};
+
+// 处理每页显示条数变化
+const handlePageSizeChange = () => {
+  currentPage.value = 1; // 切换每页显示条数时重置到第一页
+  fetchAccounts();
+};
+
+// 跳转到指定页码
+const goToPage = (page) => {
+  // 边界检查
+  if (page < 1) page = 1;
+  if (page > totalPages.value) page = totalPages.value;
+
+  currentPage.value = page;
+  jumpPage.value = page;
+  fetchAccounts();
+};
+
+// 上一页
+const prevPage = () => {
+  if (currentPage.value > 1) {
+    goToPage(currentPage.value - 1);
+  }
+};
+
+// 下一页
+const nextPage = () => {
+  if (currentPage.value < totalPages.value) {
+    goToPage(currentPage.value + 1);
+  }
+};
+
+// 首页
+const firstPage = () => {
+  goToPage(1);
+};
+
+// 末页
+const lastPage = () => {
+  goToPage(totalPages.value);
+};
+
+// 处理页码跳转
+const handleJump = () => {
+  goToPage(parseInt(jumpPage.value));
+};
+
 // 在获取账单列表后刷新统计数据
 const fetchAccounts = async () => {
   try {
     isLoading.value = true;
-    const response = await accountService.getAccounts();
+    // 传递搜索关键字、页码和每页条数到API
+    const response = await accountService.getAccounts(
+      searchKeyword.value,
+      currentPage.value,
+      pageSize.value
+    );
     if (response.code === "0000") {
-      accounts.value = response.data;
+      accounts.value = response.data.accounts;
+      // 更新分页状态
+      totalRecords.value = response.data.pagination.total;
+      totalPages.value = response.data.pagination.totalPages;
+      // 更新所有账单标题，用于搜索建议
+      allTitles.value = accounts.value.map((account) => account.title);
     }
   } catch (err) {
     console.error("获取账单失败:", err);
@@ -532,38 +869,68 @@ const fetchAccounts = async () => {
 
 <style scoped>
 .home-container {
-  max-width: 2100px;
   width: 1080px;
-  margin: 0 auto;
-  padding: 20px;
-  min-height: 100vh;
+  margin: 90px auto 20px;
+  padding: 25px;
   background-color: #f5f7fa;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  min-height: auto;
 }
 
-/* 优化顶部导航 */
-.top-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-  padding: 20px;
+/* 搜索组件样式 */
+.search-container {
   background-color: white;
+  padding: 16px 20px;
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.search-container:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.search-box {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  position: relative;
   width: 100%;
 }
 
-/* 优化按钮样式 */
-.add-btn,
-.logout-btn,
+.search-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #1890ff;
+  box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+/* 按钮基础样式 */
+.search-btn,
+.reset-btn,
+.nav-btn,
 .submit-btn,
-.cancel-btn {
+.cancel-btn,
+.pagination-btn,
+.jump-button {
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
@@ -572,41 +939,504 @@ const fetchAccounts = async () => {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
 }
 
-.add-btn:hover,
-.logout-btn:hover,
-.submit-btn:hover,
-.cancel-btn:hover {
+/* 搜索按钮 */
+.search-btn {
+  background-color: #1890ff;
+  color: white;
+}
+
+.search-btn:hover {
+  background-color: #40a9ff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.2);
 }
 
-/* 优化表单设计 */
-.add-form {
+/* 重置按钮 */
+.reset-btn {
+  background-color: #f0f0f0;
+  color: #666;
+  border: 1px solid #d9d9d9;
+}
+
+.reset-btn:hover {
+  background-color: #e8e8e8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 导航按钮 */
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+/* 搜索栏中的导航按钮 */
+.add-btn-search {
+  background-color: #fa8c16;
+  color: white;
+  margin-left: 8px;
+}
+
+.add-btn-search:hover {
+  background-color: #ffad33;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(250, 140, 22, 0.2);
+}
+
+.stats-btn-search {
+  background-color: #52c41a;
+  color: white;
+  margin-left: 8px;
+}
+
+.stats-btn-search:hover {
+  background-color: #73d13d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(82, 196, 26, 0.2);
+}
+
+/* 搜索建议样式 */
+.suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
   background-color: white;
-  padding: 25px;
-  border-radius: 12px;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  margin-top: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.suggestion-item {
+  padding: 12px 16px;
+  cursor: pointer;
   transition: all 0.3s ease;
+  border-bottom: 1px solid #f0f0f0;
 }
 
-.add-form:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+.suggestion-item:last-child {
+  border-bottom: none;
 }
 
+.suggestion-item:hover {
+  background-color: #f5f7fa;
+  color: #1890ff;
+}
+
+.suggestion-item:active {
+  background-color: #e6f7ff;
+}
+
+.suggestion-text {
+  font-size: 14px;
+  color: #333;
+}
+
+.suggestion-item:hover .suggestion-text {
+  color: #1890ff;
+}
+
+/* 滚动条样式 */
+.suggestions-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.suggestions-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.suggestions-list::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.suggestions-list::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* 经典分页样式美化 */
+.pagination-wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+  width: 95%;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.pagination-info {
+  display: flex;
+  gap: 15px;
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* 每页显示条数选择器 */
+.page-size-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.page-size-selector label {
+  font-weight: 500;
+  color: #555;
+}
+
+.page-size-selector select {
+  padding: 6px 12px;
+  border: 1px solid #e1e5e9;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.page-size-selector select:hover {
+  border-color: #1890ff;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);
+}
+
+.page-size-selector select:focus {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.1);
+}
+
+/* 分页导航 */
+.pagination-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: white;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.pagination-btn {
+  padding: 8px 14px;
+  border: 1px solid #e1e5e9;
+  background-color: white;
+  color: #555;
+  min-width: 65px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  border-color: #1890ff;
+  color: #1890ff;
+  background-color: #f0f7ff;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.pagination-btn:disabled {
+  background-color: #f8f9fa;
+  border-color: #e1e5e9;
+  color: #c0c4c7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.pagination-btn:active:not(:disabled) {
+  background-color: #e6f7ff;
+  border-color: #40a9ff;
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(24, 144, 255, 0.2);
+}
+
+/* 当前页码样式 */
+.current-page {
+  padding: 8px 12px;
+  border: 2px solid #1890ff;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1890ff;
+  background-color: #f0f7ff;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* 页码输入和跳转按钮 */
+.page-jump {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 6px;
+}
+
+.page-input {
+  padding: 8px 12px;
+  border: 1px solid #e1e5e9;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+  width: 70px;
+  text-align: center;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.page-input:hover {
+  border-color: #1890ff;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);
+}
+
+.page-input:focus {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.1);
+}
+
+.jump-button {
+  background-color: #1890ff;
+  color: white;
+  padding: 8px 16px;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.2);
+}
+
+.jump-button:hover {
+  background-color: #40a9ff;
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.jump-button:active {
+  background-color: #096dd9;
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(24, 144, 255, 0.3);
+}
+
+/* 页面底部样式 */
+.page-footer {
+  background-color: white;
+  border-top: 1px solid #e8e8e8;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  padding: 16px 0;
+  margin: 15px 0 0 0;
+}
+
+/* 账单容器 */
+.accounts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 15px;
+}
+
+/* 账单卡片 */
+.account-card {
+  background-color: white;
+  padding: 0 18px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.account-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #1890ff, #52c41a);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.account-card:hover::before {
+  transform: scaleX(1);
+}
+
+.account-time {
+  color: #333;
+  font-size: 14px;
+  padding: 12px 18px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  margin: 0 -18px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* 收入卡片时间行 */
+.income-card .account-time {
+  background-color: #e6f7ed;
+}
+
+/* 支出卡片时间行 */
+.expense-card .account-time {
+  background-color: #fde2e2;
+}
+
+.account-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+  flex: 1;
+  padding-top: 16px;
+}
+
+.account-title {
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  flex: 1;
+  text-align: left;
+  max-width: calc(100% - 250px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-info {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  white-space: nowrap;
+  min-width: 250px;
+  justify-content: flex-end;
+}
+
+.account-type {
+  width: 60px;
+  text-align: center;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+  background-color: #ffa940;
+}
+
+.account-amount {
+  min-width: 100px;
+  text-align: right;
+  font-weight: 600;
+  color: #333;
+  font-size: 16px;
+}
+
+.account-type.expense {
+  background-color: #ffa940;
+}
+
+.account-type.income {
+  background-color: #73d13d;
+}
+
+/* 编辑和删除按钮 */
+.edit-btn,
+.delete-btn {
+  padding: 4px 8px;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.edit-btn {
+  color: #1890ff;
+}
+
+.edit-btn:hover {
+  background-color: #f0f5ff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(24, 144, 255, 0.2);
+}
+
+.delete-btn {
+  color: #ff4d4f;
+  margin-left: 12px;
+}
+
+.delete-btn:hover {
+  background-color: #f5f5f5;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(255, 77, 79, 0.2);
+}
+
+/* 空状态 */
+.empty-message {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+  font-size: 16px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* 表单样式 */
 .form-row {
   display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
+  gap: 25px;
+  margin-bottom: 25px;
   flex-wrap: wrap;
   transition: all 0.3s ease;
 }
 
+.form-group {
+  flex: 1;
+  min-width: 220px;
+}
+
 .form-group label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: #666;
   font-size: 14px;
   font-weight: 500;
@@ -635,427 +1465,37 @@ const fetchAccounts = async () => {
   transform: translateY(-1px);
 }
 
-/* 优化账单卡片样式 */
-.account-card {
-  background-color: white;
-  padding: 0 20px 16px;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  position: relative;
-  transition: all 0.3s ease;
+/* 表单按钮 */
+.form-buttons {
   display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.account-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px);
-}
-
-/* 优化统计容器样式 */
-.statistics-container {
-  background-color: white;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.statistics-container:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* 优化图表容器样式 */
-.chart-item {
-  flex: 1;
-  min-width: 400px;
-  background-color: #fafafa;
-  padding: 20px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.chart-item:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px);
-}
-
-/* 优化按钮动画 */
-button {
-  transition: all 0.3s ease;
-}
-
-button:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* 优化空状态样式 */
-.empty-message {
-  text-align: center;
-  padding: 60px 20px;
-  color: #999;
-  font-size: 16px;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-}
-
-/* 添加加载状态样式 */
-.loading {
-  text-align: center;
-  padding: 40px;
-  color: #666;
-}
-
-/* 优化错误和成功消息样式 */
-.error-message,
-.success-message {
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  margin-top: 12px;
-  transition: all 0.3s ease;
-  animation: fadeIn 0.3s ease-in;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 优化响应式设计 */
-@media (max-width: 768px) {
-  .home-container {
-    width: 95%;
-    padding: 15px;
-  }
-
-  .form-row {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .stats-summary {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .charts-container {
-    flex-direction: column;
-  }
-
-  .chart-item {
-    min-width: auto;
-  }
-
-  .account-info {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .account-amount {
-    margin-left: 0;
-  }
-}
-
-/* 优化账单列表标题 */
-.accounts-container h3 {
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: 600;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-/* 优化编辑和删除按钮样式 */
-.edit-btn,
-.delete-btn {
-  padding: 6px 10px;
-  background-color: transparent;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-left: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.edit-btn:hover {
-  background-color: #e6f7ff;
-  color: #1890ff;
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(24, 144, 255, 0.2);
-}
-
-.delete-btn:hover {
-  background-color: #fff1f0;
-  color: #ff4d4f;
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(255, 77, 79, 0.2);
-}
-
-/* 优化统计摘要样式 */
-.stat-value {
-  display: block;
-  font-size: 24px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.stat-value:hover {
-  transform: scale(1.05);
-}
-
-/* 添加卡片悬停效果 */
-.account-card {
-  background-color: white;
-  padding: 0 20px 16px;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  position: relative;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.account-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #1890ff, #52c41a);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-.account-card:hover::before {
-  transform: scaleX(1);
-}
-
-/* 优化应用标题 */
-.app-title {
-  color: #333;
-  font-size: 28px;
-  font-weight: 600;
-  margin: 0;
-  transition: all 0.3s ease;
-}
-
-.app-title:hover {
-  color: #1890ff;
-  transform: scale(1.02);
-}
-
-/* 统计容器 */
-.statistics-container {
-  background-color: white;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-}
-
-.statistics-container h3 {
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: 600;
-  text-align: center;
-}
-
-/* 统计摘要 */
-.stats-summary {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #e8e8e8;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 0 20px;
-}
-
-.stat-label {
-  display: block;
-  color: #666;
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-.stat-value {
-  display: block;
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.stat-value.income {
-  color: #73d13d;
-}
-
-.stat-value.expense {
-  color: #ffa940;
-}
-
-.stat-value.balance {
-  color: #1890ff;
-}
-
-/* 图表容器 */
-.charts-container {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.chart-item {
-  flex: 1;
-  min-width: 400px;
-  background-color: #fafafa;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.chart-item h4 {
-  color: #333;
-  margin-bottom: 15px;
-  font-size: 16px;
-  font-weight: 500;
-  text-align: center;
-}
-
-.chart {
-  height: 300px;
-  width: 100%;
-}
-
-/* 账单列表标题 */
-.accounts-container h3 {
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: 600;
-  text-align: center;
-}
-
-/* 顶部导航 */
-.top-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-  padding: 20px 25px;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.empty-space {
-  flex: 1;
-}
-
-.app-title {
-  color: #333;
-  font-size: 28px;
-  font-weight: 600;
-  margin: 0;
-  text-align: center;
-  flex: 2;
-}
-
-.nav-buttons {
-  display: flex;
-  gap: 16px;
-  flex: 1;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.nav-buttons.left {
-  justify-content: flex-start;
-}
-
-/* 统一按钮样式 */
-.stats-btn,
-.add-btn,
-.logout-btn {
-  padding: 12px 24px;
-  height: 44px;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  display: inline-flex;
-  align-items: center;
+  gap: 15px;
+  margin-top: 25px;
   justify-content: center;
-  white-space: nowrap;
-  min-width: 120px;
-  margin: 0;
 }
 
-.stats-btn:hover,
-.add-btn:hover,
-.logout-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* 统计按钮样式 */
-.stats-btn {
+/* 提交按钮 */
+.submit-btn {
   background-color: #52c41a;
   color: white;
 }
 
-.stats-btn:hover {
+.submit-btn:hover {
   background-color: #73d13d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(82, 196, 26, 0.2);
 }
 
-/* 退出登录按钮样式 */
-.logout-btn {
-  background-color: #ff4d4f;
-  color: white;
+/* 取消按钮 */
+.cancel-btn {
+  background-color: #f0f0f0;
+  color: #666;
+  border: 1px solid #d9d9d9;
 }
 
-.logout-btn:hover {
-  background-color: #ff7875;
-}
-
-/* 添加账单按钮样式 */
-.add-btn {
-  background-color: #1890ff;
-  color: white;
-}
-
-.add-btn:hover {
-  background-color: #40a9ff;
+.cancel-btn:hover {
+  background-color: #e8e8e8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* 模态对话框样式 */
@@ -1121,7 +1561,7 @@ button:active {
 }
 
 .modal-body {
-  padding: 25px;
+  padding: 30px;
 }
 
 /* 动画效果 */
@@ -1145,386 +1585,207 @@ button:active {
   }
 }
 
-/* 添加账单表单样式 */
-.modal-body .form-row {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  transition: all 0.3s ease;
-}
-
-.modal-body .form-group label {
-  display: block;
-  margin-bottom: 8px;
-  color: #666;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.modal-body .form-group input,
-.modal-body .form-group select,
-.modal-body .form-group textarea {
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #d9d9d9;
-  border-radius: 8px;
-  font-size: 14px;
-  color: #333;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-}
-
-.modal-body .form-group input:focus,
-.modal-body .form-group select:focus,
-.modal-body .form-group textarea:focus {
-  outline: none;
-  border-color: #1890ff;
-  box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.1);
-  transform: translateY(-1px);
-}
-
-.modal-body .form-buttons {
-  display: flex;
-  gap: 12px;
-  margin-top: 20px;
-  justify-content: center;
-}
-
-.modal-body .submit-btn,
-.modal-body .cancel-btn {
-  padding: 10px 24px;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.modal-body .submit-btn {
-  background-color: #52c41a;
-  color: white;
-}
-
-.modal-body .submit-btn:hover {
-  background-color: #73d13d;
-}
-
-.modal-body .cancel-btn {
-  background-color: #f0f0f0;
-  color: #666;
-  border: 1px solid #d9d9d9;
-}
-
-.modal-body .cancel-btn:hover {
-  background-color: #e8e8e8;
-}
-
-.add-form h3 {
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.form-row {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-.form-group {
-  flex: 1;
-  min-width: 200px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  color: #666;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #d9d9d9;
-  border-radius: 8px;
-  font-size: 14px;
-  color: #333;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #1890ff;
-  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #bfbfbf;
-}
-
-.form-buttons {
-  display: flex;
-  gap: 12px;
-  margin-top: 20px;
-  justify-content: center;
-}
-
-.submit-btn {
-  padding: 10px 24px;
-  background-color: #52c41a;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.submit-btn:hover {
-  background-color: #73d13d;
-}
-
-.cancel-btn {
-  padding: 10px 24px;
-  background-color: #f0f0f0;
-  color: #666;
-  border: 1px solid #d9d9d9;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.cancel-btn:hover {
-  background-color: #e8e8e8;
-}
-
-/* 账单容器 */
-.accounts-container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-/* 账单卡片 */
-.account-card {
-  background-color: white;
-  padding: 0 20px 16px;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  position: relative;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.account-card:hover {
-  box-shadow: none;
-  transform: none;
-}
-
-/* 收入卡片 */
-.income-card {
-  background-color: white;
-}
-
-/* 支出卡片 */
-.expense-card {
-  background-color: white;
-}
-
-.account-time {
-  color: #333;
-  font-size: 14px;
-  padding: 12px 20px;
-  border-bottom: 1px solid #e0e0e0;
-  text-align: left;
-  margin: 0 -20px;
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-
-/* 收入卡片时间行 */
-.income-card .account-time {
-  background-color: #e6f7ed;
-}
-
-/* 支出卡片时间行 */
-.expense-card .account-time {
-  background-color: #fde2e2;
-}
-
-.account-content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  position: relative;
-  flex: 1;
-  padding-top: 16px;
-}
-
-.account-title {
-  color: #333;
-  font-size: 16px;
-  font-weight: 500;
-  flex: 1;
-  text-align: left;
-  max-width: calc(100% - 250px); /* 减小最大宽度，给右侧区域更多空间 */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.account-info {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  white-space: nowrap;
-  min-width: 230px; /* 增加最小宽度 */
-  justify-content: flex-end;
-}
-
-.account-type {
-  width: 60px; /* 设置固定宽度，确保所有类型标签对齐 */
-  text-align: center;
-  padding: 4px 12px;
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 500;
-  color: white;
-  background-color: #ffa940;
-}
-
-.account-amount {
-  min-width: 100px; /* 设置金额的最小宽度 */
-  text-align: right;
-  font-weight: 600;
-}
-
-.account-type.expense {
-  background-color: #ffa940;
-}
-
-.account-type.income {
-  background-color: #73d13d;
-}
-
-.account-amount {
-  color: #333;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.delete-btn {
-  padding: 4px 8px;
-  background-color: transparent;
-  color: #ff4d4f;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-left: 12px;
-}
-
-.delete-btn:hover {
-  background-color: #f5f5f5;
-  color: #ff4d4f;
-  transform: scale(1.1); /* 悬停时稍微放大，增强交互感 */
-}
-
-.edit-btn {
-  padding: 4px 8px;
-  background-color: transparent;
-  color: #1890ff;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.edit-btn:hover {
-  background-color: #f0f5ff;
-  transform: scale(1.1); /* 悬停时稍微放大，增强交互感 */
-}
-
-/* 空状态 */
-.empty-message {
-  text-align: center;
-  padding: 60px 20px;
-  color: #999;
-  font-size: 16px;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
 /* 消息提示 */
+.error-message,
+.success-message {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 12px;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.3s ease-in;
+}
+
 .error-message {
   color: #ff4d4f;
-  margin-top: 12px;
-  padding: 10px 16px;
   background-color: #fff1f0;
-  border-radius: 8px;
-  font-size: 14px;
 }
 
 .success-message {
   color: #52c41a;
-  margin-top: 12px;
-  padding: 10px 16px;
   background-color: #f6ffed;
-  border-radius: 8px;
+}
+
+/* 固定头部样式 */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+  z-index: 1000;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.header-content {
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.logo-section {
+  position: absolute;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-logo {
+  height: 36px;
+  max-height: 100%;
+  width: auto;
+  cursor: pointer;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.app-logo:hover {
+  transform: scale(1.05);
+}
+
+.site-title {
+  text-align: center;
+  margin: 0;
+  flex: 1;
+  max-width: 50%;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.auth-section {
+  position: absolute;
+  right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.auth-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.login-link,
+.register-link {
+  text-decoration: none;
+  color: white;
   font-size: 14px;
+  transition: all 0.3s ease;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.login-link:hover,
+.register-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 8px;
+}
+
+.user-info {
+  font-size: 14px;
+  color: white;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 头部退出登录按钮 */
+.logout-btn-header {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logout-btn-header:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: white;
+  text-decoration: none;
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-  .home-container {
-    padding: 15px;
+  /* 搜索框 */
+  .search-box {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .top-nav {
+  .search-input {
+    min-width: auto;
+  }
+
+  /* 分页 */
+  .pagination {
     flex-direction: column;
     gap: 15px;
     align-items: stretch;
   }
 
-  .nav-buttons {
-    justify-content: space-between;
+  .pagination-info {
+    justify-content: center;
   }
 
-  .nav-buttons button {
-    flex: 1;
+  .pagination-controls {
+    justify-content: center;
   }
 
+  .pagination-nav {
+    justify-content: center;
+  }
+
+  .page-size-selector {
+    justify-content: center;
+  }
+
+  /* 主容器 */
+  .home-container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  /* 表单 */
   .form-row {
     flex-direction: column;
     gap: 15px;
   }
 
+  /* 账单卡片 */
   .account-info {
     flex-direction: column;
     align-items: flex-start;
@@ -1536,16 +1797,36 @@ button:active {
   }
 }
 
-@media (max-width: 480px) {
-  .app-title {
-    font-size: 24px;
+@media (max-width: 576px) {
+  /* 分页 */
+  .pagination-nav {
+    gap: 4px;
+    padding: 6px;
   }
 
-  .nav-buttons {
+  .pagination-btn {
+    padding: 6px 10px;
+    min-width: 50px;
+    font-size: 13px;
+  }
+
+  .page-input {
+    width: 60px;
+    padding: 6px 10px;
+  }
+
+  .jump-button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .pagination-info {
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    gap: 8px;
   }
 
+  /* 账单卡片 */
   .account-card {
     padding: 16px;
   }
@@ -1557,5 +1838,30 @@ button:active {
   .account-amount {
     font-size: 16px;
   }
+}
+
+/* 页面底部口号样式 */
+.page-slogan {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  height: 60px;
+  margin: 20px 0 0 0;
+  padding: 0;
+  text-align: center;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.slogan-text {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1.5px;
+  line-height: 1;
+  padding: 0;
 }
 </style>

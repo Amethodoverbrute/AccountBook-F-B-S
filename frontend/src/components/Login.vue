@@ -45,7 +45,7 @@ const handleLogin = async () => {
     try {
       const response = await authService.login(username.value, password.value);
       if (response.code === "0000") {
-        router.push("/");
+        router.push("/dashboard");
       } else {
         error.value = response.msg || "登录失败";
       }

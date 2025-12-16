@@ -1,3 +1,9 @@
+/**
+ * 认证路由模块
+ * 功能：处理用户登录、注册、退出登录和获取当前用户信息等认证相关操作
+ * 作者：系统自动生成
+ * 时间：2025-04-02
+ */
 const express = require("express");
 const router = express.Router();
 

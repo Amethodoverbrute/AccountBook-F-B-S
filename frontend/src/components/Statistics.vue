@@ -9,9 +9,20 @@
         {{ userInfo ? `${userInfo.username}的账单统计` : "账单统计" }}
       </h1>
       <div class="nav-buttons">
-        <button @click="handleLogout" class="logout-btn">退出登录</button>
+        <button @click="showLogoutConfirm = true" class="logout-btn">
+          退出登录
+        </button>
       </div>
     </div>
+
+    <!-- 退出登录确认对话框 -->
+    <ConfirmDialog
+      v-model:visible="showLogoutConfirm"
+      title="退出登录"
+      message="确定要退出登录吗？"
+      @confirm="handleLogoutConfirm"
+      @cancel="showLogoutConfirm = false"
+    />
 
     <!-- 统计图表 -->
     <div class="stats-wrapper">
@@ -61,40 +72,59 @@
 </template>
 
 <script setup>
+/**
+ * 账单统计页面组件
+ * 功能：展示用户的账单统计数据，包括收支趋势图和分布饼图
+ */
 import { ref, onMounted, onUnmounted, watch } from "vue";
 import { useRouter } from "vue-router";
 import { authService, statisticsService } from "../services/auth";
 import * as echarts from "echarts";
+import ConfirmDialog from "./ConfirmDialog.vue";
 
 const router = useRouter();
 
-// 用户信息
+// 用户信息 - 当前登录用户的基本信息
 const userInfo = ref(null);
 
-// 统计数据
+// 统计数据 - 包含总收入、总支出、余额、分类数据和日期数据
 const statistics = ref(null);
-const isStatsLoading = ref(false);
+const isStatsLoading = ref(false); // 统计数据加载状态
 
-// 图表实例
-let chartInstance = null;
-let pieChartInstance = null;
+// 图表实例 - 用于管理和操作ECharts图表
+let chartInstance = null; // 趋势图实例
+let pieChartInstance = null; // 饼图实例
 
-// 图表容器引用
-const trendChart = ref(null);
-const pieChart = ref(null);
+// 图表容器引用 - 用于挂载ECharts图表
+const trendChart = ref(null); // 趋势图容器
+const pieChart = ref(null); // 饼图容器
 
-// 返回首页
+// 退出登录确认对话框状态
+const showLogoutConfirm = ref(false);
+
+/**
+ * 返回首页
+ * 功能：点击返回按钮时跳转到首页
+ */
 const goBack = () => {
-  router.push("/");
+  router.push("/dashboard");
 };
 
-// 退出登录
-const handleLogout = () => {
+/**
+ * 退出登录
+ * 功能：清除用户登录状态并跳转到登录页
+ */
+const handleLogoutConfirm = () => {
+  showLogoutConfirm.value = false;
   authService.logout();
   router.push("/login");
 };
 
-// 获取当前登录用户信息
+/**
+ * 获取当前登录用户信息
+ * 功能：从服务器获取当前登录用户的基本信息
+ * 处理：未授权时跳转到登录页
+ */
 const fetchUserInfo = async () => {
   try {
     const response = await authService.getCurrentUser();
@@ -111,7 +141,11 @@ const fetchUserInfo = async () => {
   }
 };
 
-// 获取统计数据
+/**
+ * 获取统计数据
+ * 功能：从服务器获取用户的账单统计数据
+ * 处理：获取成功后更新图表数据
+ */
 const fetchStatistics = async () => {
   try {
     isStatsLoading.value = true;
@@ -128,7 +162,10 @@ const fetchStatistics = async () => {
   }
 };
 
-// 初始化趋势图
+/**
+ * 初始化趋势图
+ * 功能：创建收支趋势图的ECharts实例并配置基本选项
+ */
 const initTrendChart = () => {
   if (!trendChart.value) return;
 
@@ -221,7 +258,10 @@ const initTrendChart = () => {
   chartInstance.setOption(option);
 };
 
-// 初始化饼图
+/**
+ * 初始化饼图
+ * 功能：创建收支分布饼图的ECharts实例并配置基本选项
+ */
 const initPieChart = () => {
   if (!pieChart.value) return;
 
@@ -259,11 +299,14 @@ const initPieChart = () => {
   pieChartInstance.setOption(option);
 };
 
-// 更新图表数据
+/**
+ * 更新图表数据
+ * 功能：将获取到的统计数据更新到ECharts图表中
+ */
 const updateCharts = () => {
   if (!statistics.value) return;
 
-  // 更新趋势图
+  // 更新趋势图 - 设置日期、收入和支出数据
   if (chartInstance) {
     const dates = statistics.value.dateData.map((item) => item.date);
     const incomes = statistics.value.dateData.map((item) => item.income);
@@ -286,7 +329,7 @@ const updateCharts = () => {
     });
   }
 
-  // 更新饼图
+  // 更新饼图 - 设置收入和支出的分布数据
   if (pieChartInstance) {
     const pieData = [
       {
@@ -315,15 +358,23 @@ const updateCharts = () => {
   }
 };
 
-// 窗口大小变化时调整图表大小
+/**
+ * 窗口大小变化时调整图表大小
+ * 功能：确保图表在窗口大小变化时能正确显示
+ */
 const handleResize = () => {
   chartInstance?.resize();
   pieChartInstance?.resize();
 };
 
-// 页面加载时获取用户信息和统计数据
+/**
+ * 组件挂载生命周期钩子
+ * 功能：初始化数据和图表，设置事件监听
+ */
 onMounted(async () => {
+  // 获取用户信息
   await fetchUserInfo();
+  // 获取统计数据
   fetchStatistics();
 
   // 初始化图表
@@ -334,10 +385,15 @@ onMounted(async () => {
   window.addEventListener("resize", handleResize);
 });
 
-// 组件卸载时销毁图表实例
+/**
+ * 组件卸载生命周期钩子
+ * 功能：销毁图表实例，清理事件监听
+ */
 onUnmounted(() => {
+  // 销毁图表实例，释放资源
   chartInstance?.dispose();
   pieChartInstance?.dispose();
+  // 移除事件监听
   window.removeEventListener("resize", handleResize);
 });
 </script>
@@ -361,12 +417,13 @@ onUnmounted(() => {
   align-items: center;
   margin-bottom: 30px;
   padding: 20px 25px;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
   transition: all 0.3s ease;
   width: 100%;
   box-sizing: border-box;
+  backdrop-filter: blur(10px);
 }
 
 .nav-buttons {
@@ -382,12 +439,13 @@ onUnmounted(() => {
 }
 
 .app-title {
-  color: #333;
+  color: white;
   font-size: 28px;
   font-weight: 600;
   margin: 0;
   flex: 2;
   text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* 统一按钮样式 */

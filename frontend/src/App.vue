@@ -10,10 +10,10 @@
 
 <style scoped>
 #app {
-  max-width: 2100px;
-  width: 1080px;
+  max-width: 100%;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
 }
 </style>

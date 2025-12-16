@@ -1,6 +1,17 @@
+/**
+ * Swagger配置文件
+ * 功能：定义API文档的基本信息、服务器配置、安全方案和数据模型
+ * 作者：系统自动生成
+ * 时间：2025-04-02
+ * 
+ * 配置说明：
+ * - 使用swagger-jsdoc库生成OpenAPI 3.0规范的API文档
+ * - 自动扫描指定目录下的路由文件，提取Swagger注释生成文档
+ * - 定义了所有API响应的数据模型和安全认证方式
+ */
 const swaggerJSDoc = require('swagger-jsdoc');
 
-// Swagger配置选项
+// Swagger配置选项 - 定义API文档的基本信息和规范
 const options = {
   definition: {
     openapi: '3.0.0',

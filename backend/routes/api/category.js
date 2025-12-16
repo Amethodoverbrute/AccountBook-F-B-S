@@ -1,3 +1,9 @@
+/**
+ * 分类管理路由模块
+ * 功能：处理分类的增删改查等管理操作
+ * 作者：系统自动生成
+ * 时间：2025-04-02
+ */
 const express = require("express");
 const router = express.Router();
 const CategoryModel = require("../../models/categoryModel");

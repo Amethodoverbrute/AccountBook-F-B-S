@@ -1,6 +1,6 @@
 # 记账本应用
 
-一个基于前后端分离架构的个人记账本应用，支持用户管理、账单记录管理等功能，具有现代化的技术栈和清晰的代码结构。
+一个基于前后端分离架构的个人记账本应用，支持用户管理、账单记录管理、分类管理和统计分析等功能，具有现代化的技术栈和清晰的代码结构。
 
 ## 项目架构
 
@@ -8,6 +8,7 @@
 
 - **前端**：位于 `frontend/` 目录，负责用户界面和交互
 - **后端**：位于 `backend/` 目录，负责 API 服务和数据管理
+- **通信方式**：通过 RESTful API 进行数据交互
 
 ## 技术栈
 
@@ -18,8 +19,8 @@
 | Vue.js     | 3.x  | 前端框架    |
 | Vite       | 7.x  | 构建工具    |
 | Vue Router | 4.x  | 路由管理    |
-| Pinia      | 3.x  | 状态管理    |
 | Axios      | 1.x  | HTTP 客户端 |
+| ECharts    | 6.x  | 图表库      |
 
 ### 后端
 
@@ -33,81 +34,165 @@
 | CORS       | 2.x  | 跨域支持    |
 | Moment.js  | 2.x  | 时间处理    |
 | Nodemon    | 3.x  | 开发热重载  |
+| Winston    | -    | 日志管理    |
+| Swagger    | 6.x  | API 文档    |
 
 ## 项目特点
 
 ### 技术特点
 
 - **前后端分离架构**：前端和后端完全分离，职责清晰，便于团队协作和维护
-- **现代化前端技术栈**：采用 Vue 3 + Vite + Vue Router + Pinia + Axios，具有良好的开发体验和性能
+- **现代化前端技术栈**：采用 Vue 3 + Vite + Vue Router + Axios，具有良好的开发体验和性能
 - **RESTful API 设计**：后端 API 遵循 RESTful 设计规范，便于前端调用和扩展
 - **JWT 认证机制**：实现了基于 JWT 的安全身份验证，支持 token 过期验证
 - **用户数据隔离**：每个用户只能访问自己的账单数据，确保数据安全性
 - **响应式设计**：前端页面采用响应式布局，适配不同设备的访问
 - **模块化代码结构**：代码组织清晰，便于扩展和维护
+- **完整的日志记录**：使用 Winston 实现了全面的日志记录
+- **API 文档自动生成**：使用 Swagger 自动生成 API 文档
 
 ### 功能特点
 
 - **用户管理**：支持用户注册、登录和退出登录功能
-- **账单管理**：支持账单的添加、查询、修改和删除功能
+- **账单管理**：支持账单的添加、查询、编辑和删除功能
 - **账单分类**：支持收入和支出两种账单类型
 - **动态样式**：根据账单类型动态显示不同的颜色和样式
 - **实时数据更新**：添加账单后实时更新账单列表
-
-## 项目优点与不足
-
-### 优点
-
-1. **功能完整**：涵盖了用户管理和账单管理的基本功能
-2. **代码结构清晰**：采用模块化设计，易于理解和维护
-3. **技术栈现代化**：使用了 Vue 3、Vite 等最新技术，具有良好的开发体验和性能
-4. **响应式设计**：适配不同设备，提升用户体验
-5. **数据安全性高**：实现了用户数据隔离和 JWT 认证
-6. **易于部署**：前后端分离架构，便于分别部署和扩展
-
-### 不足与优化方向
-
-1. **安全性待提升**：密码加密方式使用 MD5，安全性较低，建议使用 bcrypt 等更安全的加密方式
-2. **测试覆盖不足**：缺少单元测试和集成测试
-3. **状态管理未充分利用**：前端状态管理使用了 Pinia，但目前代码中未充分利用
-4. **错误处理不统一**：缺少错误处理的统一管理机制
-5. **UI 设计待优化**：可以进一步优化页面设计，提升用户体验
-6. **性能优化**：可以优化数据库查询和前端渲染性能
-7. **功能扩展**：
-   - 账单搜索和筛选功能
-   - 账单导出功能
-   - 分类管理功能完善（允许用户自定义分类）
-   - 月/年统计视图切换
-   - 更多图表类型支持（如柱状图、折线图多维度展示）
-8. **移动端适配优化**：进一步优化移动端的用户体验
-9. **用户体验优化**：
-   - 表单验证优化
-   - 加载状态和错误提示优化
-   - 操作确认机制完善
+- **统计分析**：提供收支趋势图和分布饼图等统计功能
+- **自定义确认对话框**：替代原生confirm()，提供美观一致的确认提示
+- **优化的页面布局**：合理的间距和边距，提升用户体验
+- **响应式设计**：适配不同设备的访问
 
 ## 功能模块
 
-### 前端功能
+### 前端功能模块
 
-- 用户登录/注册页面
-- 首页账单列表展示
-- 账单添加、查询、编辑、删除功能
-- 账单统计功能（包括收支趋势图和分布饼图）
-- 路由守卫，保护需要登录的页面
-- 动态样式显示（根据账单类型）
-- 模态对话框形式的账单编辑和添加界面
-- 分类下拉选择，根据账单类型动态过滤
+| 模块名称 | 主要功能 | 核心组件 |
+| ------- | ------- | ------- |
+| 用户认证 | 登录、注册、退出 | Login.vue, Register.vue |
+| 账单管理 | 添加、编辑、删除、查询账单 | Home.vue |
+| 统计分析 | 收支趋势图、分布饼图 | Statistics.vue |
+| 确认对话框 | 操作确认提示 | ConfirmDialog.vue |
+| 首页 | 账单列表展示 | Home.vue |
+| 分类管理 | 分类选择和过滤 | Home.vue（分类下拉框） |
 
-### 后端功能
+### 后端功能模块
 
-- 用户认证 API（登录/注册）
-- 账单管理 API（增删改查）
-- 账单统计 API
-- 分类管理 API
-- JWT 令牌验证中间件
-- 数据库连接和模型定义
-- 用户数据隔离机制
-- 默认分类自动创建功能
+| 模块名称 | 主要功能 | 核心文件 |
+| ------- | ------- | ------- |
+| 用户认证 | 登录、注册、获取用户信息 | routes/api/auth.js |
+| 账单管理 | 账单的增删改查 | routes/api/account.js |
+| 分类管理 | 分类的增删改查 | routes/api/category.js |
+| 统计分析 | 账单统计数据生成 | routes/api/statistics.js |
+| 中间件 | JWT 验证、登录检查 | middlewares/checkTokenMiddleware.js |
+| 数据模型 | 账单、用户、分类模型 | models/ |
+
+## 项目结构
+
+### 前端结构
+
+```
+frontend/
+├── src/
+│   ├── components/        # Vue 组件
+│   │   ├── Home.vue          # 首页组件（账单管理）
+│   │   ├── Login.vue         # 登录组件
+│   │   ├── Register.vue      # 注册组件
+│   │   ├── Statistics.vue    # 统计页面组件
+│   │   ├── ConfirmDialog.vue # 自定义确认对话框组件
+│   │   └── LandingPage.vue   # 首页引导组件
+│   ├── router/           # 路由配置
+│   │   └── index.js      # 路由定义
+│   ├── services/         # 服务层
+│   │   └── auth.js       # 认证、账单和统计服务
+│   ├── assets/           # 静态资源
+│   ├── style.css         # 全局样式
+│   ├── App.vue           # 根组件
+│   └── main.js           # 入口文件
+├── public/               # 静态资源
+├── index.html            # HTML 模板
+├── package.json          # 项目配置
+└── vite.config.js        # Vite 配置
+```
+
+### 后端结构
+
+```
+backend/
+├── bin/
+│   └── www               # 应用入口
+├── config/               # 配置文件
+├── db/                   # 数据库连接
+├── middlewares/          # 中间件
+│   ├── checkLoginMiddleware.js # 登录检查
+│   └── checkTokenMiddleware.js # Token 验证
+├── models/               # 数据模型
+│   ├── accountModel.js   # 账单模型
+│   ├── categoryModel.js  # 分类模型
+│   └── userModel.js      # 用户模型
+├── routes/               # 路由
+│   ├── api/              # API 路由
+│   │   ├── account.js    # 账单 API
+│   │   ├── auth.js       # 认证 API
+│   │   ├── category.js   # 分类 API
+│   │   └── statistics.js # 统计 API
+│   └── web/              # Web 路由
+├── app.js                # 应用配置
+└── package.json          # 项目配置
+```
+
+## API 接口说明
+
+### 认证接口
+
+| 方法 | 路由 | 功能 | 认证要求 |
+| ---- | ---- | ---- | -------- |
+| POST | /api/auth/login | 用户登录 | 不需要 |
+| POST | /api/auth/register | 用户注册 | 不需要 |
+| GET | /api/auth/me | 获取当前登录用户信息 | 需要 JWT |
+| POST | /api/auth/logout | 用户退出登录 | 需要 JWT |
+
+### 账单接口
+
+| 方法 | 路由 | 功能 | 认证要求 |
+| ---- | ---- | ---- | -------- |
+| GET | /api/account | 获取账单列表（带用户过滤） | 需要 JWT |
+| GET | /api/account/:id | 获取单个账单（带用户过滤） | 需要 JWT |
+| POST | /api/account | 添加账单 | 需要 JWT |
+| PATCH | /api/account/:id | 更新账单（带用户过滤） | 需要 JWT |
+| DELETE | /api/account/:id | 删除账单（带用户过滤） | 需要 JWT |
+
+### 分类接口
+
+| 方法 | 路由 | 功能 | 认证要求 |
+| ---- | ---- | ---- | -------- |
+| GET | /api/categories | 获取分类列表（带用户过滤） | 需要 JWT |
+| POST | /api/categories | 添加分类 | 需要 JWT |
+| PATCH | /api/categories/:id | 更新分类（带用户过滤） | 需要 JWT |
+| DELETE | /api/categories/:id | 删除分类（带用户过滤） | 需要 JWT |
+
+### 统计接口
+
+| 方法 | 路由 | 功能 | 认证要求 |
+| ---- | ---- | ---- | -------- |
+| GET | /api/statistics | 获取账单统计数据（总收入、总支出、余额、收支趋势等） | 需要 JWT |
+
+## API 文档
+
+项目使用 Swagger 自动生成 API 文档，便于开发者查看和测试 API。
+
+### 访问地址
+
+```
+http://localhost:3000/api-docs
+```
+
+### 功能特点
+
+- 自动生成 API 文档
+- 提供交互式 API 测试界面
+- 支持 OpenAPI 规范
+- 展示请求参数和响应格式
 
 ## 启动步骤
 
@@ -163,84 +248,11 @@ npm run dev
 http://localhost:3000
 ```
 
-## 项目结构
-
-### 前端结构
+5. API 文档地址
 
 ```
-frontend/
-├── src/
-│   ├── components/        # Vue 组件
-│   │   ├── Home.vue      # 首页组件
-│   │   ├── Login.vue     # 登录组件
-│   │   ├── Register.vue  # 注册组件
-│   │   ├── Statistics.vue # 统计页面组件
-│   │   └── HelloWorld.vue # 示例组件
-│   ├── router/           # 路由配置
-│   │   └── index.js      # 路由定义
-│   ├── services/         # 服务层
-│   │   └── auth.js       # 认证、账单和统计服务
-│   ├── App.vue           # 根组件
-│   └── main.js           # 入口文件
-├── public/               # 静态资源
-├── index.html            # HTML 模板
-├── package.json          # 项目配置
-└── vite.config.js        # Vite 配置
+http://localhost:3000/api-docs
 ```
-
-### 后端结构
-
-```
-backend/
-├── bin/
-│   └── www               # 应用入口
-├── config/               # 配置文件
-├── db/                   # 数据库连接
-├── middlewares/          # 中间件
-│   ├── checkLoginMiddleware.js # 登录检查
-│   └── checkTokenMiddleware.js # Token 验证
-├── models/               # 数据模型
-│   ├── accountModel.js   # 账单模型
-│   ├── categoryModel.js  # 分类模型
-│   └── userModel.js      # 用户模型
-├── routes/               # 路由
-│   ├── api/              # API 路由
-│   │   ├── account.js    # 账单 API
-│   │   ├── auth.js       # 认证 API
-│   │   ├── category.js   # 分类 API
-│   │   └── statistics.js # 统计 API
-│   └── web/              # Web 路由
-├── app.js                # 应用配置
-└── package.json          # 项目配置
-```
-
-## API 接口说明
-
-### 认证接口
-
-- `POST /api/auth/login` - 用户登录
-- `POST /api/auth/register` - 用户注册
-- `GET /api/auth/me` - 获取当前登录用户信息
-- `POST /api/auth/logout` - 用户退出登录
-
-### 账单接口
-
-- `GET /api/account` - 获取账单列表（带用户过滤）
-- `GET /api/account/:id` - 获取单个账单（带用户过滤）
-- `POST /api/account` - 添加账单
-- `PATCH /api/account/:id` - 更新账单（带用户过滤）
-- `DELETE /api/account/:id` - 删除账单（带用户过滤）
-
-### 分类接口
-
-- `GET /api/categories` - 获取分类列表（带用户过滤）
-- `POST /api/categories` - 添加分类
-- `PATCH /api/categories/:id` - 更新分类（带用户过滤）
-- `DELETE /api/categories/:id` - 删除分类（带用户过滤）
-
-### 统计接口
-
-- `GET /api/statistics` - 获取账单统计数据（总收入、总支出、余额、收支趋势等）
 
 ## 开发说明
 
@@ -250,6 +262,7 @@ backend/
 4. 所有 API 请求都需要 JWT 令牌验证
 5. 数据库连接配置在 `backend/config/config.js` 文件中
 6. JWT 密钥配置在 `backend/config/config.js` 文件中
+7. Swagger 文档配置在 `backend/config/swagger.js` 文件中
 
 ## 注意事项
 
@@ -257,6 +270,7 @@ backend/
 - 生产环境需要配置环境变量和数据库连接
 - 确保 CORS 配置正确，允许前端访问后端 API
 - 密码加密使用的是 MD5，建议在生产环境中使用更安全的加密方式
+- API 文档会自动生成，无需手动维护
 
 ## 许可证
 

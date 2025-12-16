@@ -1,3 +1,9 @@
+/**
+ * 账单管理路由模块
+ * 功能：处理账单的增删改查等核心业务逻辑
+ * 作者：系统自动生成
+ * 时间：2025-04-02
+ */
 var express = require("express");
 var router = express.Router();
 const jwt = require("jsonwebtoken");
@@ -113,6 +119,28 @@ router.get(
  *     tags: [账单管理]
  *     security:
  *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: search
+ *         required: false
+ *         schema:
+ *           type: string
+ *         description: 搜索关键字，用于模糊匹配账单标题
+ *       - in: query
+ *         name: page
+ *         required: false
+ *         schema:
+ *           type: integer
+ *           minimum: 1
+ *         description: 当前页码，默认1
+ *       - in: query
+ *         name: pageSize
+ *         required: false
+ *         schema:
+ *           type: integer
+ *           minimum: 5
+ *           maximum: 50
+ *         description: 每页显示条数，默认10
  *     responses:
  *       200:
  *         description: 获取成功
@@ -128,30 +156,78 @@ router.get(
  *                   type: string
  *                   example: '获取数据成功'
  *                 data: 
- *                   type: array
- *                   items:
- *                     $ref: '#/components/schemas/Account'
+ *                   type: object
+ *                   properties:
+ *                     accounts:
+ *                       type: array
+ *                       items:
+ *                         $ref: '#/components/schemas/Account'
+ *                     pagination:
+ *                       type: object
+ *                       properties:
+ *                         page:
+ *                           type: integer
+ *                           example: 1
+ *                         pageSize:
+ *                           type: integer
+ *                           example: 10
+ *                         total:
+ *                           type: integer
+ *                           example: 100
+ *                         totalPages:
+ *                           type: integer
+ *                           example: 10
  */
 // 读取记账本列表
 router.get("/account", checkTokenMiddleware, async function (req, res, next) {
   try {
     // 获取当前用户ID
     const { userId } = req.user;
+    // 获取查询参数
+    const { search, page, pageSize } = req.query;
 
-    logger.info(`获取账单列表请求 - userId: ${userId}`);
+    logger.info(`获取账单列表请求 - userId: ${userId}, search: ${search}, page: ${page}, pageSize: ${pageSize}`);
 
-    // 从MongoDB获取记账本列表数据并按时间倒序排序（添加用户ID过滤）
-    const data = await AccountModel.find({ userId }).sort({ time: -1 });
+    // 构建查询条件
+    const query = { userId };
+    // 如果有搜索关键字，添加模糊搜索条件
+    if (search) {
+      query.title = { $regex: search, $options: 'i' }; // i选项表示大小写不敏感
+    }
 
-    logger.info(`获取账单列表成功 - userId: ${userId}, count: ${data.length}`);
+    // 分页参数处理
+    const currentPage = parseInt(page) || 1;
+    const perPage = parseInt(pageSize) || 10;
+    const skip = (currentPage - 1) * perPage;
+
+    // 获取总记录数
+    const total = await AccountModel.countDocuments(query);
+    // 计算总页数
+    const totalPages = Math.ceil(total / perPage);
+
+    // 从MongoDB获取记账本列表数据并按时间倒序排序（添加用户ID和搜索条件过滤）
+    const accounts = await AccountModel.find(query)
+      .sort({ time: -1 })
+      .skip(skip)
+      .limit(perPage);
+
+    logger.info(`获取账单列表成功 - userId: ${userId}, count: ${accounts.length}, total: ${total}, page: ${currentPage}, pageSize: ${perPage}`);
     res.json({
       code: "0000",
       msg: "获取数据成功",
-      data,
+      data: {
+        accounts,
+        pagination: {
+          page: currentPage,
+          pageSize: perPage,
+          total,
+          totalPages
+        }
+      },
     });
   } catch (err) {
     logger.error(
-      `获取账单列表失败 - userId: ${req.user?.userId || "unknown"}: ${
+      `获取账单列表失败 - userId: ${req.user?.userId || "unknown"}, search: ${req.query.search}: ${
         err.message
       }`
     );

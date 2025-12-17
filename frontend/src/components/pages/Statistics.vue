@@ -78,9 +78,9 @@
  */
 import { ref, onMounted, onUnmounted, watch } from "vue";
 import { useRouter } from "vue-router";
-import { authService, statisticsService } from "../services/auth";
+import { authService, statisticsService } from "../../services/auth";
 import * as echarts from "echarts";
-import ConfirmDialog from "./ConfirmDialog.vue";
+import ConfirmDialog from "../ui/ConfirmDialog.vue";
 
 const router = useRouter();
 

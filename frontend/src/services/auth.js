@@ -114,15 +114,21 @@ export const accountService = {
    * @param {string} search - 搜索关键字，用于模糊匹配账单标题
    * @param {number} page - 当前页码，默认1
    * @param {number} pageSize - 每页显示条数，默认10
+   * @param {Object} filters - 高级搜索筛选条件
+   * @param {string} filters.type - 账单类型：income/expense
+   * @param {string} filters.startDate - 开始日期
+   * @param {string} filters.endDate - 结束日期
+   * @param {string} filters.categoryId - 分类ID
    * @returns {Promise<Object>} 账单列表数据
    */
-  getAccounts: async (search, page = 1, pageSize = 10) => {
+  getAccounts: async (search, page = 1, pageSize = 10, filters = {}) => {
     const params = {
       search,
       page,
-      pageSize
+      pageSize,
+      ...filters
     };
-    // 移除undefined的参数
+    // 移除undefined或空字符串的参数
     Object.keys(params).forEach(key => {
       if (params[key] === undefined || params[key] === null || params[key] === '') {
         delete params[key];

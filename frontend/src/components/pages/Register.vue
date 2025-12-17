@@ -1,7 +1,7 @@
 <template>
-  <div class="login-container">
-    <h2>登录</h2>
-    <form @submit.prevent="handleLogin">
+  <div class="register-container">
+    <h2>注册</h2>
+    <form @submit.prevent="handleRegister">
       <div class="form-group">
         <label for="username">用户名</label>
         <input
@@ -20,13 +20,26 @@
           v-model="password"
           required
           placeholder="请输入密码"
+          minlength="6"
         />
       </div>
-      <button type="submit" class="login-btn">登录</button>
+      <div class="form-group">
+        <label for="confirmPassword">确认密码</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          v-model="confirmPassword"
+          required
+          placeholder="请再次输入密码"
+          minlength="6"
+        />
+      </div>
+      <button type="submit" class="register-btn">注册</button>
       <div class="error-message" v-if="error">{{ error }}</div>
+      <div class="success-message" v-if="success">{{ success }}</div>
     </form>
-    <p class="register-link">
-      还没有账号？<router-link to="/register">立即注册</router-link>
+    <p class="login-link">
+      已有账号？<router-link to="/login">立即登录</router-link>
     </p>
   </div>
 </template>
@@ -34,29 +47,47 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { authService } from "../services/auth";
+import { authService } from "../../services/auth";
 
 const username = ref("");
 const password = ref("");
+const confirmPassword = ref("");
 const error = ref("");
+const success = ref("");
 const router = useRouter();
 
-const handleLogin = async () => {
-    try {
-      const response = await authService.login(username.value, password.value);
-      if (response.code === "0000") {
-        router.push("/dashboard");
-      } else {
-        error.value = response.msg || "登录失败";
-      }
-    } catch (err) {
-      error.value = err.response?.data?.msg || "网络错误，请稍后重试";
+const handleRegister = async () => {
+  error.value = "";
+  success.value = "";
+
+  if (password.value !== confirmPassword.value) {
+    error.value = "两次输入的密码不一致";
+    return;
+  }
+
+  if (password.value.length < 6) {
+    error.value = "密码长度不能少于6位";
+    return;
+  }
+
+  try {
+    const response = await authService.register(username.value, password.value);
+    if (response.code === "0000") {
+      success.value = "注册成功，请登录";
+      setTimeout(() => {
+        router.push("/login");
+      }, 1500);
+    } else {
+      error.value = response.msg || "注册失败";
     }
-  };
+  } catch (err) {
+    error.value = err.response?.data?.msg || "网络错误，请稍后重试";
+  }
+};
 </script>
 
 <style scoped>
-.login-container {
+.register-container {
   max-width: 800px;
   width: 400px;
   margin: 100px auto;
@@ -67,7 +98,7 @@ const handleLogin = async () => {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.login-container:hover {
+.register-container:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -121,7 +152,7 @@ input::placeholder {
   font-size: 14px;
 }
 
-.login-btn {
+.register-btn {
   width: 100%;
   padding: 16px;
   background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
@@ -138,13 +169,13 @@ input::placeholder {
   box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
 }
 
-.login-btn:hover {
+.register-btn:hover {
   background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
 }
 
-.login-btn:active {
+.register-btn:active {
   transform: translateY(0);
 }
 
@@ -160,6 +191,18 @@ input::placeholder {
   animation: shake 0.5s ease-in-out;
 }
 
+.success-message {
+  color: #48bb78;
+  margin-top: 12px;
+  text-align: center;
+  font-size: 14px;
+  padding: 8px 12px;
+  background-color: #c6f6d5;
+  border-radius: 6px;
+  border-left: 4px solid #48bb78;
+  animation: fadeIn 0.3s ease;
+}
+
 @keyframes shake {
   0%,
   100% {
@@ -173,14 +216,25 @@ input::placeholder {
   }
 }
 
-.register-link {
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-link {
   text-align: center;
   margin-top: 24px;
   color: #718096;
   font-size: 14px;
 }
 
-.register-link a {
+.login-link a {
   color: #48bb78;
   text-decoration: none;
   font-weight: 600;
@@ -188,11 +242,11 @@ input::placeholder {
   position: relative;
 }
 
-.register-link a:hover {
+.login-link a:hover {
   color: #38a169;
 }
 
-.register-link a::after {
+.login-link a::after {
   content: "";
   position: absolute;
   width: 0;
@@ -203,13 +257,13 @@ input::placeholder {
   transition: width 0.3s ease;
 }
 
-.register-link a:hover::after {
+.login-link a:hover::after {
   width: 100%;
 }
 
 /* 响应式设计 */
 @media (max-width: 480px) {
-  .login-container {
+  .register-container {
     margin: 50px 20px;
     padding: 30px 20px;
   }
@@ -218,7 +272,7 @@ input::placeholder {
     font-size: 24px;
   }
 
-  .login-btn {
+  .register-btn {
     font-size: 16px;
     padding: 14px;
   }

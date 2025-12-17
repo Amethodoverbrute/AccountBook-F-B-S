@@ -1,6 +1,6 @@
 # 记账本应用
 
-一个基于前后端分离架构的个人记账本应用，支持用户管理、账单记录管理、分类管理和统计分析等功能，具有现代化的技术栈和清晰的代码结构。
+一个基于 前后端分离架构 的个人记账本应用，支持用户管理、账单记录管理、分类管理和统计分析等功能，具有现代化的技术栈和清晰的代码结构。
 
 ## 项目架构
 
@@ -48,6 +48,8 @@
 - **用户数据隔离**：每个用户只能访问自己的账单数据，确保数据安全性
 - **响应式设计**：前端页面采用响应式布局，适配不同设备的访问
 - **模块化代码结构**：代码组织清晰，便于扩展和维护
+- **组件化设计**：==将复杂组件拆分为多个独立子组件，提高代码复用性和可维护性==
+- **性能优化**：实现了搜索建议的 debounce 优化，减少不必要的 API 请求
 - **完整的日志记录**：使用 Winston 实现了全面的日志记录
 - **API 文档自动生成**：使用 Swagger 自动生成 API 文档
 
@@ -59,33 +61,39 @@
 - **动态样式**：根据账单类型动态显示不同的颜色和样式
 - **实时数据更新**：添加账单后实时更新账单列表
 - **统计分析**：提供收支趋势图和分布饼图等统计功能
-- **自定义确认对话框**：替代原生confirm()，提供美观一致的确认提示
+- **自定义确认对话框**：替代原生 confirm()，提供美观一致的确认提示
 - **优化的页面布局**：合理的间距和边距，提升用户体验
 - **响应式设计**：适配不同设备的访问
+- **搜索优化**：实现了搜索建议的 debounce 优化，提升搜索性能
+- **组件化设计**：将复杂组件拆分为多个独立子组件，提高代码复用性和可维护性
 
 ## 功能模块
 
 ### 前端功能模块
 
-| 模块名称 | 主要功能 | 核心组件 |
-| ------- | ------- | ------- |
-| 用户认证 | 登录、注册、退出 | Login.vue, Register.vue |
-| 账单管理 | 添加、编辑、删除、查询账单 | Home.vue |
-| 统计分析 | 收支趋势图、分布饼图 | Statistics.vue |
-| 确认对话框 | 操作确认提示 | ConfirmDialog.vue |
-| 首页 | 账单列表展示 | Home.vue |
-| 分类管理 | 分类选择和过滤 | Home.vue（分类下拉框） |
+| 模块名称   | 主要功能                   | 核心组件                 |
+| ---------- | -------------------------- | ------------------------ |
+| 用户认证   | 登录、注册、退出           | Login.vue, Register.vue  |
+| 账单管理   | 添加、编辑、删除、查询账单 | Home.vue                 |
+| 统计分析   | 收支趋势图、分布饼图       | Statistics.vue           |
+| 确认对话框 | 操作确认提示               | ConfirmDialog.vue        |
+| 首页       | 账单列表展示               | Home.vue                 |
+| 分类管理   | 分类选择和过滤             | Home.vue（分类下拉框）   |
+| 头部组件   | 页面头部和用户信息展示     | HeaderComponent.vue      |
+| 搜索组件   | 账单搜索和建议             | SearchComponent.vue      |
+| 账单卡片   | 单个账单的展示和操作       | AccountCardComponent.vue |
+| 分页组件   | 账单列表分页控制           | PaginationComponent.vue  |
 
 ### 后端功能模块
 
-| 模块名称 | 主要功能 | 核心文件 |
-| ------- | ------- | ------- |
-| 用户认证 | 登录、注册、获取用户信息 | routes/api/auth.js |
-| 账单管理 | 账单的增删改查 | routes/api/account.js |
-| 分类管理 | 分类的增删改查 | routes/api/category.js |
-| 统计分析 | 账单统计数据生成 | routes/api/statistics.js |
-| 中间件 | JWT 验证、登录检查 | middlewares/checkTokenMiddleware.js |
-| 数据模型 | 账单、用户、分类模型 | models/ |
+| 模块名称 | 主要功能                 | 核心文件                            |
+| -------- | ------------------------ | ----------------------------------- |
+| 用户认证 | 登录、注册、获取用户信息 | routes/api/auth.js                  |
+| 账单管理 | 账单的增删改查           | routes/api/account.js               |
+| 分类管理 | 分类的增删改查           | routes/api/category.js              |
+| 统计分析 | 账单统计数据生成         | routes/api/statistics.js            |
+| 中间件   | JWT 验证、登录检查       | middlewares/checkTokenMiddleware.js |
+| 数据模型 | 账单、用户、分类模型     | models/                             |
 
 ## 项目结构
 
@@ -93,25 +101,44 @@
 
 ```
 frontend/
+├── .vscode/              # VS Code 配置
+│   └── extensions.json   # 推荐扩展配置
+├── public/               # 静态资源
+│   ├── images/           # 图片资源
+│   ├── logo/             # Logo 资源
+│   └── vite.svg          # Vite 默认图标
 ├── src/
+│   ├── assets/           # 静态资源
+│   │   └── vue.svg       # Vue 图标
 │   ├── components/        # Vue 组件
-│   │   ├── Home.vue          # 首页组件（账单管理）
-│   │   ├── Login.vue         # 登录组件
-│   │   ├── Register.vue      # 注册组件
-│   │   ├── Statistics.vue    # 统计页面组件
-│   │   ├── ConfirmDialog.vue # 自定义确认对话框组件
-│   │   └── LandingPage.vue   # 首页引导组件
+│   │   ├── HelloWorld.vue     # 示例组件
+│   │   ├── layout/             # 布局组件目录
+│   │   │   └── HeaderComponent.vue      # 头部组件
+│   │   ├── pages/              # 页面组件目录
+│   │   │   ├── Home.vue           # 首页组件（账单管理）
+│   │   │   ├── LandingPage.vue    # 首页引导组件
+│   │   │   ├── Login.vue          # 登录组件
+│   │   │   ├── Register.vue       # 注册组件
+│   │   │   └── Statistics.vue     # 统计页面组件
+│   │   └── ui/               # UI组件目录
+│   │       ├── AccountCardComponent.vue # 账单卡片组件
+│   │       ├── ConfirmDialog.vue        # 自定义确认对话框组件
+│   │       ├── PaginationComponent.vue  # 分页组件
+│   │       └── SearchComponent.vue      # 搜索组件
 │   ├── router/           # 路由配置
 │   │   └── index.js      # 路由定义
 │   ├── services/         # 服务层
 │   │   └── auth.js       # 认证、账单和统计服务
-│   ├── assets/           # 静态资源
-│   ├── style.css         # 全局样式
+│   ├── composables/      # 可复用逻辑函数
+│   │   └── useAccountManagement.js # 账单管理逻辑
 │   ├── App.vue           # 根组件
-│   └── main.js           # 入口文件
-├── public/               # 静态资源
+│   ├── main.js           # 入口文件
+│   └── style.css         # 全局样式
+├── .gitignore            # Git 忽略文件
 ├── index.html            # HTML 模板
+├── package-lock.json     # 依赖锁定文件
 ├── package.json          # 项目配置
+├── README.md             # 前端项目说明
 └── vite.config.js        # Vite 配置
 ```
 
@@ -122,10 +149,18 @@ backend/
 ├── bin/
 │   └── www               # 应用入口
 ├── config/               # 配置文件
+│   ├── config.js         # 主配置文件
+│   ├── logger.js         # 日志配置
+│   └── swagger.js        # Swagger 配置
 ├── db/                   # 数据库连接
+│   └── db.js             # 数据库连接配置
+├── logs/                 # 日志文件
+│   ├── combined.log      # 合并日志
+│   └── error.log         # 错误日志
 ├── middlewares/          # 中间件
 │   ├── checkLoginMiddleware.js # 登录检查
-│   └── checkTokenMiddleware.js # Token 验证
+│   ├── checkTokenMiddleware.js # Token 验证
+│   └── loggerMiddleware.js     # 日志中间件
 ├── models/               # 数据模型
 │   ├── accountModel.js   # 账单模型
 │   ├── categoryModel.js  # 分类模型
@@ -137,7 +172,11 @@ backend/
 │   │   ├── category.js   # 分类 API
 │   │   └── statistics.js # 统计 API
 │   └── web/              # Web 路由
-├── app.js                # 应用配置
+│       ├── auth.js       # Web 认证路由
+│       └── index.js      # Web 首页路由
+├── app.js                # Express应用核心配置文件，负责设置中间件、配置Swagger文档、挂载API路由和处理错误
+├── config.js             # 根目录配置文件
+├── package-lock.json     # 依赖锁定文件
 └── package.json          # 项目配置
 ```
 
@@ -145,37 +184,37 @@ backend/
 
 ### 认证接口
 
-| 方法 | 路由 | 功能 | 认证要求 |
-| ---- | ---- | ---- | -------- |
-| POST | /api/auth/login | 用户登录 | 不需要 |
-| POST | /api/auth/register | 用户注册 | 不需要 |
-| GET | /api/auth/me | 获取当前登录用户信息 | 需要 JWT |
-| POST | /api/auth/logout | 用户退出登录 | 需要 JWT |
+| 方法 | 路由               | 功能                 | 认证要求 |
+| ---- | ------------------ | -------------------- | -------- |
+| POST | /api/auth/login    | 用户登录             | 不需要   |
+| POST | /api/auth/register | 用户注册             | 不需要   |
+| GET  | /api/auth/me       | 获取当前登录用户信息 | 需要 JWT |
+| POST | /api/auth/logout   | 用户退出登录         | 需要 JWT |
 
 ### 账单接口
 
-| 方法 | 路由 | 功能 | 认证要求 |
-| ---- | ---- | ---- | -------- |
-| GET | /api/account | 获取账单列表（带用户过滤） | 需要 JWT |
-| GET | /api/account/:id | 获取单个账单（带用户过滤） | 需要 JWT |
-| POST | /api/account | 添加账单 | 需要 JWT |
-| PATCH | /api/account/:id | 更新账单（带用户过滤） | 需要 JWT |
-| DELETE | /api/account/:id | 删除账单（带用户过滤） | 需要 JWT |
+| 方法   | 路由             | 功能                       | 认证要求 |
+| ------ | ---------------- | -------------------------- | -------- |
+| GET    | /api/account     | 获取账单列表（带用户过滤） | 需要 JWT |
+| GET    | /api/account/:id | 获取单个账单（带用户过滤） | 需要 JWT |
+| POST   | /api/account     | 添加账单                   | 需要 JWT |
+| PATCH  | /api/account/:id | 更新账单（带用户过滤）     | 需要 JWT |
+| DELETE | /api/account/:id | 删除账单（带用户过滤）     | 需要 JWT |
 
 ### 分类接口
 
-| 方法 | 路由 | 功能 | 认证要求 |
-| ---- | ---- | ---- | -------- |
-| GET | /api/categories | 获取分类列表（带用户过滤） | 需要 JWT |
-| POST | /api/categories | 添加分类 | 需要 JWT |
-| PATCH | /api/categories/:id | 更新分类（带用户过滤） | 需要 JWT |
-| DELETE | /api/categories/:id | 删除分类（带用户过滤） | 需要 JWT |
+| 方法   | 路由                | 功能                       | 认证要求 |
+| ------ | ------------------- | -------------------------- | -------- |
+| GET    | /api/categories     | 获取分类列表（带用户过滤） | 需要 JWT |
+| POST   | /api/categories     | 添加分类                   | 需要 JWT |
+| PATCH  | /api/categories/:id | 更新分类（带用户过滤）     | 需要 JWT |
+| DELETE | /api/categories/:id | 删除分类（带用户过滤）     | 需要 JWT |
 
 ### 统计接口
 
-| 方法 | 路由 | 功能 | 认证要求 |
-| ---- | ---- | ---- | -------- |
-| GET | /api/statistics | 获取账单统计数据（总收入、总支出、余额、收支趋势等） | 需要 JWT |
+| 方法 | 路由            | 功能                                                 | 认证要求 |
+| ---- | --------------- | ---------------------------------------------------- | -------- |
+| GET  | /api/statistics | 获取账单统计数据（总收入、总支出、余额、收支趋势等） | 需要 JWT |
 
 ## API 文档
 

@@ -5643,3 +5643,1475 @@
 2025-12-17 01:01:24 [info] [GET] /categories - 401 - 1ms
 2025-12-17 01:02:40 [info] Application started successfully
 2025-12-17 01:02:40 [info] Swagger UI configured at /api-docs
+2025-12-17 01:03:15 [info] Application started successfully
+2025-12-17 01:03:15 [info] Swagger UI configured at /api-docs
+2025-12-17 01:03:52 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 01:03:52 [info] [OPTIONS] /api/auth/login - 204 - 3ms
+2025-12-17 01:03:52 [info] [POST] /api/auth/login - ::1
+2025-12-17 01:03:52 [info] 用户登录请求: amob-work-harder
+2025-12-17 01:03:52 [info] 登录成功 - amob-work-harder
+2025-12-17 01:03:52 [info] [POST] /auth/login - 200 - 137ms
+2025-12-17 01:03:52 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 01:03:52 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 01:03:52 [info] [GET] /api/auth/me - ::1
+2025-12-17 01:03:52 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 01:03:52 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 01:03:52 [info] [GET] /auth/me - 304 - 6ms
+2025-12-17 01:03:52 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 01:03:52 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 01:03:52 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 01:03:52 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-17 01:03:52 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 01:03:52 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 01:03:52 [info] [GET] /api/categories - ::1
+2025-12-17 01:03:52 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 01:03:52 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 01:03:52 [info] [GET] /categories - 304 - 5ms
+2025-12-17 01:03:52 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 10, page: 1, pageSize: 5
+2025-12-17 01:03:52 [info] [GET] /account?page=1&pageSize=5 - 304 - 10ms
+2025-12-17 01:04:01 [info] [OPTIONS] /api/account - ::1
+2025-12-17 01:04:01 [info] [OPTIONS] /api/account - 204 - 2ms
+2025-12-17 01:04:01 [info] [POST] /api/account - ::1
+2025-12-17 01:04:01 [info] 添加账单请求 - userId: 693efeebdea495b7b3494e5d, title: 232344
+2025-12-17 01:04:01 [info] 添加账单成功 - userId: 693efeebdea495b7b3494e5d, billId: 69419101e3a7989b266ff780
+2025-12-17 01:04:01 [info] [POST] /account - 200 - 9ms
+2025-12-17 01:04:01 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 01:04:01 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 01:04:01 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 01:04:01 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 01:04:01 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 01:04:01 [info] [GET] /account?page=1&pageSize=5 - 200 - 6ms
+2025-12-17 01:04:03 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 01:04:03 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 01:04:03 [info] [GET] /api/auth/me - ::1
+2025-12-17 01:04:03 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 01:04:03 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 01:04:03 [info] [GET] /auth/me - 304 - 4ms
+2025-12-17 01:04:03 [info] [OPTIONS] /api/statistics - ::1
+2025-12-17 01:04:03 [info] [OPTIONS] /api/statistics - 204 - 0ms
+2025-12-17 01:04:03 [info] [GET] /api/statistics - ::1
+2025-12-17 01:04:03 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 01:04:03 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 11
+2025-12-17 01:04:03 [info] [GET] /statistics - 200 - 5ms
+2025-12-17 01:04:07 [info] [GET] /api/auth/me - ::1
+2025-12-17 01:04:07 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 01:04:07 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 01:04:07 [info] [GET] /auth/me - 304 - 4ms
+2025-12-17 01:04:07 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 01:04:07 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 01:04:07 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 01:04:07 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-17 01:04:07 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 01:04:07 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 01:04:07 [info] [GET] /api/categories - ::1
+2025-12-17 01:04:07 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 01:04:07 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 01:04:07 [info] [GET] /categories - 304 - 3ms
+2025-12-17 01:04:07 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 01:04:07 [info] [GET] /account?page=1&pageSize=5 - 304 - 7ms
+2025-12-17 01:04:17 [info] [OPTIONS] /api/account?search=%E5%90%83%E7%81%AB%E9%94%85&page=1&pageSize=5 - ::1
+2025-12-17 01:04:17 [info] [OPTIONS] /api/account?search=%E5%90%83%E7%81%AB%E9%94%85&page=1&pageSize=5 - 204 - 0ms
+2025-12-17 01:04:17 [info] [GET] /api/account?search=%E5%90%83%E7%81%AB%E9%94%85&page=1&pageSize=5 - ::1
+2025-12-17 01:04:17 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: 吃火锅, page: 1, pageSize: 5
+2025-12-17 01:04:17 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 1, total: 1, page: 1, pageSize: 5
+2025-12-17 01:04:17 [info] [GET] /account?search=%E5%90%83%E7%81%AB%E9%94%85&page=1&pageSize=5 - 200 - 5ms
+2025-12-17 01:04:23 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 01:04:23 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 01:04:23 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 01:04:23 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 01:04:23 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 01:04:23 [info] [GET] /account?page=1&pageSize=5 - 304 - 4ms
+2025-12-17 01:12:41 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 01:12:41 [info] [OPTIONS] /api/auth/login - 204 - 1ms
+2025-12-17 01:12:41 [info] [POST] /api/auth/login - ::1
+2025-12-17 01:12:41 [info] 用户登录请求: amob-work-harder
+2025-12-17 01:12:41 [info] 登录成功 - amob-work-harder
+2025-12-17 01:12:41 [info] [POST] /auth/login - 200 - 4ms
+2025-12-17 01:12:41 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 01:12:41 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 01:12:41 [info] [GET] /api/auth/me - ::1
+2025-12-17 01:12:41 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 01:12:41 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 01:12:41 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 01:12:41 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 01:12:41 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 01:12:41 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 01:12:41 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-17 01:12:41 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 01:12:41 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 01:12:41 [info] [GET] /api/categories - ::1
+2025-12-17 01:12:41 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 01:12:41 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 01:12:41 [info] [GET] /categories - 304 - 3ms
+2025-12-17 01:12:41 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 01:12:41 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 20:04:28 [info] Application started successfully
+2025-12-17 20:04:28 [info] Swagger UI configured at /api-docs
+2025-12-17 20:05:24 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 20:05:24 [info] [OPTIONS] /api/auth/login - 204 - 2ms
+2025-12-17 20:05:24 [info] [POST] /api/auth/login - ::1
+2025-12-17 20:05:24 [info] 用户登录请求: amob-work-harder
+2025-12-17 20:05:24 [info] 登录成功 - amob-work-harder
+2025-12-17 20:05:24 [info] [POST] /auth/login - 200 - 133ms
+2025-12-17 20:05:24 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 20:05:24 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 20:05:24 [info] [GET] /api/auth/me - ::1
+2025-12-17 20:05:24 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 20:05:24 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 20:05:24 [info] [GET] /auth/me - 304 - 5ms
+2025-12-17 20:05:24 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:05:24 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 20:05:24 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 20:05:24 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 20:05:24 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:05:24 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 20:05:24 [info] [GET] /api/categories - ::1
+2025-12-17 20:05:24 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 20:05:24 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 20:05:24 [info] [GET] /categories - 304 - 6ms
+2025-12-17 20:05:24 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 20:05:24 [info] [GET] /account?page=1&pageSize=5 - 304 - 10ms
+2025-12-17 20:05:28 [info] [POST] /api/auth/login - ::1
+2025-12-17 20:05:28 [info] 用户登录请求: amob-work-harder
+2025-12-17 20:05:28 [info] 登录成功 - amob-work-harder
+2025-12-17 20:05:28 [info] [POST] /auth/login - 200 - 5ms
+2025-12-17 20:05:28 [info] [GET] /api/auth/me - ::1
+2025-12-17 20:05:28 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 20:05:28 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 20:05:28 [info] [GET] /auth/me - 304 - 4ms
+2025-12-17 20:05:28 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:05:28 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 20:05:28 [info] [GET] /api/categories - ::1
+2025-12-17 20:05:28 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 20:05:28 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 20:05:28 [info] [GET] /categories - 304 - 3ms
+2025-12-17 20:05:28 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 20:05:28 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 20:05:33 [info] [OPTIONS] /api/account?page=2&pageSize=5 - ::1
+2025-12-17 20:05:33 [info] [OPTIONS] /api/account?page=2&pageSize=5 - 204 - 1ms
+2025-12-17 20:05:33 [info] [GET] /api/account?page=2&pageSize=5 - ::1
+2025-12-17 20:05:33 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 2, pageSize: 5
+2025-12-17 20:05:33 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 2, pageSize: 5
+2025-12-17 20:05:33 [info] [GET] /account?page=2&pageSize=5 - 304 - 5ms
+2025-12-17 20:06:37 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 20:06:37 [info] [OPTIONS] /api/auth/login - 204 - 1ms
+2025-12-17 20:06:37 [info] [POST] /api/auth/login - ::1
+2025-12-17 20:06:37 [info] 用户登录请求: amob
+2025-12-17 20:06:37 [info] 登录成功 - amob
+2025-12-17 20:06:37 [info] [POST] /auth/login - 200 - 4ms
+2025-12-17 20:06:37 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 20:06:37 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 20:06:37 [info] [GET] /api/auth/me - ::1
+2025-12-17 20:06:37 [info] 获取用户信息请求: userId=693ec337a5e0c61da9f7a494
+2025-12-17 20:06:37 [info] 获取用户信息成功: userId=693ec337a5e0c61da9f7a494, username=amob
+2025-12-17 20:06:37 [info] [GET] /auth/me - 200 - 5ms
+2025-12-17 20:06:37 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:06:37 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 20:06:37 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 20:06:37 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-17 20:06:37 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:06:37 [info] 获取账单列表请求 - userId: 693ec337a5e0c61da9f7a494, search: undefined, page: 1, pageSize: 5
+2025-12-17 20:06:37 [info] [GET] /api/categories - ::1
+2025-12-17 20:06:37 [info] 获取分类列表请求 - userId: 693ec337a5e0c61da9f7a494
+2025-12-17 20:06:37 [info] 获取分类列表成功 - userId: 693ec337a5e0c61da9f7a494, count: 6
+2025-12-17 20:06:37 [info] [GET] /categories - 200 - 3ms
+2025-12-17 20:06:37 [info] 获取账单列表成功 - userId: 693ec337a5e0c61da9f7a494, count: 3, total: 3, page: 1, pageSize: 5
+2025-12-17 20:06:37 [info] [GET] /account?page=1&pageSize=5 - 200 - 6ms
+2025-12-17 20:06:50 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 20:06:50 [info] [OPTIONS] /api/auth/login - 204 - 1ms
+2025-12-17 20:06:50 [info] [POST] /api/auth/login - ::1
+2025-12-17 20:06:50 [info] 用户登录请求: amob
+2025-12-17 20:06:50 [info] 登录成功 - amob
+2025-12-17 20:06:50 [info] [POST] /auth/login - 200 - 4ms
+2025-12-17 20:06:50 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 20:06:50 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 20:06:50 [info] [GET] /api/auth/me - ::1
+2025-12-17 20:06:50 [info] 获取用户信息请求: userId=693ec337a5e0c61da9f7a494
+2025-12-17 20:06:50 [info] 获取用户信息成功: userId=693ec337a5e0c61da9f7a494, username=amob
+2025-12-17 20:06:50 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 20:06:50 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:06:50 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 20:06:50 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 20:06:50 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 20:06:50 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:06:50 [info] 获取账单列表请求 - userId: 693ec337a5e0c61da9f7a494, search: undefined, page: 1, pageSize: 5
+2025-12-17 20:06:50 [info] [GET] /api/categories - ::1
+2025-12-17 20:06:50 [info] 获取分类列表请求 - userId: 693ec337a5e0c61da9f7a494
+2025-12-17 20:06:50 [info] 获取分类列表成功 - userId: 693ec337a5e0c61da9f7a494, count: 6
+2025-12-17 20:06:50 [info] [GET] /categories - 304 - 3ms
+2025-12-17 20:06:50 [info] 获取账单列表成功 - userId: 693ec337a5e0c61da9f7a494, count: 3, total: 3, page: 1, pageSize: 5
+2025-12-17 20:06:50 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 20:06:55 [info] [POST] /api/auth/login - ::1
+2025-12-17 20:06:55 [info] 用户登录请求: 爱博
+2025-12-17 20:06:55 [info] 为用户 爱博 创建默认分类成功
+2025-12-17 20:06:55 [info] 登录成功 - 爱博
+2025-12-17 20:06:55 [info] [POST] /auth/login - 200 - 13ms
+2025-12-17 20:06:55 [info] [GET] /api/auth/me - ::1
+2025-12-17 20:06:55 [info] 获取用户信息请求: userId=693f01aa95d7e6e4ec0f6b2b
+2025-12-17 20:06:55 [info] 获取用户信息成功: userId=693f01aa95d7e6e4ec0f6b2b, username=爱博
+2025-12-17 20:06:55 [info] [GET] /auth/me - 200 - 5ms
+2025-12-17 20:06:55 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:06:55 [info] 获取账单列表请求 - userId: 693f01aa95d7e6e4ec0f6b2b, search: undefined, page: 1, pageSize: 5
+2025-12-17 20:06:55 [info] [GET] /api/categories - ::1
+2025-12-17 20:06:55 [info] 获取分类列表请求 - userId: 693f01aa95d7e6e4ec0f6b2b
+2025-12-17 20:06:55 [info] 获取分类列表成功 - userId: 693f01aa95d7e6e4ec0f6b2b, count: 6
+2025-12-17 20:06:55 [info] [GET] /categories - 200 - 3ms
+2025-12-17 20:06:55 [info] 获取账单列表成功 - userId: 693f01aa95d7e6e4ec0f6b2b, count: 1, total: 1, page: 1, pageSize: 5
+2025-12-17 20:06:55 [info] [GET] /account?page=1&pageSize=5 - 200 - 7ms
+2025-12-17 20:06:58 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 20:06:58 [info] [OPTIONS] /api/auth/login - 204 - 0ms
+2025-12-17 20:06:58 [info] [POST] /api/auth/login - ::1
+2025-12-17 20:06:58 [info] 用户登录请求: 爱博
+2025-12-17 20:06:58 [info] 登录成功 - 爱博
+2025-12-17 20:06:58 [info] [POST] /auth/login - 200 - 4ms
+2025-12-17 20:06:58 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 20:06:58 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 20:06:58 [info] [GET] /api/auth/me - ::1
+2025-12-17 20:06:58 [info] 获取用户信息请求: userId=693f01aa95d7e6e4ec0f6b2b
+2025-12-17 20:06:58 [info] 获取用户信息成功: userId=693f01aa95d7e6e4ec0f6b2b, username=爱博
+2025-12-17 20:06:58 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 20:06:58 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:06:58 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 20:06:58 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 20:06:58 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 20:06:58 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:06:58 [info] 获取账单列表请求 - userId: 693f01aa95d7e6e4ec0f6b2b, search: undefined, page: 1, pageSize: 5
+2025-12-17 20:06:58 [info] [GET] /api/categories - ::1
+2025-12-17 20:06:58 [info] 获取分类列表请求 - userId: 693f01aa95d7e6e4ec0f6b2b
+2025-12-17 20:06:58 [info] 获取分类列表成功 - userId: 693f01aa95d7e6e4ec0f6b2b, count: 6
+2025-12-17 20:06:58 [info] [GET] /categories - 304 - 5ms
+2025-12-17 20:06:58 [info] 获取账单列表成功 - userId: 693f01aa95d7e6e4ec0f6b2b, count: 1, total: 1, page: 1, pageSize: 5
+2025-12-17 20:06:58 [info] [GET] /account?page=1&pageSize=5 - 304 - 7ms
+2025-12-17 20:07:04 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 20:07:04 [info] [OPTIONS] /api/auth/login - 204 - 1ms
+2025-12-17 20:07:04 [info] [POST] /api/auth/login - ::1
+2025-12-17 20:07:04 [info] 用户登录请求: amob-work-harder
+2025-12-17 20:07:04 [info] 登录成功 - amob-work-harder
+2025-12-17 20:07:04 [info] [POST] /auth/login - 200 - 4ms
+2025-12-17 20:07:04 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 20:07:04 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 20:07:04 [info] [GET] /api/auth/me - ::1
+2025-12-17 20:07:04 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 20:07:04 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 20:07:04 [info] [GET] /auth/me - 200 - 3ms
+2025-12-17 20:07:04 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:07:04 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 20:07:04 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 20:07:04 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 20:07:04 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:07:04 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 20:07:04 [info] [GET] /api/categories - ::1
+2025-12-17 20:07:04 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 20:07:04 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 20:07:04 [info] [GET] /categories - 200 - 3ms
+2025-12-17 20:07:04 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 20:07:04 [info] [GET] /account?page=1&pageSize=5 - 200 - 5ms
+2025-12-17 20:18:22 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 20:18:22 [info] [OPTIONS] /api/auth/login - 204 - 1ms
+2025-12-17 20:18:22 [info] [POST] /api/auth/login - ::1
+2025-12-17 20:18:22 [info] 用户登录请求: amob-work-harder
+2025-12-17 20:18:22 [info] 登录成功 - amob-work-harder
+2025-12-17 20:18:22 [info] [POST] /auth/login - 200 - 4ms
+2025-12-17 20:18:22 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 20:18:22 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 20:18:22 [info] [GET] /api/auth/me - ::1
+2025-12-17 20:18:22 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 20:18:22 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 20:18:22 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 20:18:22 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:18:22 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 20:18:22 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 20:18:22 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 20:18:22 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:18:22 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 20:18:22 [info] [GET] /api/categories - ::1
+2025-12-17 20:18:22 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 20:18:22 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 20:18:22 [info] [GET] /categories - 304 - 4ms
+2025-12-17 20:18:22 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 20:18:22 [info] [GET] /account?page=1&pageSize=5 - 304 - 7ms
+2025-12-17 20:50:07 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 20:50:07 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 20:50:07 [info] [GET] /api/auth/me - ::1
+2025-12-17 20:50:07 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 20:50:07 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 20:50:07 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 20:50:07 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:50:07 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 20:50:07 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 20:50:07 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 20:50:07 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:50:07 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 20:50:07 [info] [GET] /api/categories - ::1
+2025-12-17 20:50:07 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 20:50:07 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 20:50:07 [info] [GET] /categories - 304 - 4ms
+2025-12-17 20:50:07 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 20:50:07 [info] [GET] /account?page=1&pageSize=5 - 304 - 7ms
+2025-12-17 20:50:44 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 20:50:44 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 20:50:44 [info] [GET] /api/auth/me - ::1
+2025-12-17 20:50:44 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 20:50:44 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 20:50:44 [info] [GET] /auth/me - 304 - 2ms
+2025-12-17 20:50:44 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:50:44 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 20:50:44 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 20:50:44 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 20:50:44 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:50:44 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 20:50:44 [info] [GET] /api/categories - ::1
+2025-12-17 20:50:44 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 20:50:44 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 20:50:44 [info] [GET] /categories - 304 - 3ms
+2025-12-17 20:50:44 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 20:50:44 [info] [GET] /account?page=1&pageSize=5 - 304 - 4ms
+2025-12-17 20:52:13 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 20:52:13 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 20:52:13 [info] [GET] /api/auth/me - ::1
+2025-12-17 20:52:13 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 20:52:13 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 20:52:13 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 20:52:13 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:52:13 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 20:52:13 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 20:52:13 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-17 20:52:13 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 20:52:13 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 20:52:13 [info] [GET] /api/categories - ::1
+2025-12-17 20:52:13 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 20:52:13 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 20:52:13 [info] [GET] /categories - 304 - 3ms
+2025-12-17 20:52:13 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 20:52:13 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 21:03:25 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 21:03:25 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 21:03:25 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:03:25 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:03:25 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:03:25 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:03:25 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:03:25 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 21:03:25 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 21:03:25 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 21:03:25 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:03:25 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:03:25 [info] [GET] /api/categories - ::1
+2025-12-17 21:03:25 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:03:25 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:03:25 [info] [GET] /categories - 304 - 3ms
+2025-12-17 21:03:25 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:03:25 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 21:03:35 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 21:03:35 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 21:03:35 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:03:35 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:03:35 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:03:35 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:03:35 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:03:35 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 21:03:35 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 21:03:35 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 21:03:35 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:03:35 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:03:35 [info] [GET] /api/categories - ::1
+2025-12-17 21:03:35 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:03:35 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:03:35 [info] [GET] /categories - 304 - 3ms
+2025-12-17 21:03:35 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:03:35 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 21:03:45 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 21:03:45 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 21:03:45 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:03:45 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:03:45 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:03:45 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:03:45 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:03:45 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 21:03:45 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 21:03:45 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 21:03:45 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:03:45 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:03:45 [info] [GET] /api/categories - ::1
+2025-12-17 21:03:45 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:03:45 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:03:45 [info] [GET] /categories - 304 - 3ms
+2025-12-17 21:03:45 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:03:45 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 21:03:57 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 21:03:57 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 21:03:57 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:03:57 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:03:57 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:03:57 [info] [GET] /auth/me - 304 - 2ms
+2025-12-17 21:03:57 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:03:57 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 21:03:57 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 21:03:57 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 21:03:57 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:03:57 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:03:57 [info] [GET] /api/categories - ::1
+2025-12-17 21:03:57 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:03:57 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:03:57 [info] [GET] /categories - 304 - 3ms
+2025-12-17 21:03:57 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:03:57 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 21:04:28 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 21:04:28 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 21:04:28 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:04:28 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:04:28 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:04:28 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:04:28 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:04:28 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 21:04:28 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 21:04:28 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 21:04:28 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:04:28 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:04:28 [info] [GET] /api/categories - ::1
+2025-12-17 21:04:28 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:04:28 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:04:28 [info] [GET] /categories - 304 - 3ms
+2025-12-17 21:04:28 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:04:28 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 21:04:37 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 21:04:37 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 21:04:37 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:04:37 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:04:37 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:04:37 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:04:37 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:04:37 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 21:04:37 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 21:04:37 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 21:04:37 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:04:37 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:04:37 [info] [GET] /api/categories - ::1
+2025-12-17 21:04:37 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:04:37 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:04:37 [info] [GET] /categories - 304 - 3ms
+2025-12-17 21:04:37 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:04:37 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 21:04:45 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 21:04:45 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 21:04:45 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:04:45 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:04:45 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:04:45 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:04:46 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:04:46 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 21:04:46 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 21:04:46 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 21:04:46 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:04:46 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:04:46 [info] [GET] /api/categories - ::1
+2025-12-17 21:04:46 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:04:46 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:04:46 [info] [GET] /categories - 304 - 3ms
+2025-12-17 21:04:46 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:04:46 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 21:04:54 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 21:04:54 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 21:04:54 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:04:54 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:04:54 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:04:54 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:04:54 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:04:54 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 21:04:54 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 21:04:54 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-17 21:04:54 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:04:54 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:04:54 [info] [GET] /api/categories - ::1
+2025-12-17 21:04:54 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:04:54 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:04:54 [info] [GET] /categories - 304 - 3ms
+2025-12-17 21:04:54 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:04:54 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 21:05:33 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 21:05:33 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 21:05:33 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:05:33 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:05:33 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:05:33 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:05:33 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:05:33 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 21:05:33 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 21:05:33 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-17 21:05:33 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:05:33 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:05:33 [info] [GET] /api/categories - ::1
+2025-12-17 21:05:33 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:05:33 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:05:33 [info] [GET] /categories - 304 - 3ms
+2025-12-17 21:05:33 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:05:33 [info] [GET] /account?page=1&pageSize=5 - 304 - 7ms
+2025-12-17 21:06:33 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 21:06:33 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 21:06:33 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:06:33 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:06:33 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:06:33 [info] [GET] /auth/me - 304 - 4ms
+2025-12-17 21:06:33 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:06:33 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 21:06:33 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 21:06:33 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 21:06:33 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:06:33 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:06:33 [info] [GET] /api/categories - ::1
+2025-12-17 21:06:33 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:06:33 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:06:33 [info] [GET] /categories - 304 - 3ms
+2025-12-17 21:06:33 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:06:33 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 21:06:34 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:06:34 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:06:34 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:06:34 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:06:34 [info] [OPTIONS] /api/statistics - ::1
+2025-12-17 21:06:34 [info] [OPTIONS] /api/statistics - 204 - 1ms
+2025-12-17 21:06:34 [info] [GET] /api/statistics - ::1
+2025-12-17 21:06:34 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:06:34 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 11
+2025-12-17 21:06:34 [info] [GET] /statistics - 304 - 5ms
+2025-12-17 21:06:36 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:06:36 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:06:36 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:06:36 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:06:36 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:06:36 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:06:36 [info] [GET] /api/categories - ::1
+2025-12-17 21:06:36 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:06:36 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:06:36 [info] [GET] /categories - 304 - 3ms
+2025-12-17 21:06:36 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:06:36 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 21:06:39 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 21:06:39 [info] [OPTIONS] /api/auth/login - 204 - 1ms
+2025-12-17 21:06:39 [info] [POST] /api/auth/login - ::1
+2025-12-17 21:06:39 [info] 用户登录请求: amob-work-harder
+2025-12-17 21:06:39 [info] 登录成功 - amob-work-harder
+2025-12-17 21:06:39 [info] [POST] /auth/login - 200 - 4ms
+2025-12-17 21:06:39 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 21:06:39 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 21:06:39 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:06:39 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:06:39 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:06:39 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:06:39 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:06:39 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 21:06:39 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 21:06:39 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 21:06:39 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:06:39 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:06:39 [info] [GET] /api/categories - ::1
+2025-12-17 21:06:39 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:06:39 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:06:39 [info] [GET] /categories - 304 - 3ms
+2025-12-17 21:06:39 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:06:39 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 21:06:43 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:06:43 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:06:43 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:06:43 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 21:08:02 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 21:08:02 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 21:08:02 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:08:02 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:08:02 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:08:02 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:08:02 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:08:02 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 21:08:02 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 21:08:02 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 21:08:02 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:08:02 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:08:02 [info] [GET] /api/categories - ::1
+2025-12-17 21:08:02 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:08:02 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:08:02 [info] [GET] /categories - 304 - 3ms
+2025-12-17 21:08:02 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:08:02 [info] [GET] /account?page=1&pageSize=5 - 304 - 7ms
+2025-12-17 21:43:35 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 21:43:35 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 21:43:35 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:43:35 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:43:35 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:43:35 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:43:35 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:43:35 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 21:43:35 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 21:43:35 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 21:43:35 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:43:35 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:43:35 [info] [GET] /api/categories - ::1
+2025-12-17 21:43:35 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:43:35 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:43:35 [info] [GET] /categories - 304 - 2ms
+2025-12-17 21:43:35 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:43:35 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 21:47:38 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:47:38 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 21:47:38 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:47:38 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:47:38 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:47:38 [info] [GET] /account?page=1&pageSize=5 - 304 - 4ms
+2025-12-17 21:47:47 [info] [OPTIONS] /api/account?search=%E5%90%83%E9%A5%AD&page=1&pageSize=5 - ::1
+2025-12-17 21:47:47 [info] [OPTIONS] /api/account?search=%E5%90%83%E9%A5%AD&page=1&pageSize=5 - 204 - 1ms
+2025-12-17 21:47:47 [info] [GET] /api/account?search=%E5%90%83%E9%A5%AD&page=1&pageSize=5 - ::1
+2025-12-17 21:47:47 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: 吃饭, page: 1, pageSize: 5
+2025-12-17 21:47:47 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 1, total: 1, page: 1, pageSize: 5
+2025-12-17 21:47:47 [info] [GET] /account?search=%E5%90%83%E9%A5%AD&page=1&pageSize=5 - 304 - 4ms
+2025-12-17 21:47:56 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:47:56 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 21:47:56 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:47:56 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:47:56 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:47:56 [info] [GET] /account?page=1&pageSize=5 - 304 - 4ms
+2025-12-17 21:48:14 [info] [OPTIONS] /api/account?page=1&pageSize=10 - ::1
+2025-12-17 21:48:14 [info] [OPTIONS] /api/account?page=1&pageSize=10 - 204 - 0ms
+2025-12-17 21:48:14 [info] [GET] /api/account?page=1&pageSize=10 - ::1
+2025-12-17 21:48:14 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 10
+2025-12-17 21:48:14 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 10, total: 11, page: 1, pageSize: 10
+2025-12-17 21:48:14 [info] [GET] /account?page=1&pageSize=10 - 200 - 4ms
+2025-12-17 21:48:28 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 21:48:28 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 21:48:28 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:48:28 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:48:28 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:48:28 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:48:28 [info] [OPTIONS] /api/statistics - ::1
+2025-12-17 21:48:28 [info] [OPTIONS] /api/statistics - 204 - 0ms
+2025-12-17 21:48:28 [info] [GET] /api/statistics - ::1
+2025-12-17 21:48:28 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:48:28 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 11
+2025-12-17 21:48:28 [info] [GET] /statistics - 304 - 3ms
+2025-12-17 21:48:30 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:48:30 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:48:30 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:48:30 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:48:30 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:48:30 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 21:48:30 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 21:48:30 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 21:48:30 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:48:30 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:48:30 [info] [GET] /api/categories - ::1
+2025-12-17 21:48:30 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:48:30 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:48:30 [info] [GET] /categories - 304 - 3ms
+2025-12-17 21:48:30 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:48:30 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 21:58:30 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 21:58:30 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 21:58:30 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:58:30 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:58:30 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:58:30 [info] [GET] /auth/me - 304 - 4ms
+2025-12-17 21:58:30 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:58:30 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 21:58:30 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 21:58:30 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 21:58:30 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:58:30 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:58:30 [info] [GET] /api/categories - ::1
+2025-12-17 21:58:30 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:58:30 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:58:30 [info] [GET] /categories - 304 - 4ms
+2025-12-17 21:58:30 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:58:30 [info] [GET] /account?page=1&pageSize=5 - 304 - 7ms
+2025-12-17 21:59:00 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 21:59:00 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 21:59:00 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:59:00 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:59:00 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:59:00 [info] [GET] /auth/me - 304 - 4ms
+2025-12-17 21:59:00 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:59:00 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 21:59:00 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 21:59:00 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 21:59:00 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:59:00 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:59:00 [info] [GET] /api/categories - ::1
+2025-12-17 21:59:00 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:59:00 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:59:00 [info] [GET] /categories - 304 - 3ms
+2025-12-17 21:59:00 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:59:00 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 21:59:01 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:59:01 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:59:01 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:59:01 [info] [GET] /account?page=1&pageSize=5 - 304 - 4ms
+2025-12-17 21:59:11 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 21:59:11 [info] [OPTIONS] /api/auth/login - 204 - 1ms
+2025-12-17 21:59:11 [info] [POST] /api/auth/login - ::1
+2025-12-17 21:59:11 [info] 用户登录请求: amob-work-harder
+2025-12-17 21:59:11 [info] 登录成功 - amob-work-harder
+2025-12-17 21:59:11 [info] [POST] /auth/login - 200 - 4ms
+2025-12-17 21:59:11 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 21:59:11 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 21:59:11 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:59:11 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:59:11 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:59:11 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:59:11 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:59:11 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 21:59:11 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 21:59:11 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 21:59:11 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:59:11 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:59:11 [info] [GET] /api/categories - ::1
+2025-12-17 21:59:11 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:59:11 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:59:11 [info] [GET] /categories - 304 - 2ms
+2025-12-17 21:59:11 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:59:11 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 21:59:12 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:59:12 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:59:12 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:59:12 [info] [GET] /account?page=1&pageSize=5 - 304 - 4ms
+2025-12-17 21:59:14 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:59:14 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:59:14 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:59:14 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:59:14 [info] [OPTIONS] /api/statistics - ::1
+2025-12-17 21:59:14 [info] [OPTIONS] /api/statistics - 204 - 1ms
+2025-12-17 21:59:14 [info] [GET] /api/statistics - ::1
+2025-12-17 21:59:14 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:59:14 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 11
+2025-12-17 21:59:14 [info] [GET] /statistics - 304 - 3ms
+2025-12-17 21:59:15 [info] [GET] /api/auth/me - ::1
+2025-12-17 21:59:15 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 21:59:15 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 21:59:15 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 21:59:15 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 21:59:15 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:59:15 [info] [GET] /api/categories - ::1
+2025-12-17 21:59:15 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 21:59:15 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 21:59:15 [info] [GET] /categories - 304 - 3ms
+2025-12-17 21:59:15 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:59:15 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 21:59:38 [info] [OPTIONS] /api/account?page=1&pageSize=5&type=income - ::1
+2025-12-17 21:59:38 [info] [OPTIONS] /api/account?page=1&pageSize=5&type=income - 204 - 1ms
+2025-12-17 21:59:38 [info] [GET] /api/account?page=1&pageSize=5&type=income - ::1
+2025-12-17 21:59:38 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:59:38 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:59:38 [info] [GET] /account?page=1&pageSize=5&type=income - 200 - 5ms
+2025-12-17 21:59:46 [info] [OPTIONS] /api/account?page=1&pageSize=5&type=expense - ::1
+2025-12-17 21:59:46 [info] [OPTIONS] /api/account?page=1&pageSize=5&type=expense - 204 - 1ms
+2025-12-17 21:59:46 [info] [GET] /api/account?page=1&pageSize=5&type=expense - ::1
+2025-12-17 21:59:46 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 21:59:46 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 21:59:46 [info] [GET] /account?page=1&pageSize=5&type=expense - 200 - 3ms
+2025-12-17 22:00:00 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:00:00 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 22:00:00 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:00:00 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:00:00 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:00:00 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 22:00:00 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:00:00 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 22:00:00 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:00:00 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 22:00:00 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:00:00 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:00:00 [info] [GET] /api/categories - ::1
+2025-12-17 22:00:00 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:00:00 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:00:00 [info] [GET] /categories - 304 - 3ms
+2025-12-17 22:00:00 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:00:00 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 22:01:23 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:01:23 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 22:01:23 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:01:23 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:01:23 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:01:23 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 22:01:23 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:01:23 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 22:01:23 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:01:23 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 22:01:23 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:01:23 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:01:23 [info] [GET] /api/categories - ::1
+2025-12-17 22:01:23 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:01:23 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:01:23 [info] [GET] /categories - 304 - 2ms
+2025-12-17 22:01:23 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:01:23 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 22:01:23 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:01:23 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:01:23 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:01:23 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 22:01:23 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:01:23 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:01:23 [info] [GET] /api/categories - ::1
+2025-12-17 22:01:23 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:01:23 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:01:23 [info] [GET] /categories - 304 - 3ms
+2025-12-17 22:01:23 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:01:23 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 22:01:23 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:01:23 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:01:23 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:01:23 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 22:01:23 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:01:23 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:01:23 [info] [GET] /api/categories - ::1
+2025-12-17 22:01:23 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:01:23 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:01:23 [info] [GET] /categories - 304 - 3ms
+2025-12-17 22:01:23 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:01:23 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 22:01:23 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:01:23 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:01:23 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:01:23 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 22:01:23 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:01:23 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:01:23 [info] [GET] /api/categories - ::1
+2025-12-17 22:01:23 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:01:23 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:01:23 [info] [GET] /categories - 304 - 3ms
+2025-12-17 22:01:23 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:01:23 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 22:01:29 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 22:01:29 [info] [OPTIONS] /api/auth/login - 204 - 0ms
+2025-12-17 22:01:29 [info] [POST] /api/auth/login - ::1
+2025-12-17 22:01:29 [info] 用户登录请求: amob-work-harder
+2025-12-17 22:01:29 [info] 登录成功 - amob-work-harder
+2025-12-17 22:01:29 [info] [POST] /auth/login - 200 - 4ms
+2025-12-17 22:01:29 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:01:29 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 22:01:29 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:01:29 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:01:29 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:01:29 [info] [GET] /auth/me - 304 - 2ms
+2025-12-17 22:01:29 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:01:29 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 22:01:29 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:01:29 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 22:01:29 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:01:29 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:01:29 [info] [GET] /api/categories - ::1
+2025-12-17 22:01:29 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:01:29 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:01:29 [info] [GET] /categories - 304 - 3ms
+2025-12-17 22:01:29 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:01:29 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 22:01:54 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 22:01:54 [info] [OPTIONS] /api/auth/login - 204 - 1ms
+2025-12-17 22:01:54 [info] [POST] /api/auth/login - ::1
+2025-12-17 22:01:54 [info] 用户登录请求: amob-work-harder
+2025-12-17 22:01:54 [warn] 登录失败 - amob-work-harder: 密码错误
+2025-12-17 22:01:54 [info] [POST] /auth/login - 200 - 2ms
+2025-12-17 22:02:08 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 22:02:08 [info] [OPTIONS] /api/auth/login - 204 - 1ms
+2025-12-17 22:02:08 [info] [POST] /api/auth/login - ::1
+2025-12-17 22:02:08 [info] 用户登录请求: amob-work-harder
+2025-12-17 22:02:08 [info] 登录成功 - amob-work-harder
+2025-12-17 22:02:08 [info] [POST] /auth/login - 200 - 3ms
+2025-12-17 22:02:08 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:02:08 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 22:02:08 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:02:08 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:02:08 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:02:08 [info] [GET] /auth/me - 200 - 3ms
+2025-12-17 22:02:08 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:02:08 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 22:02:08 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:02:08 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 22:02:08 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:02:08 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:02:08 [info] [GET] /api/categories - ::1
+2025-12-17 22:02:08 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:02:08 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:02:08 [info] [GET] /categories - 200 - 3ms
+2025-12-17 22:02:08 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:02:08 [info] [GET] /account?page=1&pageSize=5 - 200 - 5ms
+2025-12-17 22:03:28 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 22:03:28 [info] [OPTIONS] /api/auth/login - 204 - 1ms
+2025-12-17 22:03:28 [info] [POST] /api/auth/login - ::1
+2025-12-17 22:03:28 [info] 用户登录请求: amob-work-harder
+2025-12-17 22:03:28 [info] 登录成功 - amob-work-harder
+2025-12-17 22:03:28 [info] [POST] /auth/login - 200 - 4ms
+2025-12-17 22:03:28 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:03:28 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 22:03:28 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:03:28 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:03:28 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:03:28 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 22:03:28 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:03:28 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 22:03:28 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:03:28 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-17 22:03:28 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:03:28 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:03:28 [info] [GET] /api/categories - ::1
+2025-12-17 22:03:28 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:03:28 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:03:28 [info] [GET] /categories - 304 - 2ms
+2025-12-17 22:03:28 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:03:28 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 22:03:49 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:03:49 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 22:03:49 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:03:49 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:03:49 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:03:49 [info] [GET] /auth/me - 304 - 4ms
+2025-12-17 22:03:49 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:03:49 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 22:03:49 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:03:49 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 22:03:49 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:03:49 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:03:49 [info] [GET] /api/categories - ::1
+2025-12-17 22:03:49 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:03:49 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:03:49 [info] [GET] /categories - 304 - 2ms
+2025-12-17 22:03:49 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:03:49 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 22:03:54 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:03:54 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 22:03:54 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:03:54 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:03:54 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:03:54 [info] [GET] /auth/me - 200 - 4ms
+2025-12-17 22:03:54 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:03:54 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 22:03:54 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:03:54 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 22:03:54 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:03:54 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:03:54 [info] [GET] /api/categories - ::1
+2025-12-17 22:03:54 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:03:54 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:03:54 [info] [GET] /categories - 200 - 3ms
+2025-12-17 22:03:54 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:03:54 [info] [GET] /account?page=1&pageSize=5 - 200 - 7ms
+2025-12-17 22:03:55 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:03:55 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 22:03:55 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:03:55 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:03:55 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:03:55 [info] [GET] /auth/me - 200 - 3ms
+2025-12-17 22:03:55 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:03:55 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:03:55 [info] [GET] /api/categories - ::1
+2025-12-17 22:03:55 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:03:55 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:03:55 [info] [GET] /categories - 200 - 3ms
+2025-12-17 22:03:55 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:03:55 [info] [GET] /account?page=1&pageSize=5 - 200 - 7ms
+2025-12-17 22:03:55 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:03:55 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 22:03:55 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:03:55 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:03:55 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:03:55 [info] [GET] /auth/me - 200 - 4ms
+2025-12-17 22:03:55 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:03:55 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:03:55 [info] [GET] /api/categories - ::1
+2025-12-17 22:03:55 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:03:55 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:03:55 [info] [GET] /categories - 200 - 4ms
+2025-12-17 22:03:55 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:03:55 [info] [GET] /account?page=1&pageSize=5 - 200 - 7ms
+2025-12-17 22:03:55 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:03:55 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 22:03:55 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:03:55 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:03:55 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:03:55 [info] [GET] /auth/me - 200 - 3ms
+2025-12-17 22:03:56 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:03:56 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:03:56 [info] [GET] /api/categories - ::1
+2025-12-17 22:03:56 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:03:56 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:03:56 [info] [GET] /categories - 200 - 5ms
+2025-12-17 22:03:56 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:03:56 [info] [GET] /account?page=1&pageSize=5 - 200 - 8ms
+2025-12-17 22:05:04 [info] [OPTIONS] /api/account?page=1&pageSize=5&categoryId=6940167450e592e64fb4198b - ::1
+2025-12-17 22:05:04 [info] [OPTIONS] /api/account?page=1&pageSize=5&categoryId=6940167450e592e64fb4198b - 204 - 0ms
+2025-12-17 22:05:04 [info] [GET] /api/account?page=1&pageSize=5&categoryId=6940167450e592e64fb4198b - ::1
+2025-12-17 22:05:04 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:05:04 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:05:04 [info] [GET] /account?page=1&pageSize=5&categoryId=6940167450e592e64fb4198b - 200 - 4ms
+2025-12-17 22:05:12 [info] [OPTIONS] /api/account?page=1&pageSize=5&type=income&categoryId=6940167450e592e64fb4198b - ::1
+2025-12-17 22:05:12 [info] [OPTIONS] /api/account?page=1&pageSize=5&type=income&categoryId=6940167450e592e64fb4198b - 204 - 1ms
+2025-12-17 22:05:12 [info] [GET] /api/account?page=1&pageSize=5&type=income&categoryId=6940167450e592e64fb4198b - ::1
+2025-12-17 22:05:12 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:05:12 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:05:12 [info] [GET] /account?page=1&pageSize=5&type=income&categoryId=6940167450e592e64fb4198b - 200 - 3ms
+2025-12-17 22:05:54 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:05:54 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 22:05:54 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:05:54 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:05:54 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:05:54 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 22:05:54 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:05:54 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 22:05:54 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:05:54 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-17 22:05:54 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:05:54 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:05:54 [info] [GET] /api/categories - ::1
+2025-12-17 22:05:54 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:05:54 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:05:54 [info] [GET] /categories - 304 - 4ms
+2025-12-17 22:05:54 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:05:54 [info] [GET] /account?page=1&pageSize=5 - 304 - 8ms
+2025-12-17 22:08:29 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:08:29 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 22:08:29 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:08:29 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:08:29 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:08:29 [info] [GET] /auth/me - 304 - 4ms
+2025-12-17 22:08:29 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:08:29 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 22:08:29 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:08:29 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 22:08:29 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:08:29 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:08:29 [info] [GET] /api/categories - ::1
+2025-12-17 22:08:29 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:08:29 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:08:29 [info] [GET] /categories - 304 - 3ms
+2025-12-17 22:08:29 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:08:29 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 22:12:38 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 22:12:38 [info] [OPTIONS] /api/auth/login - 204 - 1ms
+2025-12-17 22:12:38 [info] [POST] /api/auth/login - ::1
+2025-12-17 22:12:38 [info] 用户登录请求: amob-work-harder
+2025-12-17 22:12:38 [info] 登录成功 - amob-work-harder
+2025-12-17 22:12:38 [info] [POST] /auth/login - 200 - 3ms
+2025-12-17 22:12:38 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:12:38 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 22:12:38 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:12:38 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:12:38 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:12:38 [info] [GET] /auth/me - 304 - 2ms
+2025-12-17 22:12:38 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:12:38 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 22:12:38 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:12:38 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 22:12:38 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:12:38 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:12:38 [info] [GET] /api/categories - ::1
+2025-12-17 22:12:38 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:12:38 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:12:38 [info] [GET] /categories - 304 - 2ms
+2025-12-17 22:12:38 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:12:38 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 22:12:42 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:12:42 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 22:12:42 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:12:42 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:12:42 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:12:42 [info] [GET] /auth/me - 200 - 3ms
+2025-12-17 22:12:42 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:12:42 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 22:12:42 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:12:42 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 22:12:42 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:12:42 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:12:42 [info] [GET] /api/categories - ::1
+2025-12-17 22:12:42 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:12:42 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:12:42 [info] [GET] /categories - 200 - 3ms
+2025-12-17 22:12:42 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:12:42 [info] [GET] /account?page=1&pageSize=5 - 200 - 5ms
+2025-12-17 22:14:08 [info] [OPTIONS] /api/account?search=%E5%90%83%E7%81%AB%E9%94%85&page=1&pageSize=5 - ::1
+2025-12-17 22:14:08 [info] [OPTIONS] /api/account?search=%E5%90%83%E7%81%AB%E9%94%85&page=1&pageSize=5 - 204 - 1ms
+2025-12-17 22:14:08 [info] [GET] /api/account?search=%E5%90%83%E7%81%AB%E9%94%85&page=1&pageSize=5 - ::1
+2025-12-17 22:14:08 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: 吃火锅, page: 1, pageSize: 5
+2025-12-17 22:14:08 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 1, total: 1, page: 1, pageSize: 5
+2025-12-17 22:14:08 [info] [GET] /account?search=%E5%90%83%E7%81%AB%E9%94%85&page=1&pageSize=5 - 200 - 4ms
+2025-12-17 22:14:16 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:14:16 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 22:14:16 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:14:16 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:14:16 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:14:16 [info] [GET] /account?page=1&pageSize=5 - 304 - 4ms
+2025-12-17 22:16:31 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:16:31 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 22:16:31 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:16:31 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:16:31 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:16:31 [info] [GET] /auth/me - 200 - 3ms
+2025-12-17 22:16:31 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:16:31 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 22:16:31 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:16:31 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-17 22:16:31 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:16:31 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:16:31 [info] [GET] /api/categories - ::1
+2025-12-17 22:16:31 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:16:31 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:16:31 [info] [GET] /categories - 200 - 3ms
+2025-12-17 22:16:31 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:16:31 [info] [GET] /account?page=1&pageSize=5 - 200 - 7ms
+2025-12-17 22:16:39 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:16:39 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 22:16:39 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:16:39 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:16:39 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:16:39 [info] [GET] /auth/me - 304 - 4ms
+2025-12-17 22:16:39 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:16:39 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 22:16:39 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:16:39 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-17 22:16:39 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:16:39 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:16:39 [info] [GET] /api/categories - ::1
+2025-12-17 22:16:39 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:16:39 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:16:39 [info] [GET] /categories - 304 - 3ms
+2025-12-17 22:16:39 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:16:39 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 22:16:51 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:16:51 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 22:16:51 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:16:51 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:16:51 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:16:51 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 22:16:51 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:16:51 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 22:16:51 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:16:51 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-17 22:16:51 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:16:51 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:16:51 [info] [GET] /api/categories - ::1
+2025-12-17 22:16:51 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:16:51 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:16:51 [info] [GET] /categories - 304 - 2ms
+2025-12-17 22:16:51 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:16:51 [info] [GET] /account?page=1&pageSize=5 - 304 - 4ms
+2025-12-17 22:21:42 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:21:42 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 22:21:42 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:21:42 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:21:42 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:21:42 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 22:21:42 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:21:42 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 22:21:42 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:21:42 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 22:21:42 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:21:42 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:21:42 [info] [GET] /api/categories - ::1
+2025-12-17 22:21:42 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:21:42 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:21:42 [info] [GET] /categories - 304 - 3ms
+2025-12-17 22:21:42 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:21:42 [info] [GET] /account?page=1&pageSize=5 - 304 - 4ms
+2025-12-17 22:21:42 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:21:42 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 22:21:42 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:21:42 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:21:42 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:21:42 [info] [GET] /auth/me - 200 - 4ms
+2025-12-17 22:21:42 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:21:42 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 22:21:42 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:21:42 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-17 22:21:42 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:21:42 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:21:42 [info] [GET] /api/categories - ::1
+2025-12-17 22:21:42 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:21:42 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:21:42 [info] [GET] /categories - 200 - 3ms
+2025-12-17 22:21:42 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:21:42 [info] [GET] /account?page=1&pageSize=5 - 200 - 6ms
+2025-12-17 22:22:07 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:22:07 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 22:22:07 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:22:07 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:22:07 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:22:07 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 22:22:07 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:22:07 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 22:22:07 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:22:07 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-17 22:22:07 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:22:07 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:22:07 [info] [GET] /api/categories - ::1
+2025-12-17 22:22:07 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:22:07 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:22:07 [info] [GET] /categories - 304 - 2ms
+2025-12-17 22:22:07 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:22:07 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 22:22:13 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:22:13 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 22:22:13 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:22:13 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:22:13 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:22:13 [info] [GET] /auth/me - 200 - 3ms
+2025-12-17 22:22:13 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:22:13 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 22:22:13 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:22:13 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-17 22:22:13 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:22:13 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:22:13 [info] [GET] /api/categories - ::1
+2025-12-17 22:22:13 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:22:13 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:22:13 [info] [GET] /categories - 200 - 3ms
+2025-12-17 22:22:13 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:22:13 [info] [GET] /account?page=1&pageSize=5 - 200 - 7ms
+2025-12-17 22:24:25 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 22:24:25 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 22:24:25 [info] [GET] /api/auth/me - ::1
+2025-12-17 22:24:25 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 22:24:25 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 22:24:25 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 22:24:25 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:24:25 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 22:24:25 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 22:24:25 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 22:24:25 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 22:24:25 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 22:24:25 [info] [GET] /api/categories - ::1
+2025-12-17 22:24:25 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 22:24:25 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 22:24:25 [info] [GET] /categories - 304 - 3ms
+2025-12-17 22:24:25 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 22:24:25 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 23:26:44 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 23:26:44 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 23:26:44 [info] [GET] /api/auth/me - ::1
+2025-12-17 23:26:44 [error] 获取用户信息失败: 无效的token, 错误信息: jwt expired
+2025-12-17 23:26:44 [info] [GET] /auth/me - 401 - 2ms
+2025-12-17 23:26:44 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:26:44 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 23:26:44 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 23:26:44 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 23:26:44 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:26:44 [info] [GET] /account?page=1&pageSize=5 - 401 - 1ms
+2025-12-17 23:26:44 [info] [GET] /api/categories - ::1
+2025-12-17 23:26:44 [info] [GET] /categories - 401 - 1ms
+2025-12-17 23:26:50 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 23:26:50 [info] [OPTIONS] /api/auth/login - 204 - 0ms
+2025-12-17 23:26:50 [info] [POST] /api/auth/login - ::1
+2025-12-17 23:26:50 [info] 用户登录请求: amob-work-harder
+2025-12-17 23:26:50 [info] 登录成功 - amob-work-harder
+2025-12-17 23:26:50 [info] [POST] /auth/login - 200 - 4ms
+2025-12-17 23:26:50 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 23:26:50 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 23:26:50 [info] [GET] /api/auth/me - ::1
+2025-12-17 23:26:50 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 23:26:50 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 23:26:50 [info] [GET] /auth/me - 304 - 2ms
+2025-12-17 23:26:50 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:26:50 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 23:26:50 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 23:26:50 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 23:26:50 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:26:50 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 23:26:50 [info] [GET] /api/categories - ::1
+2025-12-17 23:26:50 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 23:26:50 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 23:26:50 [info] [GET] /categories - 304 - 3ms
+2025-12-17 23:26:50 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 23:26:50 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 23:41:36 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 23:41:36 [info] [OPTIONS] /api/auth/login - 204 - 0ms
+2025-12-17 23:41:36 [info] [POST] /api/auth/login - ::1
+2025-12-17 23:41:36 [info] 用户登录请求: amob-work-harder
+2025-12-17 23:41:36 [info] 登录成功 - amob-work-harder
+2025-12-17 23:41:36 [info] [POST] /auth/login - 200 - 4ms
+2025-12-17 23:41:36 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 23:41:36 [info] [OPTIONS] /api/auth/me - 204 - 0ms
+2025-12-17 23:41:36 [info] [GET] /api/auth/me - ::1
+2025-12-17 23:41:36 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 23:41:36 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 23:41:36 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 23:41:36 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:41:36 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 23:41:36 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 23:41:36 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-17 23:41:36 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:41:36 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 23:41:36 [info] [GET] /api/categories - ::1
+2025-12-17 23:41:36 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 23:41:36 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 23:41:36 [info] [GET] /categories - 304 - 3ms
+2025-12-17 23:41:36 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 23:41:36 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 23:41:37 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:41:37 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 23:41:37 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 23:41:37 [info] [GET] /account?page=1&pageSize=5 - 304 - 4ms
+2025-12-17 23:41:38 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:41:38 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 23:41:38 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 23:41:38 [info] [GET] /account?page=1&pageSize=5 - 304 - 4ms
+2025-12-17 23:41:39 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:41:39 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 23:41:39 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 23:41:39 [info] [GET] /account?page=1&pageSize=5 - 304 - 4ms
+2025-12-17 23:41:41 [info] [GET] /api/auth/me - ::1
+2025-12-17 23:41:41 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 23:41:41 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 23:41:41 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 23:41:41 [info] [OPTIONS] /api/statistics - ::1
+2025-12-17 23:41:41 [info] [OPTIONS] /api/statistics - 204 - 1ms
+2025-12-17 23:41:41 [info] [GET] /api/statistics - ::1
+2025-12-17 23:41:41 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 23:41:41 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 11
+2025-12-17 23:41:41 [info] [GET] /statistics - 304 - 3ms
+2025-12-17 23:41:42 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 23:41:42 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 23:41:42 [info] [GET] /api/auth/me - ::1
+2025-12-17 23:41:42 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 23:41:42 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 23:41:42 [info] [GET] /auth/me - 304 - 2ms
+2025-12-17 23:41:42 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:41:42 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 23:41:42 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 23:41:42 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 23:41:42 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:41:42 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 23:41:42 [info] [GET] /api/categories - ::1
+2025-12-17 23:41:42 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 23:41:42 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 23:41:42 [info] [GET] /categories - 304 - 2ms
+2025-12-17 23:41:42 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 23:41:42 [info] [GET] /account?page=1&pageSize=5 - 304 - 5ms
+2025-12-17 23:41:46 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:41:46 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 23:41:46 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 23:41:46 [info] [GET] /account?page=1&pageSize=5 - 304 - 4ms
+2025-12-17 23:41:47 [info] [OPTIONS] /api/account?page=2&pageSize=5 - ::1
+2025-12-17 23:41:47 [info] [OPTIONS] /api/account?page=2&pageSize=5 - 204 - 1ms
+2025-12-17 23:41:47 [info] [GET] /api/account?page=2&pageSize=5 - ::1
+2025-12-17 23:41:47 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 2, pageSize: 5
+2025-12-17 23:41:47 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 2, pageSize: 5
+2025-12-17 23:41:47 [info] [GET] /account?page=2&pageSize=5 - 304 - 4ms
+2025-12-17 23:41:47 [info] [OPTIONS] /api/account?page=3&pageSize=5 - ::1
+2025-12-17 23:41:47 [info] [OPTIONS] /api/account?page=3&pageSize=5 - 204 - 0ms
+2025-12-17 23:41:47 [info] [GET] /api/account?page=3&pageSize=5 - ::1
+2025-12-17 23:41:47 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 3, pageSize: 5
+2025-12-17 23:41:47 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 1, total: 11, page: 3, pageSize: 5
+2025-12-17 23:41:47 [info] [GET] /account?page=3&pageSize=5 - 200 - 4ms
+2025-12-17 23:41:49 [info] [GET] /api/account?page=2&pageSize=5 - ::1
+2025-12-17 23:41:49 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 2, pageSize: 5
+2025-12-17 23:41:49 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 2, pageSize: 5
+2025-12-17 23:41:49 [info] [GET] /account?page=2&pageSize=5 - 304 - 5ms
+2025-12-17 23:41:51 [info] [GET] /api/account?page=3&pageSize=5 - ::1
+2025-12-17 23:41:51 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 3, pageSize: 5
+2025-12-17 23:41:51 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 1, total: 11, page: 3, pageSize: 5
+2025-12-17 23:41:51 [info] [GET] /account?page=3&pageSize=5 - 304 - 5ms
+2025-12-17 23:41:52 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:41:52 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 0ms
+2025-12-17 23:41:52 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:41:52 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 23:41:52 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 23:41:52 [info] [GET] /account?page=1&pageSize=5 - 304 - 4ms
+2025-12-17 23:41:52 [info] [OPTIONS] /api/account?page=3&pageSize=5 - ::1
+2025-12-17 23:41:52 [info] [OPTIONS] /api/account?page=3&pageSize=5 - 204 - 0ms
+2025-12-17 23:41:52 [info] [GET] /api/account?page=3&pageSize=5 - ::1
+2025-12-17 23:41:52 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 3, pageSize: 5
+2025-12-17 23:41:52 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 1, total: 11, page: 3, pageSize: 5
+2025-12-17 23:41:52 [info] [GET] /account?page=3&pageSize=5 - 304 - 4ms
+2025-12-17 23:41:54 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:41:54 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 23:41:54 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 23:41:54 [info] [GET] /account?page=1&pageSize=5 - 304 - 4ms
+2025-12-17 23:48:08 [info] Application started successfully
+2025-12-17 23:48:08 [info] Swagger UI configured at /api-docs
+2025-12-17 23:48:32 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 23:48:32 [info] [OPTIONS] /api/auth/me - 204 - 3ms
+2025-12-17 23:48:32 [info] [GET] /api/auth/me - ::1
+2025-12-17 23:48:32 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 23:48:32 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 23:48:32 [info] [GET] /auth/me - 304 - 13ms
+2025-12-17 23:48:32 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:48:32 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 23:48:32 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 23:48:32 [info] [OPTIONS] /api/categories - 204 - 1ms
+2025-12-17 23:48:32 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:48:32 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 23:48:32 [info] [GET] /api/categories - ::1
+2025-12-17 23:48:32 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 23:48:32 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 23:48:32 [info] [GET] /categories - 304 - 8ms
+2025-12-17 23:48:32 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 23:48:32 [info] [GET] /account?page=1&pageSize=5 - 304 - 14ms
+2025-12-17 23:48:34 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:48:34 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 23:48:34 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 23:48:34 [info] [GET] /account?page=1&pageSize=5 - 304 - 6ms
+2025-12-17 23:48:34 [info] [OPTIONS] /api/account?page=2&pageSize=5 - ::1
+2025-12-17 23:48:34 [info] [OPTIONS] /api/account?page=2&pageSize=5 - 204 - 1ms
+2025-12-17 23:48:34 [info] [GET] /api/account?page=2&pageSize=5 - ::1
+2025-12-17 23:48:34 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 2, pageSize: 5
+2025-12-17 23:48:34 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 2, pageSize: 5
+2025-12-17 23:48:34 [info] [GET] /account?page=2&pageSize=5 - 304 - 5ms
+2025-12-17 23:48:35 [info] [OPTIONS] /api/account?page=3&pageSize=5 - ::1
+2025-12-17 23:48:35 [info] [OPTIONS] /api/account?page=3&pageSize=5 - 204 - 0ms
+2025-12-17 23:48:35 [info] [GET] /api/account?page=3&pageSize=5 - ::1
+2025-12-17 23:48:35 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 3, pageSize: 5
+2025-12-17 23:48:35 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 1, total: 11, page: 3, pageSize: 5
+2025-12-17 23:48:35 [info] [GET] /account?page=3&pageSize=5 - 304 - 6ms
+2025-12-17 23:48:36 [info] [GET] /api/auth/me - ::1
+2025-12-17 23:48:36 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 23:48:36 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 23:48:36 [info] [GET] /auth/me - 304 - 4ms
+2025-12-17 23:48:36 [info] [OPTIONS] /api/statistics - ::1
+2025-12-17 23:48:36 [info] [OPTIONS] /api/statistics - 204 - 1ms
+2025-12-17 23:48:36 [info] [GET] /api/statistics - ::1
+2025-12-17 23:48:36 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 23:48:36 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 11
+2025-12-17 23:48:36 [info] [GET] /statistics - 304 - 6ms
+2025-12-17 23:48:37 [info] [GET] /api/auth/me - ::1
+2025-12-17 23:48:37 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 23:48:37 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 23:48:37 [info] [GET] /auth/me - 304 - 4ms
+2025-12-17 23:48:37 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:48:37 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 23:48:37 [info] [GET] /api/categories - ::1
+2025-12-17 23:48:37 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 23:48:37 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 23:48:37 [info] [GET] /categories - 304 - 4ms
+2025-12-17 23:48:37 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 23:48:37 [info] [GET] /account?page=1&pageSize=5 - 304 - 7ms
+2025-12-17 23:48:37 [info] [OPTIONS] /api/auth/me - ::1
+2025-12-17 23:48:37 [info] [OPTIONS] /api/auth/me - 204 - 1ms
+2025-12-17 23:48:37 [info] [GET] /api/auth/me - ::1
+2025-12-17 23:48:37 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 23:48:37 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 23:48:37 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 23:48:37 [info] [GET] /api/statistics - ::1
+2025-12-17 23:48:37 [info] 获取账单统计数据请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 23:48:37 [info] 获取账单统计数据成功 - userId: 693efeebdea495b7b3494e5d, count: 11
+2025-12-17 23:48:37 [info] [GET] /statistics - 304 - 4ms
+2025-12-17 23:48:40 [info] [OPTIONS] /api/auth/login - ::1
+2025-12-17 23:48:40 [info] [OPTIONS] /api/auth/login - 204 - 1ms
+2025-12-17 23:48:40 [info] [POST] /api/auth/login - ::1
+2025-12-17 23:48:40 [info] 用户登录请求: amob-work-harder
+2025-12-17 23:48:40 [info] 登录成功 - amob-work-harder
+2025-12-17 23:48:40 [info] [POST] /auth/login - 200 - 11ms
+2025-12-17 23:48:40 [info] [GET] /api/auth/me - ::1
+2025-12-17 23:48:40 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-17 23:48:40 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder
+2025-12-17 23:48:40 [info] [GET] /auth/me - 304 - 3ms
+2025-12-17 23:48:40 [info] [OPTIONS] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:48:40 [info] [OPTIONS] /api/account?page=1&pageSize=5 - 204 - 1ms
+2025-12-17 23:48:40 [info] [OPTIONS] /api/categories - ::1
+2025-12-17 23:48:40 [info] [OPTIONS] /api/categories - 204 - 0ms
+2025-12-17 23:48:40 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-17 23:48:40 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-17 23:48:40 [info] [GET] /api/categories - ::1
+2025-12-17 23:48:40 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-17 23:48:40 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-17 23:48:40 [info] [GET] /categories - 304 - 3ms
+2025-12-17 23:48:40 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-17 23:48:40 [info] [GET] /account?page=1&pageSize=5 - 304 - 7ms
+2025-12-17 23:50:31 [info] Application started successfully
+2025-12-17 23:50:31 [info] Swagger UI configured at /api-docs
+2025-12-17 23:52:28 [info] Application started successfully
+2025-12-17 23:52:28 [info] Swagger UI configured at /api-docs
+2025-12-17 23:55:29 [info] Application started successfully
+2025-12-17 23:55:29 [info] Swagger UI configured at /api-docs

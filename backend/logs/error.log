@@ -50,3 +50,4 @@
 2025-12-16 23:21:01 [error] 获取用户信息失败: 无效的token, 错误信息: invalid signature
 2025-12-16 23:45:42 [error] 获取用户信息失败: 无效的token, 错误信息: invalid signature
 2025-12-17 01:01:24 [error] 获取用户信息失败: 无效的token, 错误信息: jwt expired
+2025-12-17 23:26:44 [error] 获取用户信息失败: 无效的token, 错误信息: jwt expired

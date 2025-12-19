@@ -11,7 +11,7 @@
     <div class="account-content">
       <div class="account-title">{{ account.title }}</div>
       <span class="account-type" :class="account.type">{{
-        account.type === "income" ? "收入" : "支出"
+        account.type === 'income' ? '收入' : '支出'
       }}</span>
       <span class="account-amount">{{ account.amount }} 元</span>
       <button @click="handleEdit" class="edit-btn" title="编辑">✏️</button>
@@ -30,27 +30,27 @@ const props = defineProps({
 });
 
 // 定义组件事件
-const emit = defineEmits(["edit", "delete"]);
+const emit = defineEmits(['edit', 'delete']);
 
 // 格式化日期
 const formatDate = (date) => {
-  return new Date(date).toLocaleString("zh-CN", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
+  return new Date(date).toLocaleString('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
   });
 };
 
 // 编辑账单处理函数
 const handleEdit = () => {
-  emit("edit", props.account);
+  emit('edit', props.account);
 };
 
 // 删除账单处理函数
 const handleDelete = () => {
-  emit("delete", props.account._id);
+  emit('delete', props.account._id);
 };
 </script>
 
@@ -72,7 +72,7 @@ const handleDelete = () => {
 }
 
 .account-card::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -188,13 +188,15 @@ const handleDelete = () => {
 }
 
 .delete-btn {
-  color: #ff4d4f;
+  background-color: red;
+  color: white;
   margin-left: 12px;
+  border: 1px solid red;
 }
 
 .delete-btn:hover {
-  background-color: #fff1f0;
+  background-color: #ff4444;
   transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(255, 77, 79, 0.2);
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
 }
 </style>

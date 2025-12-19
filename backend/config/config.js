@@ -1,8 +1,8 @@
 // 配置文件
 module.exports = {
-  DBHOST: "127.0.0.1",
+  DBHOST: '127.0.0.1',
   DBPORT: 27017,
-  DBNAME: "accountBook",
+  DBNAME: 'accountBook',
   // 密钥
-  SECRET: "amob",
+  SECRET: 'amob',
 };

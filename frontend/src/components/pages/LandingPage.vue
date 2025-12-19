@@ -70,22 +70,52 @@
         </div>
       </div>
 
-      <!-- 宣传语区域 -->
-      <div class="slogan-section">
-        <h2 class="slogan">科技美好生活</h2>
-      </div>
+      <!-- 名言显示区域 -->
+      <QuoteDisplay :quote="randomQuote" :show-add-button="false" />
     </main>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted } from 'vue';
+// 导入名言显示组件
+import QuoteDisplay from '../ui/QuoteDisplay.vue';
 
 // 轮播图相关状态
 const carouselRef = ref(null);
 const currentSlide = ref(0);
 const slideInterval = ref(null);
 const slideDuration = 3000; // 3秒自动切换
+
+// 名言相关状态
+const randomQuote = ref(null);
+const isLoading = ref(true);
+
+// 获取随机名言
+const fetchRandomQuote = async () => {
+  try {
+    const response = await fetch('/api/quotes/random');
+    const data = await response.json();
+    if (data.code === '0000') {
+      randomQuote.value = data.data;
+    }
+  } catch (error) {
+    console.error('获取名言失败:', error);
+    // 使用默认名言
+    randomQuote.value = {
+      content: '生活不是缺少美，而是缺少发现美的眼睛。',
+      author: '罗丹',
+    };
+  } finally {
+    isLoading.value = false;
+  }
+};
+
+// 页面加载时获取名言
+onMounted(() => {
+  startAutoPlay();
+  fetchRandomQuote();
+});
 
 // 轮播图方法：切换到下一张
 const nextSlide = () => {
@@ -134,8 +164,9 @@ onUnmounted(() => {
   width: 100%;
   min-height: auto;
   background-color: #f5f7fa;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
 }
 
 /* 顶部导航栏样式 */

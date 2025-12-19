@@ -1,7 +1,7 @@
 // 导入 jsonwebtoken 模块
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 // 导入配置文件
-const { SECRET } = require("../config");
+const { SECRET } = require('../config');
 
 // 声明 token 中间件
 module.exports = (req, res, next) => {
@@ -10,14 +10,14 @@ module.exports = (req, res, next) => {
   let token = req.headers.authorization || req.headers.token;
   if (!token) {
     return res.status(401).json({
-      code: "4011",
-      msg: "未授权",
+      code: '4011',
+      msg: '未授权',
       data: null,
     });
   }
 
   // 处理 Bearer token 格式
-  if (token.startsWith("Bearer ")) {
+  if (token.startsWith('Bearer ')) {
     token = token.slice(7);
   }
 
@@ -30,8 +30,8 @@ module.exports = (req, res, next) => {
     next();
   } catch (err) {
     return res.status(401).json({
-      code: "4012",
-      msg: "无效的 token",
+      code: '4012',
+      msg: '无效的 token',
       data: null,
     });
   }

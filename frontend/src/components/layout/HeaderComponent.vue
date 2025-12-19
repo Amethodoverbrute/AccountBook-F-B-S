@@ -12,7 +12,7 @@
       </div>
       <!-- 网站标题 - 居中显示 -->
       <h1 class="site-title">
-        {{ userInfo ? `${userInfo.username}的记账本` : "我的记账本" }}
+        {{ userInfo ? `${userInfo.username}的记账本` : '我的记账本' }}
       </h1>
       <!-- 登录注册区域 -->
       <div class="auth-section">
@@ -38,8 +38,8 @@
 const props = defineProps({
   userInfo: {
     type: Object,
-    default: null
-  }
+    default: null,
+  },
 });
 
 // 定义组件事件

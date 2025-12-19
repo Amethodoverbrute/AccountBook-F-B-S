@@ -47,13 +47,13 @@
 </template>
 
 <script setup>
-import { ref, watch, computed } from "vue";
+import { ref, watch, computed } from 'vue';
 
 // 定义组件属性
 const props = defineProps({
   keyword: {
     type: String,
-    default: "",
+    default: '',
   },
   accounts: {
     type: Array,
@@ -63,10 +63,10 @@ const props = defineProps({
 
 // 定义组件事件
 const emit = defineEmits([
-  "search",
-  "add-bill",
-  "go-to-statistics",
-  "reset-search",
+  'search',
+  'add-bill',
+  'go-to-statistics',
+  'reset-search',
 ]);
 
 // 本地搜索关键词
@@ -74,7 +74,7 @@ const localKeyword = ref(props.keyword);
 
 // 计算属性：判断是否有搜索条件
 const hasSearchCriteria = computed(() => {
-  return localKeyword.value.trim() !== "";
+  return localKeyword.value.trim() !== '';
 });
 
 // 监听props.keyword变化，更新本地keyword
@@ -152,7 +152,7 @@ const handleInput = () => {
  */
 const handleSearch = () => {
   // 触发搜索事件，传递搜索关键词
-  emit("search", localKeyword.value);
+  emit('search', localKeyword.value);
 
   // 搜索后隐藏建议列表
   showSuggestions.value = false;
@@ -167,11 +167,11 @@ const handleSearch = () => {
  * 4. 触发reset-search事件，通知父组件重置搜索
  */
 const handleResetSearch = () => {
-  localKeyword.value = "";
+  localKeyword.value = '';
 
   suggestions.value = [];
   showSuggestions.value = false;
-  emit("reset-search");
+  emit('reset-search');
 };
 
 /**
@@ -205,7 +205,7 @@ const handleBlur = () => {
  */
 const selectSuggestion = (title) => {
   localKeyword.value = title;
-  emit("search", title);
+  emit('search', title);
 };
 
 /**
@@ -213,7 +213,7 @@ const selectSuggestion = (title) => {
  * 功能：触发add-bill事件，通知父组件打开添加账单表单
  */
 const handleAddBill = () => {
-  emit("add-bill");
+  emit('add-bill');
 };
 
 /**
@@ -221,7 +221,7 @@ const handleAddBill = () => {
  * 功能：触发go-to-statistics事件，通知父组件跳转到统计页面
  */
 const handleGoToStatistics = () => {
-  emit("go-to-statistics");
+  emit('go-to-statistics');
 };
 </script>
 

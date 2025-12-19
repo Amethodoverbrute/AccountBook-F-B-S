@@ -65,44 +65,50 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch } from 'vue';
 
 // 定义组件属性
 const props = defineProps({
   currentPage: {
     type: Number,
-    default: 1
+    default: 1,
   },
   pageSize: {
     type: Number,
-    default: 5
+    default: 5,
   },
   totalPages: {
     type: Number,
-    default: 0
+    default: 0,
   },
   totalRecords: {
     type: Number,
-    default: 0
-  }
+    default: 0,
+  },
 });
 
 // 定义组件事件
 const emit = defineEmits(['page-change', 'page-size-change']);
 
-// 本地分页状态
+// 创建本地分页状态
 const localPageSize = ref(props.pageSize);
 const jumpPage = ref(props.currentPage);
 
 // 监听props.currentPage变化，更新jumpPage
-watch(() => props.currentPage, (newVal) => {
-  jumpPage.value = newVal;
-});
+watch(
+  () => props.currentPage,
+  (newVal) => {
+    jumpPage.value = newVal;
+  }
+);
 
 // 监听props.pageSize变化，更新localPageSize
-watch(() => props.pageSize, (newVal) => {
-  localPageSize.value = newVal;
-});
+watch(
+  () => props.pageSize,
+  (newVal) => {
+    localPageSize.value = newVal;
+  }
+);
 
 // 跳转到首页
 const handleFirstPage = () => {
@@ -134,7 +140,7 @@ const handleJump = () => {
   // 边界检查
   if (isNaN(page) || page < 1) page = 1;
   if (page > props.totalPages) page = props.totalPages;
-  
+
   emit('page-change', page);
 };
 

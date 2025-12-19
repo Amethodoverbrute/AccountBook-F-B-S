@@ -45,43 +45,43 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-import { authService } from "../../services/auth";
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { authService } from '../../services/auth';
 
-const username = ref("");
-const password = ref("");
-const confirmPassword = ref("");
-const error = ref("");
-const success = ref("");
+const username = ref('');
+const password = ref('');
+const confirmPassword = ref('');
+const error = ref('');
+const success = ref('');
 const router = useRouter();
 
 const handleRegister = async () => {
-  error.value = "";
-  success.value = "";
+  error.value = '';
+  success.value = '';
 
   if (password.value !== confirmPassword.value) {
-    error.value = "两次输入的密码不一致";
+    error.value = '两次输入的密码不一致';
     return;
   }
 
   if (password.value.length < 6) {
-    error.value = "密码长度不能少于6位";
+    error.value = '密码长度不能少于6位';
     return;
   }
 
   try {
     const response = await authService.register(username.value, password.value);
-    if (response.code === "0000") {
-      success.value = "注册成功，请登录";
+    if (response.code === '0000') {
+      success.value = '注册成功，请登录';
       setTimeout(() => {
-        router.push("/login");
+        router.push('/login');
       }, 1500);
     } else {
-      error.value = response.msg || "注册失败";
+      error.value = response.msg || '注册失败';
     }
   } catch (err) {
-    error.value = err.response?.data?.msg || "网络错误，请稍后重试";
+    error.value = err.response?.data?.msg || '网络错误，请稍后重试';
   }
 };
 </script>
@@ -94,13 +94,19 @@ const handleRegister = async () => {
   padding: 40px 30px;
   border-radius: 12px;
   background: white;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.15),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .register-container:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -247,7 +253,7 @@ input::placeholder {
 }
 
 .login-link a::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 0;
   height: 2px;

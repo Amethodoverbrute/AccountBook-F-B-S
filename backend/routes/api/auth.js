@@ -4,21 +4,21 @@
  * 作者：系统自动生成
  * 时间：2025-04-02
  */
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
 // 导入 jsonwebtoken 模块
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 // 导入用户模型
-const UserModel = require("../../models/userModel");
+const UserModel = require('../../models/userModel');
 // 导入分类模型
-const CategoryModel = require("../../models/categoryModel");
+const CategoryModel = require('../../models/categoryModel');
 // 导入md5加密模块
-const md5 = require("md5");
+const md5 = require('md5');
 // 导入配置文件
-const { SECRET } = require("../../config");
+const { SECRET } = require('../../config');
 // 导入自定义日志
-const logger = require("../../config/logger");
+const logger = require('../../config/logger');
 
 /**
  * @openapi
@@ -40,13 +40,13 @@ const logger = require("../../config/logger");
  *             schema:
  *               type: object
  *               properties:
- *                 code: 
+ *                 code:
  *                   type: string
  *                   example: '0000'
- *                 msg: 
+ *                 msg:
  *                   type: string
  *                   example: '用户登录成功'
- *                 token: 
+ *                 token:
  *                   type: string
  *                   description: JWT令牌
  *       400:
@@ -57,7 +57,7 @@ const logger = require("../../config/logger");
  *               $ref: '#/components/schemas/ApiResponse'
  */
 // 登录 用户
-router.post("/auth/login", async (req, res) => {
+router.post('/auth/login', async (req, res) => {
   const { username, password } = req.body;
   logger.info(`用户登录请求: ${username}`);
 
@@ -65,8 +65,8 @@ router.post("/auth/login", async (req, res) => {
   if (!username || !password) {
     logger.warn(`登录失败 - ${username}: 用户名和密码不能为空`);
     return res.status(400).json({
-      code: "400",
-      msg: "用户名和密码不能为空",
+      code: '400',
+      msg: '用户名和密码不能为空',
     });
   }
 
@@ -76,8 +76,8 @@ router.post("/auth/login", async (req, res) => {
     if (!user) {
       logger.warn(`登录失败 - ${username}: 用户名不存在`);
       return res.json({
-        code: "400",
-        msg: "用户名不存在",
+        code: '400',
+        msg: '用户名不存在',
       });
     }
 
@@ -85,8 +85,8 @@ router.post("/auth/login", async (req, res) => {
     if (user.password !== md5(password)) {
       logger.warn(`登录失败 - ${username}: 密码错误`);
       return res.json({
-        code: "400",
-        msg: "密码错误",
+        code: '400',
+        msg: '密码错误',
       });
     }
 
@@ -96,13 +96,13 @@ router.post("/auth/login", async (req, res) => {
       // 为用户创建默认分类
       const defaultCategories = [
         // 支出分类
-        { name: "工作", type: "expense", userId: user._id },
-        { name: "生活", type: "expense", userId: user._id },
-        { name: "其他", type: "expense", userId: user._id },
+        { name: '工作', type: 'expense', userId: user._id },
+        { name: '生活', type: 'expense', userId: user._id },
+        { name: '其他', type: 'expense', userId: user._id },
         // 收入分类
-        { name: "工作", type: "income", userId: user._id },
-        { name: "生活", type: "income", userId: user._id },
-        { name: "其他", type: "income", userId: user._id },
+        { name: '工作', type: 'income', userId: user._id },
+        { name: '生活', type: 'income', userId: user._id },
+        { name: '其他', type: 'income', userId: user._id },
       ];
 
       // 批量创建默认分类
@@ -112,20 +112,20 @@ router.post("/auth/login", async (req, res) => {
 
     // 登录成功，生成token返回给客户端
     const token = jwt.sign({ userId: user._id }, SECRET, {
-      expiresIn: "1h",
+      expiresIn: '1h',
     });
 
     logger.info(`登录成功 - ${username}`);
     res.json({
-      code: "0000",
-      msg: "用户登录成功",
+      code: '0000',
+      msg: '用户登录成功',
       token,
     });
   } catch (error) {
     logger.error(`登录失败 - ${username}: ${error.message}`);
     res.status(500).json({
-      code: "500",
-      msg: "登录失败，服务器错误",
+      code: '500',
+      msg: '登录失败，服务器错误',
     });
   }
 });
@@ -147,12 +147,12 @@ router.post("/auth/login", async (req, res) => {
  *               $ref: '#/components/schemas/ApiResponse'
  */
 // 退出登录，使用POST方法更安全比GET方法
-router.post("/auth/logout", (req, res) => {
+router.post('/auth/logout', (req, res) => {
   // 前后端分离架构下，退出登录只需要前端清除token即可
-  logger.info("用户退出登录");
+  logger.info('用户退出登录');
   res.json({
-    code: "0000",
-    msg: "用户退出登录成功",
+    code: '0000',
+    msg: '用户退出登录成功',
   });
 });
 
@@ -172,18 +172,18 @@ router.post("/auth/logout", (req, res) => {
  *             schema:
  *               type: object
  *               properties:
- *                 code: 
+ *                 code:
  *                   type: string
  *                   example: '0000'
- *                 msg: 
+ *                 msg:
  *                   type: string
  *                   example: '获取用户信息成功'
- *                 data: 
+ *                 data:
  *                   type: object
  *                   properties:
- *                     username: 
+ *                     username:
  *                       type: string
- *                     userId: 
+ *                     userId:
  *                       type: string
  *       401:
  *         description: 未授权
@@ -193,18 +193,18 @@ router.post("/auth/logout", (req, res) => {
  *               $ref: '#/components/schemas/ApiResponse'
  */
 // 获取当前登录用户信息
-router.get("/auth/me", (req, res) => {
+router.get('/auth/me', (req, res) => {
   // 从请求头获取token
   const authHeader = req.headers.authorization;
   if (!authHeader) {
-    logger.warn("获取用户信息失败: 未提供token");
+    logger.warn('获取用户信息失败: 未提供token');
     return res.status(401).json({
-      code: "401",
-      msg: "未授权",
+      code: '401',
+      msg: '未授权',
     });
   }
 
-  const token = authHeader.split(" ")[1];
+  const token = authHeader.split(' ')[1];
 
   try {
     // 验证token
@@ -214,33 +214,34 @@ router.get("/auth/me", (req, res) => {
 
     // 根据userId查询用户信息
     UserModel.findById(decoded.userId)
-      .select("-password") // 不返回密码
+      .select('-password') // 不返回密码
       .then((user) => {
         if (!user) {
           logger.warn(`获取用户信息失败: userId=${decoded.userId} 不存在`);
           return res.status(404).json({
-            code: "404",
-            msg: "用户不存在",
+            code: '404',
+            msg: '用户不存在',
           });
         }
 
         logger.info(
-          `获取用户信息成功: userId=${decoded.userId}, username=${user.username}`
+          `获取用户信息成功: userId=${decoded.userId}, username=${user.username}, role=${user.role}`
         );
         res.json({
-          code: "0000",
-          msg: "获取用户信息成功",
+          code: '0000',
+          msg: '获取用户信息成功',
           data: {
             username: user.username,
             userId: user._id,
+            role: user.role,
           },
         });
       });
   } catch (error) {
     logger.error(`获取用户信息失败: 无效的token, 错误信息: ${error.message}`);
     return res.status(401).json({
-      code: "401",
-      msg: "无效的token",
+      code: '401',
+      msg: '无效的token',
     });
   }
 });
@@ -272,7 +273,7 @@ router.get("/auth/me", (req, res) => {
  *               $ref: '#/components/schemas/ApiResponse'
  */
 // 注册用户
-router.post("/auth/register", async (req, res) => {
+router.post('/auth/register', async (req, res) => {
   const { username, password } = req.body;
   logger.info(`用户注册请求: ${username}`);
 
@@ -280,8 +281,8 @@ router.post("/auth/register", async (req, res) => {
   if (!username || !password) {
     logger.warn(`注册失败 - ${username}: 用户名和密码不能为空`);
     return res.status(400).json({
-      code: "400",
-      msg: "用户名和密码不能为空",
+      code: '400',
+      msg: '用户名和密码不能为空',
     });
   }
 
@@ -291,8 +292,8 @@ router.post("/auth/register", async (req, res) => {
     if (user) {
       logger.warn(`注册失败 - ${username}: 用户名已存在`);
       return res.status(400).json({
-        code: "400",
-        msg: "用户名已存在",
+        code: '400',
+        msg: '用户名已存在',
       });
     }
 
@@ -308,13 +309,13 @@ router.post("/auth/register", async (req, res) => {
     // 为新用户创建默认分类
     const defaultCategories = [
       // 支出分类
-      { name: "工作", type: "expense", userId: savedUser._id },
-      { name: "生活", type: "expense", userId: savedUser._id },
-      { name: "其他", type: "expense", userId: savedUser._id },
+      { name: '工作', type: 'expense', userId: savedUser._id },
+      { name: '生活', type: 'expense', userId: savedUser._id },
+      { name: '其他', type: 'expense', userId: savedUser._id },
       // 收入分类
-      { name: "工作", type: "income", userId: savedUser._id },
-      { name: "生活", type: "income", userId: savedUser._id },
-      { name: "其他", type: "income", userId: savedUser._id },
+      { name: '工作', type: 'income', userId: savedUser._id },
+      { name: '生活', type: 'income', userId: savedUser._id },
+      { name: '其他', type: 'income', userId: savedUser._id },
     ];
 
     // 批量创建默认分类
@@ -323,14 +324,14 @@ router.post("/auth/register", async (req, res) => {
 
     logger.info(`注册成功 - ${username}`);
     res.status(201).json({
-      code: "0000",
-      msg: "用户注册成功",
+      code: '0000',
+      msg: '用户注册成功',
     });
   } catch (error) {
     logger.error(`注册失败 - ${username}: ${error.message}`);
     res.status(500).json({
-      code: "500",
-      msg: "注册失败，服务器错误",
+      code: '500',
+      msg: '注册失败，服务器错误',
     });
   }
 });

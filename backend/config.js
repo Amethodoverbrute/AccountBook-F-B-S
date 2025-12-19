@@ -1,6 +1,6 @@
 module.exports = {
-  DBHOST: "127.0.0.1",
-  DBPORT: "27017",
-  DBNAME: "accountBook",
-  SECRET: "amob",
+  DBHOST: '127.0.0.1',
+  DBPORT: '27017',
+  DBNAME: 'accountBook',
+  SECRET: 'amob',
 };

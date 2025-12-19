@@ -4,13 +4,13 @@
  * 作者：系统自动生成
  * 时间：2025-04-02
  */
-var express = require("express");
+var express = require('express');
 var router = express.Router();
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 
 // 导入 moment 模块
-const moment = require("moment");
-const AccountModel = require("../../models/accountModel");
+const moment = require('moment');
+const AccountModel = require('../../models/accountModel');
 
 // 测试 格式化时间
 // console.log(moment("2025-12-13T10:16"));
@@ -19,11 +19,11 @@ const AccountModel = require("../../models/accountModel");
 // const formatTime = (time) => moment(time).format("YYYY-MM-DD HH:mm");
 
 // 导入 token 中间件
-const checkTokenMiddleware = require("../../middlewares/checkTokenMiddleware");
+const checkTokenMiddleware = require('../../middlewares/checkTokenMiddleware');
 // 导入配置文件
-const { SECRET } = require("../../config");
+const { SECRET } = require('../../config');
 // 导入自定义日志
-const logger = require("../../config/logger");
+const logger = require('../../config/logger');
 
 /**
  * @openapi
@@ -48,13 +48,13 @@ const logger = require("../../config/logger");
  *             schema:
  *               type: object
  *               properties:
- *                 code: 
+ *                 code:
  *                   type: string
  *                   example: '0000'
- *                 msg: 
+ *                 msg:
  *                   type: string
  *                   example: '获取数据成功'
- *                 data: 
+ *                 data:
  *                   $ref: '#/components/schemas/Account'
  *       404:
  *         description: 记录不存在或无权访问
@@ -66,7 +66,7 @@ const logger = require("../../config/logger");
 /* GET home page. */
 // 获取单个记录
 router.get(
-  "/account/:id",
+  '/account/:id',
   checkTokenMiddleware,
   async function (req, res, next) {
     try {
@@ -84,27 +84,27 @@ router.get(
           `获取单个账单失败 - userId: ${userId}, billId: ${id}: 记录不存在或无权访问`
         );
         return res.status(404).json({
-          code: "4041",
-          msg: "记录不存在或无权访问",
+          code: '4041',
+          msg: '记录不存在或无权访问',
           data: null,
         });
       }
 
       logger.info(`获取单个账单成功 - userId: ${userId}, billId: ${id}`);
       res.json({
-        code: "0000",
-        msg: "获取数据成功",
+        code: '0000',
+        msg: '获取数据成功',
         data: data,
       });
     } catch (err) {
       logger.error(
-        `获取单个账单失败 - userId: ${req.user?.userId || "unknown"}, billId: ${
+        `获取单个账单失败 - userId: ${req.user?.userId || 'unknown'}, billId: ${
           req.params.id
         }: ${err.message}`
       );
       res.json({
-        code: "0001",
-        msg: "获取数据失败",
+        code: '0001',
+        msg: '获取数据失败',
         data: null,
       });
     }
@@ -149,13 +149,13 @@ router.get(
  *             schema:
  *               type: object
  *               properties:
- *                 code: 
+ *                 code:
  *                   type: string
  *                   example: '0000'
- *                 msg: 
+ *                 msg:
  *                   type: string
  *                   example: '获取数据成功'
- *                 data: 
+ *                 data:
  *                   type: object
  *                   properties:
  *                     accounts:
@@ -179,14 +179,16 @@ router.get(
  *                           example: 10
  */
 // 读取记账本列表
-router.get("/account", checkTokenMiddleware, async function (req, res, next) {
+router.get('/account', checkTokenMiddleware, async function (req, res, next) {
   try {
     // 获取当前用户ID
     const { userId } = req.user;
     // 获取查询参数
     const { search, page, pageSize } = req.query;
 
-    logger.info(`获取账单列表请求 - userId: ${userId}, search: ${search}, page: ${page}, pageSize: ${pageSize}`);
+    logger.info(
+      `获取账单列表请求 - userId: ${userId}, search: ${search}, page: ${page}, pageSize: ${pageSize}`
+    );
 
     // 构建查询条件
     const query = { userId };
@@ -211,29 +213,31 @@ router.get("/account", checkTokenMiddleware, async function (req, res, next) {
       .skip(skip)
       .limit(perPage);
 
-    logger.info(`获取账单列表成功 - userId: ${userId}, count: ${accounts.length}, total: ${total}, page: ${currentPage}, pageSize: ${perPage}`);
+    logger.info(
+      `获取账单列表成功 - userId: ${userId}, count: ${accounts.length}, total: ${total}, page: ${currentPage}, pageSize: ${perPage}`
+    );
     res.json({
-      code: "0000",
-      msg: "获取数据成功",
+      code: '0000',
+      msg: '获取数据成功',
       data: {
         accounts,
         pagination: {
           page: currentPage,
           pageSize: perPage,
           total,
-          totalPages
-        }
+          totalPages,
+        },
       },
     });
   } catch (err) {
     logger.error(
-      `获取账单列表失败 - userId: ${req.user?.userId || "unknown"}, search: ${req.query.search}: ${
+      `获取账单列表失败 - userId: ${req.user?.userId || 'unknown'}, search: ${req.query.search}: ${
         err.message
       }`
     );
     res.json({
-      code: "0001",
-      msg: "获取数据失败",
+      code: '0001',
+      msg: '获取数据失败',
       data: null,
     });
   }
@@ -258,27 +262,27 @@ router.get("/account", checkTokenMiddleware, async function (req, res, next) {
  *               - amount
  *               - type
  *             properties:
- *               title: 
+ *               title:
  *                 type: string
  *                 description: 账单标题
- *               item: 
+ *               item:
  *                 type: string
  *                 description: 账单项（兼容旧版字段）
- *               amount: 
+ *               amount:
  *                 type: number
  *                 description: 账单金额
- *               type: 
+ *               type:
  *                 type: string
  *                 enum: [income, expense]
  *                 description: 账单类型
- *               time: 
+ *               time:
  *                 type: string
  *                 format: date-time
  *                 description: 账单时间
- *               remark: 
+ *               remark:
  *                 type: string
  *                 description: 账单备注
- *               categoryId: 
+ *               categoryId:
  *                 type: string
  *                 description: 分类ID
  *     responses:
@@ -289,13 +293,13 @@ router.get("/account", checkTokenMiddleware, async function (req, res, next) {
  *             schema:
  *               type: object
  *               properties:
- *                 code: 
+ *                 code:
  *                   type: string
  *                   example: '0000'
- *                 msg: 
+ *                 msg:
  *                   type: string
  *                   example: '添加成功'
- *                 data: 
+ *                 data:
  *                   $ref: '#/components/schemas/Account'
  *       400:
  *         description: 缺少必填字段
@@ -305,7 +309,7 @@ router.get("/account", checkTokenMiddleware, async function (req, res, next) {
  *               $ref: '#/components/schemas/ApiResponse'
  */
 // 添加记录
-router.post("/account", checkTokenMiddleware, async function (req, res, next) {
+router.post('/account', checkTokenMiddleware, async function (req, res, next) {
   try {
     // 获取当前用户ID
     const { userId } = req.user;
@@ -325,8 +329,8 @@ router.post("/account", checkTokenMiddleware, async function (req, res, next) {
         `添加账单失败 - userId: ${userId}: 缺少必填字段: title/item 或 amount`
       );
       return res.status(400).json({
-        code: "4001",
-        msg: "缺少必填字段: title/item 或 amount",
+        code: '4001',
+        msg: '缺少必填字段: title/item 或 amount',
         data: null,
       });
     }
@@ -344,17 +348,17 @@ router.post("/account", checkTokenMiddleware, async function (req, res, next) {
 
     logger.info(`添加账单成功 - userId: ${userId}, billId: ${data._id}`);
     res.json({
-      code: "0000",
-      msg: "添加成功",
+      code: '0000',
+      msg: '添加成功',
       data: data,
     });
   } catch (err) {
     logger.error(
-      `添加账单失败 - userId: ${req.user?.userId || "unknown"}: ${err.message}`
+      `添加账单失败 - userId: ${req.user?.userId || 'unknown'}: ${err.message}`
     );
     res.status(500).json({
-      code: "5001",
-      msg: "添加失败",
+      code: '5001',
+      msg: '添加失败',
       data: null,
       error: err.message,
     });
@@ -383,24 +387,24 @@ router.post("/account", checkTokenMiddleware, async function (req, res, next) {
  *           schema:
  *             type: object
  *             properties:
- *               title: 
+ *               title:
  *                 type: string
  *                 description: 账单标题
- *               amount: 
+ *               amount:
  *                 type: number
  *                 description: 账单金额
- *               type: 
+ *               type:
  *                 type: string
  *                 enum: [income, expense]
  *                 description: 账单类型
- *               time: 
+ *               time:
  *                 type: string
  *                 format: date-time
  *                 description: 账单时间
- *               remark: 
+ *               remark:
  *                 type: string
  *                 description: 账单备注
- *               categoryId: 
+ *               categoryId:
  *                 type: string
  *                 description: 分类ID
  *     responses:
@@ -411,13 +415,13 @@ router.post("/account", checkTokenMiddleware, async function (req, res, next) {
  *             schema:
  *               type: object
  *               properties:
- *                 code: 
+ *                 code:
  *                   type: string
  *                   example: '0000'
- *                 msg: 
+ *                 msg:
  *                   type: string
  *                   example: '更新成功'
- *                 data: 
+ *                 data:
  *                   $ref: '#/components/schemas/Account'
  *       404:
  *         description: 记录不存在或无权访问
@@ -428,7 +432,7 @@ router.post("/account", checkTokenMiddleware, async function (req, res, next) {
  */
 // 更新单个账单信息
 router.patch(
-  "/account/:id",
+  '/account/:id',
   checkTokenMiddleware,
   async function (req, res, next) {
     try {
@@ -452,27 +456,27 @@ router.patch(
           `更新账单失败 - userId: ${userId}, billId: ${id}: 记录不存在或无权访问`
         );
         return res.status(404).json({
-          code: "4041",
-          msg: "记录不存在或无权访问",
+          code: '4041',
+          msg: '记录不存在或无权访问',
           data: null,
         });
       }
 
       logger.info(`更新账单成功 - userId: ${userId}, billId: ${id}`);
       res.json({
-        code: "0000",
-        msg: "更新成功",
+        code: '0000',
+        msg: '更新成功',
         data: data,
       });
     } catch (err) {
       logger.error(
-        `更新账单失败 - userId: ${req.user?.userId || "unknown"}, billId: ${
+        `更新账单失败 - userId: ${req.user?.userId || 'unknown'}, billId: ${
           req.params.id
         }: ${err.message}`
       );
       res.json({
-        code: "0001",
-        msg: "更新失败",
+        code: '0001',
+        msg: '更新失败',
         data: null,
       });
     }
@@ -502,13 +506,13 @@ router.patch(
  *             schema:
  *               type: object
  *               properties:
- *                 code: 
+ *                 code:
  *                   type: string
  *                   example: '0000'
- *                 msg: 
+ *                 msg:
  *                   type: string
  *                   example: '删除成功'
- *                 data: 
+ *                 data:
  *                   type: null
  *       404:
  *         description: 记录不存在或无权访问
@@ -519,7 +523,7 @@ router.patch(
  */
 // 删除账单
 router.delete(
-  "/account/:id",
+  '/account/:id',
   checkTokenMiddleware,
   async function (req, res, next) {
     try {
@@ -537,27 +541,27 @@ router.delete(
           `删除账单失败 - userId: ${userId}, billId: ${id}: 记录不存在或无权访问`
         );
         return res.status(404).json({
-          code: "4041",
-          msg: "记录不存在或无权访问",
+          code: '4041',
+          msg: '记录不存在或无权访问',
           data: null,
         });
       }
 
       logger.info(`删除账单成功 - userId: ${userId}, billId: ${id}`);
       res.json({
-        code: "0000",
-        msg: "删除成功",
+        code: '0000',
+        msg: '删除成功',
         data: null,
       });
     } catch (err) {
       logger.error(
-        `删除账单失败 - userId: ${req.user?.userId || "unknown"}, billId: ${
+        `删除账单失败 - userId: ${req.user?.userId || 'unknown'}, billId: ${
           req.params.id
         }: ${err.message}`
       );
       res.json({
-        code: "0001",
-        msg: "删除失败",
+        code: '0001',
+        msg: '删除失败',
         data: null,
       });
     }

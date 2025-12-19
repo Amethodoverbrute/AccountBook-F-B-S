@@ -1,5 +1,5 @@
 // 导入mongoose
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 //创建文档的结构对象
 //设置 集合中 文档的属性以及属性值的类型
@@ -12,18 +12,18 @@ let CategorySchema = new mongoose.Schema({
   // 分类类型：income 或 expense
   type: {
     type: String,
-    enum: ["income", "expense"],
+    enum: ['income', 'expense'],
     required: true,
   },
   // 分类图标
   icon: {
     type: String,
-    default: "",
+    default: '',
   },
   // 用户ID（关联到用户模型）
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "user",
+    ref: 'user',
     required: true,
   },
   // 创建时间
@@ -38,7 +38,7 @@ CategorySchema.index({ userId: 1, type: 1 }); // 按用户ID和类型查询
 CategorySchema.index({ userId: 1 }); // 按用户ID查询
 
 //创建 文档模型对象  完成对文档操作（crud）的封装对象
-let CategoryModel = mongoose.model("category", CategorySchema);
+let CategoryModel = mongoose.model('category', CategorySchema);
 
 // 暴露 CategoryModel 模型对象
 module.exports = CategoryModel;

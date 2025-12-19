@@ -7,17 +7,26 @@
     v-model:visible="confirmDialog.visible"
     :title="confirmDialog.title"
     :message="confirmDialog.message"
+    :show-warning-icon="confirmDialog.showWarningIcon"
+    :danger-confirm="confirmDialog.dangerConfirm"
     @confirm="handleConfirmDialog"
     @cancel="handleCancelDialog"
   />
 
   <!-- 主要内容容器 -->
   <div class="home-container">
+    <!-- 名言显示组件 -->
+    <QuoteDisplay
+      :quote="quote"
+      :show-add-button="true"
+      @add-quote="openQuoteForm"
+    />
+
     <!-- 添加/编辑账单表单（模态对话框） -->
     <div class="modal-overlay" v-if="showForm" @click.self="showForm = false">
       <div class="modal-container">
         <div class="modal-header">
-          <h3>{{ isEditing ? "编辑账单" : "添加账单" }}</h3>
+          <h3>{{ isEditing ? '编辑账单' : '添加账单' }}</h3>
           <button type="button" @click="showForm = false" class="close-btn">
             ×
           </button>
@@ -147,6 +156,13 @@
       </div>
     </div>
 
+    <!-- 添加名言表单 -->
+    <QuoteForm
+      :visible="showQuoteForm"
+      @close="closeQuoteForm"
+      @save="handleAddQuote"
+    />
+
     <!-- 搜索组件 -->
     <SearchComponent
       :keyword="searchKeyword"
@@ -209,14 +225,16 @@
  * - 确认对话框：用于处理删除和退出登录等敏感操作
  */
 // 导入子组件
-import ConfirmDialog from "../ui/ConfirmDialog.vue";
-import HeaderComponent from "../layout/HeaderComponent.vue";
-import SearchComponent from "../ui/SearchComponent.vue";
-import AccountCardComponent from "../ui/AccountCardComponent.vue";
-import PaginationComponent from "../ui/PaginationComponent.vue";
+import ConfirmDialog from '../ui/ConfirmDialog.vue';
+import HeaderComponent from '../layout/HeaderComponent.vue';
+import SearchComponent from '../ui/SearchComponent.vue';
+import AccountCardComponent from '../ui/AccountCardComponent.vue';
+import PaginationComponent from '../ui/PaginationComponent.vue';
+import QuoteDisplay from '../ui/QuoteDisplay.vue';
+import QuoteForm from '../ui/QuoteForm.vue';
 
 // 导入业务逻辑组合式函数
-import { useAccountManagement } from "../../composables/useAccountManagement";
+import { useAccountManagement } from '../../composables/useAccountManagement';
 
 // 使用组合式函数获取所有状态和方法
 const {
@@ -243,6 +261,10 @@ const {
   newAccount,
   filteredCategories,
   fieldErrors,
+  // 名言相关状态
+  quote,
+  isQuoteLoading,
+  showQuoteForm,
 
   // 方法
   handleAddAccount,
@@ -260,6 +282,10 @@ const {
   goToPage,
   fetchAccounts,
   validateField,
+  // 名言相关方法
+  handleAddQuote,
+  openQuoteForm,
+  closeQuoteForm,
 } = useAccountManagement();
 </script>
 
@@ -270,8 +296,9 @@ const {
   margin: 90px auto 20px;
   padding: 25px;
   background-color: #f5f7fa;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   min-height: auto;

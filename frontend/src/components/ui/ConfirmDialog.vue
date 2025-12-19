@@ -2,7 +2,10 @@
   <div v-if="visible" class="confirm-overlay" @click.self="handleCancel">
     <div class="confirm-dialog">
       <div class="confirm-header">
-        <h3 class="confirm-title">{{ title }}</h3>
+        <h3 class="confirm-title">
+          <span v-if="showWarningIcon" class="title-icon">⚠️</span>
+          {{ title }}
+        </h3>
       </div>
       <div class="confirm-content">
         <p class="confirm-message">{{ message }}</p>
@@ -11,7 +14,14 @@
         <button @click="handleCancel" class="confirm-btn cancel-btn">
           {{ cancelText }}
         </button>
-        <button @click="handleConfirm" class="confirm-btn confirm-btn-primary">
+        <button
+          @click="handleConfirm"
+          class="confirm-btn"
+          :class="{
+            'confirm-btn-primary': !dangerConfirm,
+            'confirm-btn-danger': dangerConfirm,
+          }"
+        >
           {{ confirmText }}
         </button>
       </div>
@@ -24,53 +34,65 @@
  * 确认对话框组件
  * 设计意图：替代浏览器原生的confirm()方法，提供自定义样式和更好的用户体验
  * 使用场景：用于处理删除、退出登录等需要用户确认的敏感操作
- * 
+ *
  * 属性说明：
  * - visible: 控制对话框的显示/隐藏
  * - title: 对话框标题，默认为"确认操作"
  * - message: 对话框内容，默认为"确定要执行此操作吗？"
  * - confirmText: 确认按钮文本，默认为"确定"
  * - cancelText: 取消按钮文本，默认为"取消"
- * 
+ * - showWarningIcon: 是否显示警告图标，默认为false
+ * - dangerConfirm: 是否将确认按钮样式改为红色危险样式，默认为false
+ *
  * 事件说明：
  * - confirm: 用户点击确认按钮时触发
  * - cancel: 用户点击取消按钮或点击遮罩层时触发
  */
-import { ref } from "vue";
+import { ref } from 'vue';
 
 // 组件属性定义
 const props = defineProps({
   visible: {
     type: Boolean,
     default: false,
-    description: "控制对话框的显示/隐藏"
+    description: '控制对话框的显示/隐藏',
   },
   title: {
     type: String,
-    default: "确认操作",
-    description: "对话框标题"
+    default: '确认操作',
+    description: '对话框标题',
   },
   message: {
     type: String,
-    default: "确定要执行此操作吗？",
-    description: "对话框确认信息"
+    default: '确定要执行此操作吗？',
+    description: '对话框确认信息',
   },
   confirmText: {
     type: String,
-    default: "确定",
-    description: "确认按钮文本"
+    default: '确定',
+    description: '确认按钮文本',
   },
   cancelText: {
     type: String,
-    default: "取消",
-    description: "取消按钮文本"
+    default: '取消',
+    description: '取消按钮文本',
+  },
+  showWarningIcon: {
+    type: Boolean,
+    default: false,
+    description: '是否显示警告图标',
+  },
+  dangerConfirm: {
+    type: Boolean,
+    default: false,
+    description: '是否将确认按钮样式改为红色危险样式',
   },
 });
 
 // 定义组件事件
 const emit = defineEmits([
-  "confirm", // 确认事件：用户点击确认按钮时触发
-  "cancel"   // 取消事件：用户点击取消按钮或遮罩层时触发
+  'confirm', // 确认事件：用户点击确认按钮时触发
+  'cancel', // 取消事件：用户点击取消按钮或遮罩层时触发
 ]);
 
 /**
@@ -78,7 +100,7 @@ const emit = defineEmits([
  * 功能：触发confirm事件，通知父组件用户已确认
  */
 const handleConfirm = () => {
-  emit("confirm");
+  emit('confirm');
 };
 
 /**
@@ -86,7 +108,7 @@ const handleConfirm = () => {
  * 功能：触发cancel事件，通知父组件用户已取消
  */
 const handleCancel = () => {
-  emit("cancel");
+  emit('cancel');
 };
 </script>
 
@@ -121,6 +143,7 @@ const handleCancel = () => {
 .confirm-header {
   padding: 20px 24px 16px;
   border-bottom: 1px solid #e8e8e8;
+  text-align: center;
 }
 
 .confirm-title {
@@ -128,6 +151,10 @@ const handleCancel = () => {
   font-size: 18px;
   font-weight: 600;
   color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 /* 内容区域 */
@@ -178,6 +205,17 @@ const handleCancel = () => {
   box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15);
 }
 
+/* 标题图标 */
+.title-icon {
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: middle;
+  margin-top: -2px;
+}
+
 /* 确认按钮 */
 .confirm-btn-primary {
   background-color: #fa8c16;
@@ -190,6 +228,20 @@ const handleCancel = () => {
   border-color: #ffad33;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(250, 140, 22, 0.2);
+}
+
+/* 危险确认按钮 */
+.confirm-btn-danger {
+  background-color: red;
+  color: white;
+  border-color: red;
+}
+
+.confirm-btn-danger:hover {
+  background-color: #ff4444;
+  border-color: #ff4444;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.2);
 }
 
 /* 动画效果 */

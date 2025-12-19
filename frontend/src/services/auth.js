@@ -2,16 +2,16 @@
  * 应用服务层
  * 功能：封装所有与后端API的交互，包括认证、账单、统计和分类相关的API调用
  */
-import axios from "axios";
+import axios from 'axios';
 
 /**
  * 创建axios实例
  * 配置：
- * - baseURL: 后端API的基础地址
+ * - baseURL: 后端API的基础地址（使用相对路径，配合Vite代理）
  * - timeout: 请求超时时间（5秒）
  */
 const api = axios.create({
-  baseURL: "http://localhost:3000/api",
+  baseURL: '/api',
   timeout: 5000,
 });
 
@@ -22,7 +22,7 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     // 从localStorage获取token
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem('token');
     if (token) {
       // 添加Bearer token到请求头
       config.headers.Authorization = `Bearer ${token}`;
@@ -46,10 +46,10 @@ export const authService = {
    * @returns {Promise<Object>} 登录结果，包含token和用户信息
    */
   login: async (username, password) => {
-    const response = await api.post("/auth/login", { username, password });
+    const response = await api.post('/auth/login', { username, password });
     // 保存token到localStorage
     if (response.data.token) {
-      localStorage.setItem("token", response.data.token);
+      localStorage.setItem('token', response.data.token);
     }
     return response.data;
   },
@@ -61,7 +61,7 @@ export const authService = {
    * @returns {Promise<Object>} 注册结果
    */
   register: async (username, password) => {
-    const response = await api.post("/auth/register", { username, password });
+    const response = await api.post('/auth/register', { username, password });
     return response.data;
   },
 
@@ -70,7 +70,7 @@ export const authService = {
    * 功能：清除localStorage中的token
    */
   logout: () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
   },
 
   /**
@@ -78,29 +78,37 @@ export const authService = {
    * @returns {boolean} 是否已登录
    */
   isLoggedIn: () => {
-    return !!localStorage.getItem("token");
+    return !!localStorage.getItem('token');
   },
 
   /**
    * 获取当前token
-   * @returns {string|null} 当前登录用户的token
+   * @returns {string | null} 当前登录用户的token
    */
   getToken: () => {
-    return localStorage.getItem("token");
+    return localStorage.getItem('token');
   },
-  
+
   /**
    * 获取当前登录用户信息
-   * @returns {Promise<Object|null>} 用户信息，获取失败返回null
+   * @returns {Promise<Object | null>} 用户信息，获取失败返回null
    */
   getCurrentUser: async () => {
     try {
-      const response = await api.get("/auth/me");
-      return response.data;
+      const response = await api.get('/auth/me');
+      return response.data.data;
     } catch (error) {
-      console.error("获取用户信息失败:", error);
+      console.error('获取用户信息失败:', error);
       return null;
     }
+  },
+
+  /**
+   * 获取当前登录用户信息（别名，兼容getCurrentUser）
+   * @returns {Promise<Object | null>} 用户信息，获取失败返回null
+   */
+  getUserInfo: async () => {
+    return authService.getCurrentUser();
   },
 };
 
@@ -126,15 +134,19 @@ export const accountService = {
       search,
       page,
       pageSize,
-      ...filters
+      ...filters,
     };
     // 移除undefined或空字符串的参数
-    Object.keys(params).forEach(key => {
-      if (params[key] === undefined || params[key] === null || params[key] === '') {
+    Object.keys(params).forEach((key) => {
+      if (
+        params[key] === undefined ||
+        params[key] === null ||
+        params[key] === ''
+      ) {
         delete params[key];
       }
     });
-    const response = await api.get("/account", { params });
+    const response = await api.get('/account', { params });
     return response.data;
   },
 
@@ -154,7 +166,7 @@ export const accountService = {
    * @returns {Promise<Object>} 创建结果
    */
   createAccount: async (account) => {
-    const response = await api.post("/account", account);
+    const response = await api.post('/account', account);
     return response.data;
   },
 
@@ -191,7 +203,7 @@ export const statisticsService = {
    * @returns {Promise<Object>} 统计数据，包括总收入、总支出、趋势图数据等
    */
   getStatistics: async (params) => {
-    const response = await api.get("/statistics", { params });
+    const response = await api.get('/statistics', { params });
     return response.data;
   },
 };
@@ -207,10 +219,10 @@ export const categoryService = {
    * @returns {Promise<Object>} 分类列表数据
    */
   getCategories: async (params) => {
-    const response = await api.get("/categories", { params });
+    const response = await api.get('/categories', { params });
     return response.data;
   },
-  
+
   /**
    * 获取单个分类详情
    * @param {string} id - 分类ID
@@ -220,17 +232,17 @@ export const categoryService = {
     const response = await api.get(`/categories/${id}`);
     return response.data;
   },
-  
+
   /**
    * 创建新分类
    * @param {Object} category - 分类数据
    * @returns {Promise<Object>} 创建结果
    */
   createCategory: async (category) => {
-    const response = await api.post("/categories", category);
+    const response = await api.post('/categories', category);
     return response.data;
   },
-  
+
   /**
    * 更新分类
    * @param {string} id - 分类ID
@@ -241,7 +253,7 @@ export const categoryService = {
     const response = await api.patch(`/categories/${id}`, category);
     return response.data;
   },
-  
+
   /**
    * 删除分类
    * @param {string} id - 分类ID

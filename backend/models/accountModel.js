@@ -1,5 +1,5 @@
 // 导入mongoose
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 //创建文档的结构对象
 //设置 集合中 文档的属性以及属性值的类型
@@ -17,7 +17,7 @@ let AccountSchema = new mongoose.Schema({
   //   类型
   type: {
     type: String,
-    default: "expense",
+    default: 'expense',
   },
   //   金额
   amount: {
@@ -28,18 +28,18 @@ let AccountSchema = new mongoose.Schema({
   //   备注
   remark: {
     type: String,
-    default: "",
+    default: '',
   },
   //   用户ID（关联到用户模型）
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "user",
+    ref: 'user',
     required: true,
   },
   //   分类ID（关联到分类模型）
   categoryId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "category",
+    ref: 'category',
     default: null,
   },
 });
@@ -50,7 +50,7 @@ AccountSchema.index({ userId: 1, type: 1 }); // 按用户ID和类型查询
 AccountSchema.index({ userId: 1, categoryId: 1 }); // 按用户ID和分类ID查询
 
 //创建 文档模型对象	完成对文档操作（crud）的封装对象
-let AccountModel = mongoose.model("account", AccountSchema);
+let AccountModel = mongoose.model('account', AccountSchema);
 
 // 暴露 AccountModel 模型对象
 module.exports = AccountModel;

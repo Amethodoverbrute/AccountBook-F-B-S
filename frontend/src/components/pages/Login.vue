@@ -32,27 +32,27 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-import { authService } from "../../services/auth";
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { authService } from '../../services/auth';
 
-const username = ref("");
-const password = ref("");
-const error = ref("");
+const username = ref('');
+const password = ref('');
+const error = ref('');
 const router = useRouter();
 
 const handleLogin = async () => {
-    try {
-      const response = await authService.login(username.value, password.value);
-      if (response.code === "0000") {
-        router.push("/dashboard");
-      } else {
-        error.value = response.msg || "登录失败";
-      }
-    } catch (err) {
-      error.value = err.response?.data?.msg || "网络错误，请稍后重试";
+  try {
+    const response = await authService.login(username.value, password.value);
+    if (response.code === '0000') {
+      router.push('/dashboard');
+    } else {
+      error.value = response.msg || '登录失败';
     }
-  };
+  } catch (err) {
+    error.value = err.response?.data?.msg || '网络错误，请稍后重试';
+  }
+};
 </script>
 
 <style scoped>
@@ -63,13 +63,19 @@ const handleLogin = async () => {
   padding: 40px 30px;
   border-radius: 12px;
   background: white;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.15),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .login-container:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -193,7 +199,7 @@ input::placeholder {
 }
 
 .register-link a::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 0;
   height: 2px;

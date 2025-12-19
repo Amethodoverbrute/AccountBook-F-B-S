@@ -6,7 +6,7 @@
         <button @click="goBack" class="back-btn">返回首页</button>
       </div>
       <h1 class="app-title">
-        {{ userInfo ? `${userInfo.username}的账单统计` : "账单统计" }}
+        {{ userInfo ? `${userInfo.username}的账单统计` : '账单统计' }}
       </h1>
       <div class="nav-buttons">
         <button @click="showLogoutConfirm = true" class="logout-btn">
@@ -76,11 +76,11 @@
  * 账单统计页面组件
  * 功能：展示用户的账单统计数据，包括收支趋势图和分布饼图
  */
-import { ref, onMounted, onUnmounted, watch } from "vue";
-import { useRouter } from "vue-router";
-import { authService, statisticsService } from "../../services/auth";
-import * as echarts from "echarts";
-import ConfirmDialog from "../ui/ConfirmDialog.vue";
+import { ref, onMounted, onUnmounted, watch } from 'vue';
+import { useRouter } from 'vue-router';
+import { authService, statisticsService } from '../../services/auth';
+import * as echarts from 'echarts';
+import ConfirmDialog from '../ui/ConfirmDialog.vue';
 
 const router = useRouter();
 
@@ -107,7 +107,7 @@ const showLogoutConfirm = ref(false);
  * 功能：点击返回按钮时跳转到首页
  */
 const goBack = () => {
-  router.push("/dashboard");
+  router.push('/dashboard');
 };
 
 /**
@@ -117,7 +117,7 @@ const goBack = () => {
 const handleLogoutConfirm = () => {
   showLogoutConfirm.value = false;
   authService.logout();
-  router.push("/login");
+  router.push('/login');
 };
 
 /**
@@ -128,16 +128,16 @@ const handleLogoutConfirm = () => {
 const fetchUserInfo = async () => {
   try {
     const response = await authService.getCurrentUser();
-    if (response && response.code === "0000") {
+    if (response && response.code === '0000') {
       userInfo.value = response.data;
-    } else if (response && response.code === "401") {
+    } else if (response && response.code === '401') {
       // 未授权，跳转到登录页
-      router.push("/login");
+      router.push('/login');
     }
   } catch (error) {
-    console.error("获取用户信息失败:", error);
+    console.error('获取用户信息失败:', error);
     // 如果获取用户信息失败，跳转到登录页
-    router.push("/login");
+    router.push('/login');
   }
 };
 
@@ -150,13 +150,13 @@ const fetchStatistics = async () => {
   try {
     isStatsLoading.value = true;
     const response = await statisticsService.getStatistics();
-    if (response.code === "0000") {
+    if (response.code === '0000') {
       statistics.value = response.data;
       // 更新图表
       updateCharts();
     }
   } catch (err) {
-    console.error("获取统计数据失败:", err);
+    console.error('获取统计数据失败:', err);
   } finally {
     isStatsLoading.value = false;
   }
@@ -173,41 +173,41 @@ const initTrendChart = () => {
 
   const option = {
     title: {
-      text: "收支趋势",
-      left: "center",
+      text: '收支趋势',
+      left: 'center',
     },
     tooltip: {
-      trigger: "axis",
+      trigger: 'axis',
       axisPointer: {
-        type: "cross",
+        type: 'cross',
       },
     },
     legend: {
-      data: ["收入", "支出"],
+      data: ['收入', '支出'],
       bottom: 0,
     },
     xAxis: {
-      type: "category",
+      type: 'category',
       data: [],
       axisLabel: {
         rotate: 45,
       },
     },
     yAxis: {
-      type: "value",
-      name: "金额（元）",
+      type: 'value',
+      name: '金额（元）',
     },
     series: [
       {
-        name: "收入",
-        type: "line",
+        name: '收入',
+        type: 'line',
         data: [],
         itemStyle: {
-          color: "#73d13d",
+          color: '#73d13d',
         },
         areaStyle: {
           color: {
-            type: "linear",
+            type: 'linear',
             x: 0,
             y: 0,
             x2: 0,
@@ -215,26 +215,26 @@ const initTrendChart = () => {
             colorStops: [
               {
                 offset: 0,
-                color: "rgba(115, 209, 61, 0.3)",
+                color: 'rgba(115, 209, 61, 0.3)',
               },
               {
                 offset: 1,
-                color: "rgba(115, 209, 61, 0.1)",
+                color: 'rgba(115, 209, 61, 0.1)',
               },
             ],
           },
         },
       },
       {
-        name: "支出",
-        type: "line",
+        name: '支出',
+        type: 'line',
         data: [],
         itemStyle: {
-          color: "#ffa940",
+          color: '#ffa940',
         },
         areaStyle: {
           color: {
-            type: "linear",
+            type: 'linear',
             x: 0,
             y: 0,
             x2: 0,
@@ -242,11 +242,11 @@ const initTrendChart = () => {
             colorStops: [
               {
                 offset: 0,
-                color: "rgba(255, 169, 64, 0.3)",
+                color: 'rgba(255, 169, 64, 0.3)',
               },
               {
                 offset: 1,
-                color: "rgba(255, 169, 64, 0.1)",
+                color: 'rgba(255, 169, 64, 0.1)',
               },
             ],
           },
@@ -269,27 +269,27 @@ const initPieChart = () => {
 
   const option = {
     title: {
-      text: "收支分布",
-      left: "center",
+      text: '收支分布',
+      left: 'center',
     },
     tooltip: {
-      trigger: "item",
+      trigger: 'item',
     },
     legend: {
-      orient: "vertical",
-      left: "left",
+      orient: 'vertical',
+      left: 'left',
     },
     series: [
       {
-        name: "收支分布",
-        type: "pie",
-        radius: "50%",
+        name: '收支分布',
+        type: 'pie',
+        radius: '50%',
         data: [],
         emphasis: {
           itemStyle: {
             shadowBlur: 10,
             shadowOffsetX: 0,
-            shadowColor: "rgba(0, 0, 0, 0.5)",
+            shadowColor: 'rgba(0, 0, 0, 0.5)',
           },
         },
       },
@@ -318,11 +318,11 @@ const updateCharts = () => {
       },
       series: [
         {
-          name: "收入",
+          name: '收入',
           data: incomes,
         },
         {
-          name: "支出",
+          name: '支出',
           data: expenses,
         },
       ],
@@ -333,17 +333,17 @@ const updateCharts = () => {
   if (pieChartInstance) {
     const pieData = [
       {
-        name: "收入",
+        name: '收入',
         value: statistics.value.totalIncome,
         itemStyle: {
-          color: "#73d13d",
+          color: '#73d13d',
         },
       },
       {
-        name: "支出",
+        name: '支出',
         value: statistics.value.totalExpense,
         itemStyle: {
-          color: "#ffa940",
+          color: '#ffa940',
         },
       },
     ];
@@ -382,7 +382,7 @@ onMounted(async () => {
   initPieChart();
 
   // 监听窗口大小变化，调整图表大小
-  window.addEventListener("resize", handleResize);
+  window.addEventListener('resize', handleResize);
 });
 
 /**
@@ -394,7 +394,7 @@ onUnmounted(() => {
   chartInstance?.dispose();
   pieChartInstance?.dispose();
   // 移除事件监听
-  window.removeEventListener("resize", handleResize);
+  window.removeEventListener('resize', handleResize);
 });
 </script>
 
@@ -406,8 +406,9 @@ onUnmounted(() => {
   padding: 20px;
   min-height: 100vh;
   background-color: #f5f7fa;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
 }
 
 /* 顶部导航 */

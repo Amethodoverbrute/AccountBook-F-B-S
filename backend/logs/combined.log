@@ -12155,3 +12155,192 @@
 2025-12-20 01:31:44 [info] [GET] /api/admin/users?page=1&pageSize=1000&search= - ::1
 2025-12-20 01:31:44 [info] 获取用户列表成功: 页 1, 每页 1000, 总数 12
 2025-12-20 01:31:44 [info] [GET] /admin/users?page=1&pageSize=1000&search= - 304 - 5ms
+2025-12-20 11:28:44 [info] Application started successfully
+2025-12-20 11:28:44 [info] Swagger UI configured at /api-docs
+2025-12-20 11:29:09 [info] [GET] /api/quotes/random - ::1
+2025-12-20 11:29:09 [info] 获取随机名言成功
+2025-12-20 11:29:09 [info] [GET] /quotes/random - 200 - 17ms
+2025-12-20 11:29:29 [info] [POST] /api/auth/login - ::1
+2025-12-20 11:29:29 [info] 用户登录请求: amob-work-harder
+2025-12-20 11:29:29 [info] 登录成功 - amob-work-harder
+2025-12-20 11:29:29 [info] [POST] /auth/login - 200 - 16ms
+2025-12-20 11:29:29 [info] [GET] /api/auth/me - ::1
+2025-12-20 11:29:29 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 11:29:29 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 11:29:29 [info] [GET] /auth/me - 200 - 5ms
+2025-12-20 11:29:29 [info] [GET] /api/auth/me - ::1
+2025-12-20 11:29:29 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 11:29:29 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 11:29:29 [info] [GET] /auth/me - 304 - 4ms
+2025-12-20 11:29:29 [info] [GET] /api/auth/me - ::1
+2025-12-20 11:29:29 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 11:29:29 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 11:29:29 [info] [GET] /auth/me - 304 - 5ms
+2025-12-20 11:29:29 [info] [GET] /api/admin/statistics - ::1
+2025-12-20 11:29:29 [info] 获取系统统计数据成功
+2025-12-20 11:29:29 [info] [GET] /admin/statistics - 304 - 6ms
+2025-12-20 11:29:31 [info] [GET] /api/auth/me - ::1
+2025-12-20 11:29:31 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 11:29:31 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 11:29:31 [info] [GET] /auth/me - 304 - 3ms
+2025-12-20 11:29:31 [info] [GET] /api/auth/me - ::1
+2025-12-20 11:29:31 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 11:29:31 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 11:29:31 [info] [GET] /auth/me - 304 - 4ms
+2025-12-20 11:29:31 [info] [GET] /api/admin/users?page=1&pageSize=10&search= - ::1
+2025-12-20 11:29:31 [info] 获取用户列表成功: 页 1, 每页 10, 总数 12
+2025-12-20 11:29:31 [info] [GET] /admin/users?page=1&pageSize=10&search= - 304 - 6ms
+2025-12-20 11:29:31 [info] [GET] /api/auth/me - ::1
+2025-12-20 11:29:31 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 11:29:31 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 11:29:31 [info] [GET] /auth/me - 304 - 3ms
+2025-12-20 11:29:31 [info] [GET] /api/auth/me - ::1
+2025-12-20 11:29:31 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 11:29:31 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 11:29:31 [info] [GET] /auth/me - 304 - 4ms
+2025-12-20 11:29:31 [info] [GET] /api/admin/statistics - ::1
+2025-12-20 11:29:31 [info] 获取系统统计数据成功
+2025-12-20 11:29:31 [info] [GET] /admin/statistics - 304 - 5ms
+2025-12-20 11:29:31 [info] [GET] /api/admin/users?page=1&pageSize=1000&search= - ::1
+2025-12-20 11:29:31 [info] 获取用户列表成功: 页 1, 每页 1000, 总数 12
+2025-12-20 11:29:31 [info] [GET] /admin/users?page=1&pageSize=1000&search= - 304 - 5ms
+2025-12-20 11:29:34 [info] [POST] /api/auth/login - ::1
+2025-12-20 11:29:34 [info] 用户登录请求: amob-work-harder
+2025-12-20 11:29:34 [info] 登录成功 - amob-work-harder
+2025-12-20 11:29:34 [info] [POST] /auth/login - 200 - 5ms
+2025-12-20 11:29:34 [info] [GET] /api/auth/me - ::1
+2025-12-20 11:29:34 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 11:29:34 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 11:29:34 [info] [GET] /auth/me - 304 - 4ms
+2025-12-20 11:29:34 [info] [GET] /api/quotes/me - ::1
+2025-12-20 11:29:34 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-20 11:29:34 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-20 11:29:34 [info] [GET] /api/categories - ::1
+2025-12-20 11:29:34 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-20 11:29:34 [info] 获取当前用户名言成功: userId=693efeebdea495b7b3494e5d
+2025-12-20 11:29:34 [info] [GET] /quotes/me - 200 - 8ms
+2025-12-20 11:29:34 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-20 11:29:34 [info] [GET] /categories - 200 - 8ms
+2025-12-20 11:29:34 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-20 11:29:34 [info] [GET] /account?page=1&pageSize=5 - 200 - 10ms
+2025-12-20 11:35:20 [info] [GET] /api/quotes/random - ::1
+2025-12-20 11:35:20 [info] 获取随机名言成功
+2025-12-20 11:35:20 [info] [GET] /quotes/random - 200 - 5ms
+2025-12-20 17:11:36 [info] [POST] /api/auth/login - ::1
+2025-12-20 17:11:36 [info] 用户登录请求: amob-work-harder
+2025-12-20 17:11:36 [info] 登录成功 - amob-work-harder
+2025-12-20 17:11:36 [info] [POST] /auth/login - 200 - 6ms
+2025-12-20 17:11:36 [info] [GET] /api/auth/me - ::1
+2025-12-20 17:11:36 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 17:11:36 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 17:11:36 [info] [GET] /auth/me - 304 - 3ms
+2025-12-20 17:11:36 [info] [GET] /api/quotes/me - ::1
+2025-12-20 17:11:36 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-20 17:11:36 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-20 17:11:36 [info] [GET] /api/categories - ::1
+2025-12-20 17:11:36 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-20 17:11:36 [info] 获取当前用户名言成功: userId=693efeebdea495b7b3494e5d
+2025-12-20 17:11:36 [info] [GET] /quotes/me - 304 - 6ms
+2025-12-20 17:11:36 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-20 17:11:36 [info] [GET] /categories - 304 - 5ms
+2025-12-20 17:11:36 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-20 17:11:36 [info] [GET] /account?page=1&pageSize=5 - 304 - 7ms
+2025-12-20 17:11:38 [info] [POST] /api/auth/login - ::1
+2025-12-20 17:11:38 [info] 用户登录请求: amob-work-harder
+2025-12-20 17:11:38 [info] 登录成功 - amob-work-harder
+2025-12-20 17:11:38 [info] [POST] /auth/login - 200 - 4ms
+2025-12-20 17:11:38 [info] [GET] /api/auth/me - ::1
+2025-12-20 17:11:38 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 17:11:38 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 17:11:38 [info] [GET] /auth/me - 304 - 3ms
+2025-12-20 17:11:38 [info] [GET] /api/auth/me - ::1
+2025-12-20 17:11:38 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 17:11:38 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 17:11:38 [info] [GET] /auth/me - 304 - 3ms
+2025-12-20 17:11:38 [info] [GET] /api/auth/me - ::1
+2025-12-20 17:11:38 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 17:11:38 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 17:11:38 [info] [GET] /auth/me - 304 - 3ms
+2025-12-20 17:11:38 [info] [GET] /api/admin/statistics - ::1
+2025-12-20 17:11:38 [info] 获取系统统计数据成功
+2025-12-20 17:11:38 [info] [GET] /admin/statistics - 304 - 5ms
+2025-12-20 17:11:50 [info] Application started successfully
+2025-12-20 17:11:50 [info] Swagger UI configured at /api-docs
+2025-12-20 17:12:17 [info] Application started successfully
+2025-12-20 17:12:17 [info] Swagger UI configured at /api-docs
+2025-12-20 17:12:36 [info] [POST] /api/auth/login - ::1
+2025-12-20 17:12:36 [info] 用户登录请求: amob-work-harder
+2025-12-20 17:12:36 [info] 登录成功 - amob-work-harder
+2025-12-20 17:12:36 [info] [POST] /auth/login - 200 - 23ms
+2025-12-20 17:12:36 [info] [GET] /api/auth/me - ::1
+2025-12-20 17:12:36 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 17:12:36 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 17:12:36 [info] [GET] /auth/me - 304 - 5ms
+2025-12-20 17:12:36 [info] [GET] /api/quotes/me - ::1
+2025-12-20 17:12:36 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-20 17:12:36 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-20 17:12:36 [info] [GET] /api/categories - ::1
+2025-12-20 17:12:36 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-20 17:12:36 [info] 获取当前用户名言成功: userId=693efeebdea495b7b3494e5d
+2025-12-20 17:12:36 [info] [GET] /quotes/me - 304 - 10ms
+2025-12-20 17:12:36 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-20 17:12:36 [info] [GET] /categories - 304 - 8ms
+2025-12-20 17:12:36 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-20 17:12:36 [info] [GET] /account?page=1&pageSize=5 - 304 - 14ms
+2025-12-20 17:12:40 [info] [POST] /api/auth/login - ::1
+2025-12-20 17:12:40 [info] 用户登录请求: amob-work-harder
+2025-12-20 17:12:40 [info] 登录成功 - amob-work-harder
+2025-12-20 17:12:40 [info] [POST] /auth/login - 200 - 6ms
+2025-12-20 17:12:40 [info] [GET] /api/auth/me - ::1
+2025-12-20 17:12:40 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 17:12:40 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 17:12:40 [info] [GET] /auth/me - 304 - 3ms
+2025-12-20 17:12:40 [info] [GET] /api/auth/me - ::1
+2025-12-20 17:12:40 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 17:12:40 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 17:12:40 [info] [GET] /auth/me - 304 - 3ms
+2025-12-20 17:12:40 [info] [GET] /api/auth/me - ::1
+2025-12-20 17:12:40 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 17:12:40 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 17:12:40 [info] [GET] /auth/me - 304 - 4ms
+2025-12-20 17:12:40 [info] [GET] /api/admin/statistics - ::1
+2025-12-20 17:12:40 [info] 获取系统统计数据成功
+2025-12-20 17:12:40 [info] [GET] /admin/statistics - 304 - 5ms
+2025-12-20 17:14:51 [info] [POST] /api/auth/login - ::1
+2025-12-20 17:14:51 [info] 用户登录请求: amob-work-harder
+2025-12-20 17:14:51 [info] 登录成功 - amob-work-harder
+2025-12-20 17:14:51 [info] [POST] /auth/login - 200 - 6ms
+2025-12-20 17:14:51 [info] [GET] /api/auth/me - ::1
+2025-12-20 17:14:51 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 17:14:51 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 17:14:51 [info] [GET] /auth/me - 304 - 4ms
+2025-12-20 17:14:51 [info] [GET] /api/quotes/me - ::1
+2025-12-20 17:14:51 [info] [GET] /api/account?page=1&pageSize=5 - ::1
+2025-12-20 17:14:51 [info] 获取账单列表请求 - userId: 693efeebdea495b7b3494e5d, search: undefined, page: 1, pageSize: 5
+2025-12-20 17:14:51 [info] [GET] /api/categories - ::1
+2025-12-20 17:14:51 [info] 获取分类列表请求 - userId: 693efeebdea495b7b3494e5d
+2025-12-20 17:14:51 [info] 获取当前用户名言成功: userId=693efeebdea495b7b3494e5d
+2025-12-20 17:14:51 [info] [GET] /quotes/me - 304 - 7ms
+2025-12-20 17:14:51 [info] 获取分类列表成功 - userId: 693efeebdea495b7b3494e5d, count: 6
+2025-12-20 17:14:51 [info] [GET] /categories - 304 - 5ms
+2025-12-20 17:14:51 [info] 获取账单列表成功 - userId: 693efeebdea495b7b3494e5d, count: 5, total: 11, page: 1, pageSize: 5
+2025-12-20 17:14:51 [info] [GET] /account?page=1&pageSize=5 - 304 - 8ms
+2025-12-20 17:14:55 [info] [POST] /api/auth/login - ::1
+2025-12-20 17:14:55 [info] 用户登录请求: amob-work-harder
+2025-12-20 17:14:55 [info] 登录成功 - amob-work-harder
+2025-12-20 17:14:55 [info] [POST] /auth/login - 200 - 5ms
+2025-12-20 17:14:55 [info] [GET] /api/auth/me - ::1
+2025-12-20 17:14:55 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 17:14:55 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 17:14:55 [info] [GET] /auth/me - 304 - 4ms
+2025-12-20 17:14:55 [info] [GET] /api/auth/me - ::1
+2025-12-20 17:14:55 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 17:14:55 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 17:14:55 [info] [GET] /auth/me - 304 - 3ms
+2025-12-20 17:14:55 [info] [GET] /api/auth/me - ::1
+2025-12-20 17:14:55 [info] 获取用户信息请求: userId=693efeebdea495b7b3494e5d
+2025-12-20 17:14:55 [info] 获取用户信息成功: userId=693efeebdea495b7b3494e5d, username=amob-work-harder, role=admin
+2025-12-20 17:14:55 [info] [GET] /auth/me - 304 - 4ms
+2025-12-20 17:14:55 [info] [GET] /api/admin/statistics - ::1
+2025-12-20 17:14:55 [info] 获取系统统计数据成功
+2025-12-20 17:14:55 [info] [GET] /admin/statistics - 304 - 5ms

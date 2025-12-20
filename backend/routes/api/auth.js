@@ -19,6 +19,8 @@ const md5 = require('md5');
 const { SECRET } = require('../../config');
 // 导入自定义日志
 const logger = require('../../config/logger');
+// 导入token验证中间件
+const checkTokenMiddleware = require('../../middlewares/checkTokenMiddleware');
 
 /**
  * @openapi
@@ -192,56 +194,41 @@ router.post('/auth/logout', (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/ApiResponse'
  */
-// 获取当前登录用户信息
-router.get('/auth/me', (req, res) => {
-  // 从请求头获取token
-  const authHeader = req.headers.authorization;
-  if (!authHeader) {
-    logger.warn('获取用户信息失败: 未提供token');
-    return res.status(401).json({
-      code: '401',
-      msg: '未授权',
-    });
-  }
-
-  const token = authHeader.split(' ')[1];
-
+// 获取当前登录用户信息 - 使用checkTokenMiddleware中间件简化代码
+router.get('/auth/me', checkTokenMiddleware, async (req, res) => {
   try {
-    // 验证token
-    const decoded = jwt.verify(token, SECRET);
+    const userId = req.user.userId;
+    logger.info(`获取用户信息请求: userId=${userId}`);
 
-    logger.info(`获取用户信息请求: userId=${decoded.userId}`);
+    // 使用async/await简化异步操作
+    const user = await UserModel.findById(userId).select('-password');
 
-    // 根据userId查询用户信息
-    UserModel.findById(decoded.userId)
-      .select('-password') // 不返回密码
-      .then((user) => {
-        if (!user) {
-          logger.warn(`获取用户信息失败: userId=${decoded.userId} 不存在`);
-          return res.status(404).json({
-            code: '404',
-            msg: '用户不存在',
-          });
-        }
-
-        logger.info(
-          `获取用户信息成功: userId=${decoded.userId}, username=${user.username}, role=${user.role}`
-        );
-        res.json({
-          code: '0000',
-          msg: '获取用户信息成功',
-          data: {
-            username: user.username,
-            userId: user._id,
-            role: user.role,
-          },
-        });
+    if (!user) {
+      logger.warn(`获取用户信息失败: userId=${userId} 不存在`);
+      return res.status(404).json({
+        code: '404',
+        msg: '用户不存在',
       });
+    }
+
+    logger.info(
+      `获取用户信息成功: userId=${userId}, username=${user.username}, role=${user.role}`
+    );
+
+    res.json({
+      code: '0000',
+      msg: '获取用户信息成功',
+      data: {
+        username: user.username,
+        userId: user._id,
+        role: user.role,
+      },
+    });
   } catch (error) {
-    logger.error(`获取用户信息失败: 无效的token, 错误信息: ${error.message}`);
-    return res.status(401).json({
-      code: '401',
-      msg: '无效的token',
+    logger.error(`获取用户信息失败: 错误信息: ${error.message}`);
+    return res.status(500).json({
+      code: '500',
+      msg: '服务器内部错误',
     });
   }
 });

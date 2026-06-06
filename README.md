@@ -1,0 +1,400 @@
+# 记账本应用
+
+一个基于 ”前后端分离架构“ 的个人记账本应用，支持用户管理、账单记录管理、分类管理和统计分析等功能，具有现代化的技术栈和清晰的代码结构。
+
+
+
+## 项目架构
+
+采用前后端分离架构，前端和后端完全独立开发和部署：
+
+- **前端**：位于 `frontend/` 目录，负责用户界面和交互
+- **后端**：位于 `backend/` 目录，负责 API 服务和数据管理
+- **通信方式**：通过 RESTful API 进行数据交互
+
+
+
+## 技术栈
+
+### 前端
+
+| 技术       | 版本 | 用途        |
+| ---------- | ---- | ----------- |
+| Vue.js     | 3.x  | 前端框架    |
+| Vite       | 7.x  | 构建工具    |
+| Vue Router | 4.x  | 路由管理    |
+| Axios      | 1.x  | HTTP 客户端 |
+| ECharts    | 6.x  | 图表库      |
+
+
+
+### 后端
+
+| 技术       | 版本 | 用途        |
+| ---------- | ---- | ----------- |
+| Node.js    | -    | 运行环境    |
+| Express.js | 4.x  | Web 框架    |
+| MongoDB    | 9.x  | 数据库      |
+| Mongoose   | 9.x  | MongoDB ODM |
+| JWT        | 9.x  | 身份认证    |
+| CORS       | 2.x  | 跨域支持    |
+| Moment.js  | 2.x  | 时间处理    |
+| Nodemon    | 3.x  | 开发热重载  |
+| Winston    | -    | 日志管理    |
+| Swagger    | 6.x  | API 文档    |
+
+
+
+## 项目特点
+
+### 技术特点
+
+- **前后端分离架构**：前端和后端完全分离，职责清晰，便于团队协作和维护
+- **现代化前端技术栈**：采用 Vue 3 + Vite + Vue Router + Axios，具有良好的开发体验和性能
+- **RESTful API 设计**：后端 API 遵循 RESTful 设计规范，便于前端调用和扩展
+- **JWT 认证机制**：实现了基于 JWT 的安全身份验证，支持 token 过期验证
+- **用户数据隔离**：每个用户只能访问自己的账单数据，确保数据安全性
+- **响应式设计**：前端页面采用响应式布局，适配不同设备的访问
+- **模块化代码结构**：代码组织清晰，便于扩展和维护
+- **组件化设计**：==将复杂组件**拆分**为多个独立子组件，提高代码**复用性和可维护性**==
+- **性能优化**：实现了搜索建议的 debounce 优化，减少不必要的 API 请求
+- **完整的日志记录**：使用 Winston 实现了全面的日志记录
+- **API 文档自动生成**：使用 Swagger 自动生成 API 文档
+
+
+
+### 功能特点
+
+- **用户管理**：支持用户注册、登录和退出登录功能
+- **账单管理**：支持账单的**添加、查询、编辑和删除**功能
+- **账单分类**：支持收入和支出两种账单类型
+- **动态样式**：根据账单类型动态显示不同的颜色和样式
+- **实时数据更新**：添加账单后实时更新账单列表
+- **统计分析**：提供收支趋势图和分布饼图等统计功能
+- **自定义确认对话框**：替代原生 confirm()，提供美观一致的确认提示
+- **优化的页面布局**：合理的间距和边距，提升用户体验
+- **响应式设计**：适配不同设备的访问
+- **搜索优化**：实现了搜索建议的 debounce 优化，提升搜索性能
+- **组件化设计**：将复杂组件拆分为多个独立子组件，提高代码复用性和可维护性
+- **后台管理系统**：支持”超级管理员和管理员“角色，提供用户管理和系统统计功能
+- **角色权限管理**：实现了基于角色的访问控制，不同角色拥有不同的操作权限
+- **用户排序功能**：用户列表按角色优先级排序（superAdmin > admin > user）
+- **统一的样式设计**：危险按钮采用红色，分页按钮采用常规样式，提升用户体验
+- **代码格式化工具**：集成了 Prettier 和 ESLint，确保代码格式规范一致
+- **新手指导教程**：提供了详细的开发步骤和思路，帮助新开发者快速上手
+
+
+
+## 功能模块
+
+### 前端功能模块
+
+| 模块名称       | 主要功能                   | 核心组件                 |
+| -------------- | -------------------------- | ------------------------ |
+| 用户认证       | 登录、注册、退出           | Login.vue, Register.vue  |
+| 账单管理       | 添加、编辑、删除、查询账单 | Home.vue                 |
+| 统计分析       | 收支趋势图、分布饼图       | Statistics.vue           |
+| 确认对话框     | 操作确认提示               | ConfirmDialog.vue        |
+| 首页           | 账单列表展示               | Home.vue                 |
+| 分类管理       | 分类选择和过滤             | Home.vue（分类下拉框）   |
+| 头部组件       | 页面头部和用户信息展示     | HeaderComponent.vue      |
+| 搜索组件       | 账单搜索和建议             | SearchComponent.vue      |
+| 账单卡片       | 单个账单的展示和操作       | AccountCardComponent.vue |
+| 分页组件       | 账单列表分页控制           | PaginationComponent.vue  |
+| 管理员认证     | 管理员登录                 | AdminLogin.vue           |
+| 后台管理仪表盘 | 后台管理首页               | AdminDashboard.vue       |
+| 用户管理       | 管理系统用户               | UserManagement.vue       |
+| 系统统计       | 系统数据统计分析           | SystemStatistics.vue     |
+
+
+
+### 后端功能模块
+
+| 模块名称       | 主要功能                  | 核心文件                                 |
+| -------------- | ------------------------- | ---------------------------------------- |
+| 用户认证       | 登录、注册、获取用户信息  | routes/api/auth.js                       |
+| 账单管理       | 账单的增删改查            | routes/api/account.js                    |
+| 分类管理       | 分类的增删改查            | routes/api/category.js                   |
+| 统计分析       | 账单统计数据生成          | routes/api/statistics.js                 |
+| 管理员管理     | 管理员认证和权限控制      | routes/api/admin.js                      |
+| 用户管理       | 系统用户管理（CRUD 操作） | routes/api/admin.js                      |
+| 系统统计       | 系统数据统计分析          | routes/api/admin.js                      |
+| 中间件         | JWT 验证、登录检查        | middlewares/checkTokenMiddleware.js      |
+| 管理员权限验证 | 管理员角色验证            | middlewares/checkAdminMiddleware.js      |
+| 超级管理员验证 | 超级管理员角色验证        | middlewares/checkSuperAdminMiddleware.js |
+| 数据模型       | 账单、用户、分类模型      | models/                                  |
+
+
+
+## 项目结构
+
+### 前端结构
+
+```
+frontend/
+├── .vscode/              # VS Code 配置
+│   └── extensions.json   # 推荐扩展配置
+├── public/               # 静态资源
+│   ├── images/           # 图片资源
+│   └── logo/             # Logo 资源
+├── src/
+│   ├── assets/           # 静态资源
+│   ├── components/        # Vue 组件
+│   │   ├── layout/             # 布局组件目录
+│   │   │   └── HeaderComponent.vue      # 头部组件
+│   │   ├── pages/              # 页面组件目录
+│   │   │   ├── Home.vue                # 首页组件（账单管理）
+│   │   │   ├── LandingPage.vue         # 首页引导组件
+│   │   │   ├── Login.vue               # 登录组件
+│   │   │   ├── Register.vue            # 注册组件
+│   │   │   ├── Statistics.vue          # 统计页面组件
+│   │   │   ├── AdminLogin.vue          # 管理员登录组件
+│   │   │   ├── AdminDashboard.vue      # 后台管理仪表盘
+│   │   │   ├── UserManagement.vue      # 用户管理页面
+│   │   │   └── SystemStatistics.vue    # 系统统计页面
+│   │   └── ui/               # UI组件目录
+│   │       ├── AccountCardComponent.vue # 账单卡片组件
+│   │       ├── ConfirmDialog.vue        # 自定义确认对话框组件
+│   │       ├── PaginationComponent.vue  # 分页组件
+│   │       └── SearchComponent.vue      # 搜索组件
+│   ├── router/           # 路由配置
+│   │   └── index.js      # 路由定义
+│   ├── services/         # 服务层
+│   │   └── auth.js       # 认证、账单和统计服务
+│   ├── composables/      # 可复用逻辑函数
+│   │   └── useAccountManagement.js # 账单管理逻辑
+│   ├── App.vue           # 根组件
+│   ├── main.js           # 入口文件
+│   └── style.css         # 全局样式
+├── .gitignore            # Git 忽略文件
+├── index.html            # HTML 模板
+├── package-lock.json     # 依赖锁定文件
+├── package.json          # 项目配置
+├── README.md             # 前端项目说明
+└── vite.config.js        # Vite 配置
+```
+
+
+
+### 后端结构
+
+```
+backend/
+├── bin/
+│   └── www               # 应用入口
+├── config/               # 配置文件
+│   ├── config.js         # 主配置文件
+│   ├── logger.js         # 日志配置
+│   └── swagger.js        # Swagger 配置
+├── db/                   # 数据库连接
+│   └── db.js             # 数据库连接配置
+├── logs/                 # 日志文件
+│   ├── combined.log      # 合并日志
+│   └── error.log         # 错误日志
+├── middlewares/          # 中间件
+│   ├── checkLoginMiddleware.js       # 登录检查
+│   ├── checkTokenMiddleware.js       # Token 验证
+│   ├── loggerMiddleware.js           # 日志中间件
+│   ├── checkAdminMiddleware.js       # 管理员权限验证
+│   └── checkSuperAdminMiddleware.js  # 超级管理员权限验证
+├── models/               # 数据模型
+│   ├── accountModel.js   # 账单模型
+│   ├── categoryModel.js  # 分类模型
+│   └── userModel.js      # 用户模型
+├── routes/               # 路由
+│   ├── api/              # API 路由
+│   │   ├── account.js    # 账单 API
+│   │   ├── auth.js       # 认证 API
+│   │   ├── category.js   # 分类 API
+│   │   ├── statistics.js # 统计 API
+│   │   └── admin.js      # 管理员 API
+│   └── web/              # Web 路由
+│       ├── auth.js       # Web 认证路由
+│       └── index.js      # Web 首页路由
+├── app.js                # Express应用核心配置文件，负责设置中间件、配置Swagger文档、挂载API路由和处理错误
+├── config.js             # 根目录配置文件
+├── package-lock.json     # 依赖锁定文件
+└── package.json          # 项目配置
+```
+
+
+
+#### 总结：
+
+后端 routes 目录下同时存在 API 路由和 Web 路由，但项目当前只使用了 API 路由，Web 路由文件虽然存在但未被注册和使用。==这是因为项目从传统 SSR 架构（Server-Side Rendering，服务器端渲染，是一种经典的 Web 开发架构模式，服务器直接生成完整的 HTML 页面，然后将 HTML 内容发送给客户端浏览器，浏览器只需负责展示即可。）迁移到了前后端分离架构，或者是为了保留两种架构的代码基础。==
+
+
+
+## API 接口说明
+
+### 认证接口
+
+| 方法 | 路由               | 功能                 | 认证要求 |
+| ---- | ------------------ | -------------------- | -------- |
+| POST | /api/auth/login    | 用户登录             | 不需要   |
+| POST | /api/auth/register | 用户注册             | 不需要   |
+| GET  | /api/auth/me       | 获取当前登录用户信息 | 需要 JWT |
+| POST | /api/auth/logout   | 用户退出登录         | 需要 JWT |
+
+### 账单接口
+
+| 方法   | 路由             | 功能                       | 认证要求 |
+| ------ | ---------------- | -------------------------- | -------- |
+| GET    | /api/account     | 获取账单列表（带用户过滤） | 需要 JWT |
+| GET    | /api/account/:id | 获取单个账单（带用户过滤） | 需要 JWT |
+| POST   | /api/account     | 添加账单                   | 需要 JWT |
+| PATCH  | /api/account/:id | 更新账单（带用户过滤）     | 需要 JWT |
+| DELETE | /api/account/:id | 删除账单（带用户过滤）     | 需要 JWT |
+
+### 分类接口
+
+| 方法   | 路由                | 功能                       | 认证要求 |
+| ------ | ------------------- | -------------------------- | -------- |
+| GET    | /api/categories     | 获取分类列表（带用户过滤） | 需要 JWT |
+| POST   | /api/categories     | 添加分类                   | 需要 JWT |
+| PATCH  | /api/categories/:id | 更新分类（带用户过滤）     | 需要 JWT |
+| DELETE | /api/categories/:id | 删除分类（带用户过滤）     | 需要 JWT |
+
+### 统计接口
+
+| 方法 | 路由            | 功能                                                 | 认证要求 |
+| ---- | --------------- | ---------------------------------------------------- | -------- |
+| GET  | /api/statistics | 获取账单统计数据（总收入、总支出、余额、收支趋势等） | 需要 JWT |
+
+### 管理员接口
+
+| 方法   | 路由                          | 功能             | 认证要求           |
+| ------ | ----------------------------- | ---------------- | ------------------ |
+| GET    | /api/admin/users              | 获取用户列表     | 需要管理员 JWT     |
+| PUT    | /api/admin/users/:userId/role | 修改用户角色     | 需要超级管理员 JWT |
+| DELETE | /api/admin/users/:userId      | 删除用户         | 需要超级管理员 JWT |
+| GET    | /api/admin/statistics         | 获取系统统计数据 | 需要管理员 JWT     |
+
+
+
+## API 文档
+
+项目使用 Swagger 自动生成 API 文档，便于开发者查看和测试 API。
+
+### 访问地址
+
+```
+http://localhost:3000/api-docs
+```
+
+### 功能特点
+
+- 自动生成 API 文档
+- 提供交互式 API 测试界面
+- 支持 OpenAPI 规范
+- 展示请求参数和响应格式
+
+
+
+## 启动步骤
+
+### 前端启动
+
+1. 进入前端目录
+
+```bash
+cd frontend
+```
+
+2. 安装依赖
+
+```bash
+npm install
+```
+
+3. 启动开发服务器
+
+```bash
+npm run dev
+```
+
+4. 访问前端应用
+
+```
+http://localhost:5173
+```
+
+
+
+### 后端启动
+
+1. 进入后端目录
+
+```bash
+cd backend
+```
+
+2. 安装依赖
+
+```bash
+npm install
+```
+
+3. 启动开发服务器
+
+```bash
+npm run dev
+```
+
+4. 后端 API 地址
+
+```
+http://localhost:3000
+```
+
+5. API 文档地址
+
+```
+http://localhost:3000/api-docs
+```
+
+
+
+## 开发说明
+
+1. 确保 MongoDB 服务已启动
+2. 前后端开发服务器分别启动
+3. 前端通过 Axios 调用后端 API
+4. 所有 API 请求都需要 JWT 令牌验证
+5. 数据库连接配置在 `backend/config/config.js` 文件中
+6. JWT 密钥配置在 `backend/config/config.js` 文件中
+7. Swagger 文档配置在 `backend/config/swagger.js` 文件中
+8. 代码格式化工具配置：
+   - 前端：配置了 Prettier 和 ESLint，运行 `npm run lint` 进行代码检查，`npm run format` 进行代码格式化
+   - 后端：配置了 ESLint，运行 `npm run lint` 进行代码检查
+9. 角色权限说明：
+   - `superAdmin`：拥有最高权限，可以管理所有用户和系统设置
+   - `admin`：可以查看用户列表和系统统计数据，但不能修改用户角色或删除用户
+   - `user`：普通用户，只能管理自己的账单和查看自己的统计数据
+10. ==新手指导教程：项目根目录下的 `新手指导手把手教学.md` 文件提供了详细的开发步骤和思路==
+11. 页面布局说明：
+    - 后台管理页面采用左侧固定菜单+右侧内容区域的经典布局
+    - 所有危险按钮统一使用红色样式，提高用户操作辨识度
+    - 页面标题和搜索框居中显示，提升视觉体验
+    - 用户列表按角色优先级排序（superAdmin > admin > user）
+
+
+
+## 注意事项
+
+- 开发环境下，前端默认端口为 5173，后端默认端口为 3000
+- 生产环境需要配置环境变量和数据库连接
+- 确保 CORS 配置正确，允许前端访问后端 API
+- 密码加密使用的是 MD5，建议在生产环境中使用更安全的加密方式（如 bcrypt）
+- API 文档会自动生成，无需手动维护
+- 首次使用管理员功能时，需要手动在数据库中创建一个角色为 `superAdmin` 的用户
+- 生产环境中，建议限制 CORS 允许的来源，只允许特定域名访问后端 API
+- 定期运行代码格式化工具，确保代码风格一致
+- 在修改用户角色或删除用户时，需要谨慎操作，避免误操作导致系统问题
+- 系统统计数据中的日活跃用户数目前为模拟数据，实际使用时需要根据登录记录实现
+
+
+
+## 许可证
+
+MIT License

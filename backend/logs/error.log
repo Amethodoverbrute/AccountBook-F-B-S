@@ -80,3 +80,135 @@
 2025-12-19 23:56:18 [error] 获取用户信息失败: 无效的token, 错误信息: jwt expired
 2025-12-20 01:23:49 [error] 获取用户信息失败: 无效的token, 错误信息: jwt expired
 2025-12-20 01:23:53 [error] 获取用户信息失败: 无效的token, 错误信息: jwt expired
+2026-06-06 15:28:45 [error] AI对话请求失败: Request failed with status code 401，耗时 90ms
+2026-06-06 15:28:45 [error] 错误详情: {
+  "message": "Request failed with status code 401",
+  "name": "AxiosError",
+  "stack": "AxiosError: Request failed with status code 401\n    at settle (D:\\Projects\\AccountBook\\accountBook-F-B-S\\AccountBook-F-B-S\\backend\\node_modules\\axios\\dist\\node\\axios.cjs:2106:12)\n    at IncomingMessage.handleStreamEnd (D:\\Projects\\AccountBook\\accountBook-F-B-S\\AccountBook-F-B-S\\backend\\node_modules\\axios\\dist\\node\\axios.cjs:3491:11)\n    at IncomingMessage.emit (node:events:530:35)\n    at endReadableNT (node:internal/streams/readable:1698:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)\n    at Axios.request (D:\\Projects\\AccountBook\\accountBook-F-B-S\\AccountBook-F-B-S\\backend\\node_modules\\axios\\dist\\node\\axios.cjs:4731:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async AIService.callAIConversation (D:\\Projects\\AccountBook\\accountBook-F-B-S\\AccountBook-F-B-S\\backend\\services\\aiService.js:112:24)\n    at async D:\\Projects\\AccountBook\\accountBook-F-B-S\\AccountBook-F-B-S\\backend\\routes\\api\\ai.js:87:24",
+  "config": {
+    "transitional": {
+      "silentJSONParsing": true,
+      "forcedJSONParsing": true,
+      "clarifyTimeoutError": false
+    },
+    "adapter": [
+      "xhr",
+      "http",
+      "fetch"
+    ],
+    "transformRequest": [
+      null
+    ],
+    "transformResponse": [
+      null
+    ],
+    "timeout": 25000,
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+    "maxContentLength": -1,
+    "maxBodyLength": -1,
+    "env": {},
+    "headers": {
+      "Accept": "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+      "Authorization": "Bearer ark-8f703346-b05c-4b53-8399-0b286e906a0b-58682",
+      "User-Agent": "axios/1.13.2",
+      "Content-Length": "288",
+      "Accept-Encoding": "gzip, compress, deflate, br"
+    },
+    "method": "post",
+    "url": "https://ark.cn-beijing.volces.com/api/v3/chat/completions",
+    "data": "{\"model\":\"doubao-seed-2-0-mini-260428\",\"messages\":[{\"role\":\"system\",\"content\":\"你是一个智能记账助手，帮助用户分析账单数据并提供财务建议。\"},{\"role\":\"user\",\"content\":\"可以给我建议吗\"},{\"role\":\"user\",\"content\":\"可以给我建议吗\"}],\"temperature\":0.7}",
+    "allowAbsoluteUrls": true
+  },
+  "code": "ERR_BAD_REQUEST",
+  "status": 401
+}
+2026-06-06 15:30:44 [error] AI对话请求失败: Request failed with status code 401，耗时 74ms
+2026-06-06 15:30:44 [error] 错误详情: {
+  "message": "Request failed with status code 401",
+  "name": "AxiosError",
+  "stack": "AxiosError: Request failed with status code 401\n    at settle (D:\\Projects\\AccountBook\\accountBook-F-B-S\\AccountBook-F-B-S\\backend\\node_modules\\axios\\dist\\node\\axios.cjs:2106:12)\n    at IncomingMessage.handleStreamEnd (D:\\Projects\\AccountBook\\accountBook-F-B-S\\AccountBook-F-B-S\\backend\\node_modules\\axios\\dist\\node\\axios.cjs:3491:11)\n    at IncomingMessage.emit (node:events:530:35)\n    at endReadableNT (node:internal/streams/readable:1698:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)\n    at Axios.request (D:\\Projects\\AccountBook\\accountBook-F-B-S\\AccountBook-F-B-S\\backend\\node_modules\\axios\\dist\\node\\axios.cjs:4731:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async AIService.callAIConversation (D:\\Projects\\AccountBook\\accountBook-F-B-S\\AccountBook-F-B-S\\backend\\services\\aiService.js:112:24)\n    at async D:\\Projects\\AccountBook\\accountBook-F-B-S\\AccountBook-F-B-S\\backend\\routes\\api\\ai.js:87:24",
+  "config": {
+    "transitional": {
+      "silentJSONParsing": true,
+      "forcedJSONParsing": true,
+      "clarifyTimeoutError": false
+    },
+    "adapter": [
+      "xhr",
+      "http",
+      "fetch"
+    ],
+    "transformRequest": [
+      null
+    ],
+    "transformResponse": [
+      null
+    ],
+    "timeout": 25000,
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+    "maxContentLength": -1,
+    "maxBodyLength": -1,
+    "env": {},
+    "headers": {
+      "Accept": "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+      "Authorization": "Bearer ark-8f703346-b05c-4b53-8399-0b286e906a0b-58682",
+      "User-Agent": "axios/1.13.2",
+      "Content-Length": "270",
+      "Accept-Encoding": "gzip, compress, deflate, br"
+    },
+    "method": "post",
+    "url": "https://ark.cn-beijing.volces.com/api/v3/chat/completions",
+    "data": "{\"model\":\"doubao-seed-2-0-mini-260428\",\"messages\":[{\"role\":\"system\",\"content\":\"你是一个智能记账助手，帮助用户分析账单数据并提供财务建议。\"},{\"role\":\"user\",\"content\":\"如何理财\"},{\"role\":\"user\",\"content\":\"如何理财\"}],\"temperature\":0.7}",
+    "allowAbsoluteUrls": true
+  },
+  "code": "ERR_BAD_REQUEST",
+  "status": 401
+}
+2026-06-06 15:31:26 [error] AI对话请求失败: Request failed with status code 401，耗时 66ms
+2026-06-06 15:31:26 [error] 错误详情: {
+  "message": "Request failed with status code 401",
+  "name": "AxiosError",
+  "stack": "AxiosError: Request failed with status code 401\n    at settle (D:\\Projects\\AccountBook\\accountBook-F-B-S\\AccountBook-F-B-S\\backend\\node_modules\\axios\\dist\\node\\axios.cjs:2106:12)\n    at IncomingMessage.handleStreamEnd (D:\\Projects\\AccountBook\\accountBook-F-B-S\\AccountBook-F-B-S\\backend\\node_modules\\axios\\dist\\node\\axios.cjs:3491:11)\n    at IncomingMessage.emit (node:events:530:35)\n    at endReadableNT (node:internal/streams/readable:1698:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)\n    at Axios.request (D:\\Projects\\AccountBook\\accountBook-F-B-S\\AccountBook-F-B-S\\backend\\node_modules\\axios\\dist\\node\\axios.cjs:4731:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async AIService.callAIConversation (D:\\Projects\\AccountBook\\accountBook-F-B-S\\AccountBook-F-B-S\\backend\\services\\aiService.js:112:24)\n    at async D:\\Projects\\AccountBook\\accountBook-F-B-S\\AccountBook-F-B-S\\backend\\routes\\api\\ai.js:87:24",
+  "config": {
+    "transitional": {
+      "silentJSONParsing": true,
+      "forcedJSONParsing": true,
+      "clarifyTimeoutError": false
+    },
+    "adapter": [
+      "xhr",
+      "http",
+      "fetch"
+    ],
+    "transformRequest": [
+      null
+    ],
+    "transformResponse": [
+      null
+    ],
+    "timeout": 25000,
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+    "maxContentLength": -1,
+    "maxBodyLength": -1,
+    "env": {},
+    "headers": {
+      "Accept": "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+      "Authorization": "Bearer ark-8f703346-b05c-4b53-8399-0b286e906a0b-58682",
+      "User-Agent": "axios/1.13.2",
+      "Content-Length": "270",
+      "Accept-Encoding": "gzip, compress, deflate, br"
+    },
+    "method": "post",
+    "url": "https://ark.cn-beijing.volces.com/api/v3/chat/completions",
+    "data": "{\"model\":\"doubao-seed-2-0-mini-260428\",\"messages\":[{\"role\":\"system\",\"content\":\"你是一个智能记账助手，帮助用户分析账单数据并提供财务建议。\"},{\"role\":\"user\",\"content\":\"如何理财\"},{\"role\":\"user\",\"content\":\"如何理财\"}],\"temperature\":0.7}",
+    "allowAbsoluteUrls": true
+  },
+  "code": "ERR_BAD_REQUEST",
+  "status": 401
+}
